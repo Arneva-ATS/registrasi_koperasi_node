@@ -18,6 +18,9 @@ apps.get('/', (req, res) => {
     res.sendFile(path.resolve('./views/index.html'));
 })
 
+apps.get('/dashboard', (req, res) => {
+    res.sendFile(path.resolve('./views/dashboard.html'));
+})
 
 apps.get('/detail/:id', (req, res) => {
     res.sendFile(path.resolve('./views/detail.html'));
