@@ -28,7 +28,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "rki");
+        res.cookie('roles', "inkop");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
@@ -42,10 +42,12 @@ apps.get('/dashboard', (req, res) => {
         res.sendFile(path.resolve('./views/rki/rki.html'));
     } else if(req.cookies?.roles == 'inkop'){
         res.sendFile(path.resolve('./views/inkop/inkop.html'));
+    } else if(req.cookies?.roles == 'puskop'){
+        res.sendFile(path.resolve('./views/puskop/puskop.html'));
     } else if(req.cookies?.roles == 'primkop'){
         res.sendFile(path.resolve('./views/primkop/primkop.html'));
     } else {
-        res.sendFile(path.resolve('./views/puskop/puskop.html'));
+        res.redirect('/logout');
     }
     
 })
