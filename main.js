@@ -37,12 +37,12 @@ apps.post('/dologin', (req, res) => {
 })
 
 apps.get('/dashboard', (req, res) => {
-    // console.log(req.cookies);
-    if(req.cookies == 'rki'){
+    //  console.log(req.cookies);
+    if(req.cookies?.roles == 'rki'){
         res.sendFile(path.resolve('./views/rki/rki.html'));
-    } else if(req.cookies == 'inkop'){
+    } else if(req.cookies?.roles == 'inkop'){
         res.sendFile(path.resolve('./views/inkop/inkop.html'));
-    } else if(req.cookies == 'primkop'){
+    } else if(req.cookies?.roles == 'primkop'){
         res.sendFile(path.resolve('./views/primkop/primkop.html'));
     } else {
         res.sendFile(path.resolve('./views/puskop/puskop.html'));
