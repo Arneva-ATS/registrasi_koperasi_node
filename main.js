@@ -38,11 +38,11 @@ apps.post('/dologin', (req, res) => {
 
 apps.get('/dashboard', (req, res) => {
     // console.log(req.cookies);
-    if(req.cookies == 'administrator'){
+    if(req.cookies == 'rki'){
         res.sendFile(path.resolve('./views/rki/rki.html'));
     } else if(req.cookies == 'inkop'){
         res.sendFile(path.resolve('./views/inkop/inkop.html'));
-    } else if(req.cookies == 'puskop'){
+    } else if(req.cookies == 'primkop'){
         res.sendFile(path.resolve('./views/primkop/primkop.html'));
     } else {
         res.sendFile(path.resolve('./views/puskop/puskop.html'));
