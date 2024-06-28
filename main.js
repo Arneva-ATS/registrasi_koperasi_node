@@ -28,7 +28,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "inkop");
+        res.cookie('roles', "rki");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
@@ -50,6 +50,22 @@ apps.get('/dashboard', (req, res) => {
         res.redirect('/logout');
     }
     
+})
+
+apps.get('/rki', (req, res) => {
+    res.sendFile(path.resolve('./views/rki/list.html'));
+})
+
+apps.get('/rki/inkop', (req, res) => {
+    res.sendFile(path.resolve('./views/rki/inkop.html'));
+})
+
+apps.get('/rki/puskop', (req, res) => {
+    res.sendFile(path.resolve('./views/rki/puskop.html'));
+})
+
+apps.get('/rki/primkop', (req, res) => {
+    res.sendFile(path.resolve('./views/rki/primkop.html'));
 })
 
 apps.get('/detail/:id', (req, res) => {
