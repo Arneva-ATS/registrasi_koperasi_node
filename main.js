@@ -3,6 +3,7 @@ const express = require('express');
 const apps = express();
 const bodyParser = require('body-parser')
 const port = process.env.PORT;
+const { executeQuery } = require('./config/db');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const cookieParser = require("cookie-parser");
@@ -28,7 +29,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "inkop");
+        res.cookie('roles', "puskop");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
@@ -84,16 +85,56 @@ apps.get('/inkop/primkop', (req, res) => {
     res.sendFile(path.resolve('./views/inkop/primkop.html'));
 })
 
-
 //-----------------------PUSKOP-----------------------------
 
-
-
-
-apps.get('/detail/:id', (req, res) => {
-    res.sendFile(path.resolve('./views/detail.html'));
-    // const idTx = req.params.id;
+apps.get('/puskop/list', (req, res) => {
+    res.sendFile(path.resolve('./views/puskop/list.html'));
 })
+
+apps.get('/puskop/primkop', (req, res) => {
+    res.sendFile(path.resolve('./views/puskop/primkop.html'));
+})
+
+// ---------------------Detail -------------------------------
+
+
+// apps.get('/detail/:id', (req, res) => {
+//     res.sendFile(path.resolve('./views/detail.html'));
+    // const idTx = req.params.id;
+    // try {
+    //     let employeeData = await executeQuery(
+    //       "select * from user where id_user=?",
+    //       [id]
+    //     );
+  
+    //   //   console.log(employeeData[0].id_user);
+  
+    //     const arr =  {
+    //       "id_user": employeeData[0].id_user,
+    //       "id_warung": employeeData[0].id_warung,
+    //       "username": employeeData[0].username,
+    //       "email": employeeData[0].email,
+    //       "password": employeeData[0].password,
+    //       "status": employeeData[0].status,
+    //       "token": employeeData[0].token
+    //     };
+  
+  
+    //     res.status(200).json(arr);
+    //   } catch (err) {
+    //     res.status(500).json(err);
+    //   }
+// })
+
+
+// apps.get("/pengguna", async (req, res) => {
+//     try {
+//       let employeeData = await executeQuery("select * from user");
+//       res.status(200).json(employeeData);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 apps.get('/logout', (req, res) => {
     res.clearCookie('token');
