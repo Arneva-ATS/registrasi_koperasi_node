@@ -1,11 +1,13 @@
 const util = require('util');
 const mysql = require('mysql2');
+require('dotenv').config();
+
 const pool = mysql.createPool({
   connectionLimit: 10,
-	host     : 'localhost',
-  user     : 'root',   
-  password : '',  
-  database : 'db_kasir'  
+	host     : process.env.HOST,
+  user     : process.env.USER,   
+  password : process.env.PASS,  
+  database : process.env.DB
 });
 
 // Ping database to check for common exception errors.

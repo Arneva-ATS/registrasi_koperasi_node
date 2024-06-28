@@ -52,7 +52,9 @@ apps.get('/dashboard', (req, res) => {
     }
     
 })
-
+apps.get('/registrasi', (req, res) => {
+    res.sendFile(path.resolve('./views/registrasi.html'));
+})
 //----------------------RKI-----------------------------
 
 apps.get('/rki', (req, res) => {

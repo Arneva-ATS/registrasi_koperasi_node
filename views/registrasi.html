@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>RKI | Form Registrasi Anggota</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+    <meta name="author" content="Zoyothemes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        .step.finish {
+            background-color: #4CAF50;
+        }
+
+        .nav-link.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body data-menu-color="dark" data-sidebar="default">
+    <div id="app-layout">
+        <div class="content-page">
+            <div class="content">
+                <div class="container-xxl">
+                    <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+                        <div class="flex-grow-1">
+                            <h4 class="fs-18 fw-semibold m-0">Form Registrasi</h4>
+                        </div>
+                    </div>
+                    <form id="regForm">
+                        <!-- Step Navigation -->
+                        <ul class="nav nav-tabs" style="margin-left: 0.8em;">
+                            <li class="nav-item">
+                                <a class="nav-link active disabled" href="#">
+                                    <h5>Informasi Diri</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">
+                                    <h5>Alamat Lengkap</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">
+                                    <h5>Dokumen</h5>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="step1">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama Lengkap</label>
+                                                    <input type="text" class="form-control" id="nama" name="nama"
+                                                        placeholder="Masukan Nama Anda" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                                                    <select class="form-select" id="jenis_kelamin" required>
+                                                        <option>Pria</option>
+                                                        <option>Wanita</option>
+                                                        <option>Lesbian</option>
+                                                        <option>Tom</option>
+                                                        <option>Tom Gay</option>
+                                                        <option>Shemale</option>
+                                                        <option>Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="tempat_lahir" class="form-label">Tempat Tanggal
+                                                        Lahir</label>
+                                                    <div class="row">
+                                                        <div class="col-7"> <input type="text" class="form-control"
+                                                                id="tempat_lahir" name="tempat_lahir"
+                                                                placeholder="Masukan Tempat Lahir" required>
+                                                        </div>
+                                                        <div class="col-5"> <input type="date" id="tanggal_lahir"
+                                                                class="form-control" name="date" required>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_hp" class="form-label">Phone</label>
+                                                    <input type="number" class="form-control" id="no_hp" name="no_hp"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="agama" class="form-label">Agama</label>
+                                                    <select class="form-select" id="agama" required>
+                                                        <option>Islam</option>
+                                                        <option>Kristen</option>
+                                                        <option>Katolik</option>
+                                                        <option>Hindu</option>
+                                                        <option>Buddha</option>
+                                                        <option>Konghucu</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="status_nikah" class="form-label">Pekerjaan</label>
+                                                    <select class="form-select" id="status_nikah" required>
+                                                        <option>Pegawai Swasta</option>
+                                                        <option>PNS</option>
+                                                        <option>Abdi Negara</option>
+                                                        <option>Wiraswasta</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="status_nikah" class="form-label">Kewarganegaraan</label>
+                                                    <select class="form-select" id="status_nikah" required>
+                                                        <option>WNI</option>
+                                                        <option>WNA</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="status_nikah" class="form-label">Status Menikah</label>
+                                                    <select class="form-select" id="status_nikah" required>
+                                                        <option>Kawin</option>
+                                                        <option>Belum Kawin</option>
+                                                        <option>Janda/Duda</option>
+                                                        <option>Cerai</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-primary" id="nextBtn"
+                                            onclick="nextPrev(1)">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="step2">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="alamat" class="form-label">Alamat</label>
+                                                    <textarea type="text" class="form-control" id="alamat" name="alamat"
+                                                        required> </textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="kelurahan" class="form-label">Kelurahan</label>
+                                                    <input type="text" class="form-control" id="kelurahan"
+                                                        name="kelurahan" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="rtrw" class="form-label">RT/RW</label>
+                                                    <div class="row">
+                                                        <div class="col-6"> <input type="number" class="form-control"
+                                                                id="tempat_lahir" name="rt" placeholder="RT" required>
+                                                        </div>
+                                                        <div class="col-6"> <input type="number" class="form-control"
+                                                                id="RW" name="rt" placeholder="RW" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3" style="margin-top: 10px;">
+                                                    <label for="kecamatan" class="form-label">Kecamatan</label>
+                                                    <input type="text" class="form-control" id="kecamatan"
+                                                        name="kecamatan" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="nextPrev(-1)">Previous</button>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="nextPrev(1)">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="step3">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="nextPrev(-1)">Previous</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step Indicators -->
+                        <div class="mt-3" style="text-align:center;">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                        </div>
+                    </form>
+                </div> <!-- container-fluid -->
+            </div> <!-- content -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col fs-13 text-muted text-center">
+                            &copy;
+                            <script>document.write(new Date().getFullYear())</script> - RKI <span
+                                class="mdi mdi-heart text-danger"></span> by <a href="#!"
+                                class="text-reset fw-semibold">Arneva Teknologi Solusi</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Vendor -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <!-- App js-->
+    <script src="assets/js/app.js"></script>
+    <script>
+        var currentTab = 0;
+        showTab(currentTab);
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab-pane");
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                x[i].classList.remove("active", "show");
+            }
+            x[n].style.display = "block";
+            x[n].classList.add("active", "show");
+
+            var navLinks = document.querySelectorAll(".nav-link");
+            navLinks.forEach(function (link, index) {
+                if (index == n) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            fixStepIndicator(n);
+        }
+
+        function nextPrev(n) {
+            var x = document.getElementsByClassName("tab-pane");
+            if (n == 1 && !validateForm()) return false;
+            x[currentTab].style.display = "none";
+            x[currentTab].classList.remove("active", "show");
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab-pane");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                    y[i].className += " is-invalid";
+                    valid = false;
+                } else {
+                    y[i].className = y[i].className.replace(" is-invalid", "");
+                }
+            }
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid;
+        }
+
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+        }
+    </script>
+</body>
+
+</html>
