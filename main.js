@@ -29,7 +29,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "puskop");
+        res.cookie('roles', "primkop");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
@@ -93,6 +93,12 @@ apps.get('/puskop/list', (req, res) => {
 
 apps.get('/puskop/primkop', (req, res) => {
     res.sendFile(path.resolve('./views/puskop/primkop.html'));
+})
+
+//-----------------------PRIMKOP-----------------------------
+
+apps.get('/primkop/list', (req, res) => {
+    res.sendFile(path.resolve('./views/primkop/list.html'));
 })
 
 // ---------------------Detail -------------------------------
