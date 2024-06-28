@@ -28,7 +28,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "rki");
+        res.cookie('roles', "inkop");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
@@ -52,6 +52,8 @@ apps.get('/dashboard', (req, res) => {
     
 })
 
+//----------------------RKI-----------------------------
+
 apps.get('/rki', (req, res) => {
     res.sendFile(path.resolve('./views/rki/list.html'));
 })
@@ -67,6 +69,26 @@ apps.get('/rki/puskop', (req, res) => {
 apps.get('/rki/primkop', (req, res) => {
     res.sendFile(path.resolve('./views/rki/primkop.html'));
 })
+
+//------------------------INKOP---------------------------
+
+apps.get('/inkop/list', (req, res) => {
+    res.sendFile(path.resolve('./views/inkop/list.html'));
+})
+
+apps.get('/inkop/puskop', (req, res) => {
+    res.sendFile(path.resolve('./views/inkop/puskop.html'));
+})
+
+apps.get('/inkop/primkop', (req, res) => {
+    res.sendFile(path.resolve('./views/inkop/primkop.html'));
+})
+
+
+//-----------------------PUSKOP-----------------------------
+
+
+
 
 apps.get('/detail/:id', (req, res) => {
     res.sendFile(path.resolve('./views/detail.html'));
