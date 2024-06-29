@@ -18,6 +18,13 @@ apps.use(
 apps.use(cookieParser());
 
 apps.use(express.static('public'));
+
+apps.get('/register/:name', (req, res) => {
+    // console.log(md5('12345'));
+    console.log(req.params.name);
+    res.sendFile(path.resolve('./views/register.html'));
+})
+
 apps.get('/', (req, res) => {
     // console.log(md5('12345'));
     res.sendFile(path.resolve('./views/index.html'));
