@@ -36,7 +36,7 @@ apps.post('/dologin', (req, res) => {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "primkop");
+        res.cookie('roles', "inkop");
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');
