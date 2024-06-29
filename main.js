@@ -39,18 +39,18 @@ apps.post('/dologin', (req, res) => {
 
 apps.get('/dashboard', (req, res) => {
     //  console.log(req.cookies);
-    if(req.cookies?.roles == 'rki'){
+    if (req.cookies?.roles == 'rki') {
         res.sendFile(path.resolve('./views/rki/rki.html'));
-    } else if(req.cookies?.roles == 'inkop'){
+    } else if (req.cookies?.roles == 'inkop') {
         res.sendFile(path.resolve('./views/inkop/inkop.html'));
-    } else if(req.cookies?.roles == 'puskop'){
+    } else if (req.cookies?.roles == 'puskop') {
         res.sendFile(path.resolve('./views/puskop/puskop.html'));
-    } else if(req.cookies?.roles == 'primkop'){
+    } else if (req.cookies?.roles == 'primkop') {
         res.sendFile(path.resolve('./views/primkop/primkop.html'));
     } else {
         res.redirect('/logout');
     }
-    
+
 })
 
 //----------------------RKI-----------------------------
@@ -85,6 +85,14 @@ apps.get('/inkop/primkop', (req, res) => {
     res.sendFile(path.resolve('./views/inkop/primkop.html'));
 })
 
+apps.get('/inkop/add', (req, res) => {
+    res.sendFile(path.resolve('./views/inkop/add.html'));
+})
+
+apps.get('/inkop/edit', (req, res) => {
+    res.sendFile(path.resolve('./views/inkop/edit.html'));
+})
+
 //-----------------------PUSKOP-----------------------------
 
 apps.get('/puskop/list', (req, res) => {
@@ -95,10 +103,27 @@ apps.get('/puskop/primkop', (req, res) => {
     res.sendFile(path.resolve('./views/puskop/primkop.html'));
 })
 
+apps.get('/puskop/add', (req, res) => {
+    res.sendFile(path.resolve('./views/puskop/add.html'));
+})
+
+apps.get('/puskop/edit', (req, res) => {
+    res.sendFile(path.resolve('./views/puskop/edit.html'));
+})
+
 //-----------------------PRIMKOP-----------------------------
 
 apps.get('/primkop/list', (req, res) => {
-    res.sendFile(path.resolve('./views/primkop/list.html'));
+res.sendFile(path.resolve('./views/primkop/list.html'));
+
+apps.get('/primkop/add', (req, res) => {
+    res.sendFile(path.resolve('./views/primkop/add.html'));
+})
+
+apps.get('/primkop/edit', (req, res) => {
+    res.sendFile(path.resolve('./views/primkop/edit.html'));
+})
+
 })
 
 // ---------------------Detail -------------------------------
@@ -106,30 +131,30 @@ apps.get('/primkop/list', (req, res) => {
 
 // apps.get('/detail/:id', (req, res) => {
 //     res.sendFile(path.resolve('./views/detail.html'));
-    // const idTx = req.params.id;
-    // try {
-    //     let employeeData = await executeQuery(
-    //       "select * from user where id_user=?",
-    //       [id]
-    //     );
-  
-    //   //   console.log(employeeData[0].id_user);
-  
-    //     const arr =  {
-    //       "id_user": employeeData[0].id_user,
-    //       "id_warung": employeeData[0].id_warung,
-    //       "username": employeeData[0].username,
-    //       "email": employeeData[0].email,
-    //       "password": employeeData[0].password,
-    //       "status": employeeData[0].status,
-    //       "token": employeeData[0].token
-    //     };
-  
-  
-    //     res.status(200).json(arr);
-    //   } catch (err) {
-    //     res.status(500).json(err);
-    //   }
+// const idTx = req.params.id;
+// try {
+//     let employeeData = await executeQuery(
+//       "select * from user where id_user=?",
+//       [id]
+//     );
+
+//   //   console.log(employeeData[0].id_user);
+
+//     const arr =  {
+//       "id_user": employeeData[0].id_user,
+//       "id_warung": employeeData[0].id_warung,
+//       "username": employeeData[0].username,
+//       "email": employeeData[0].email,
+//       "password": employeeData[0].password,
+//       "status": employeeData[0].status,
+//       "token": employeeData[0].token
+//     };
+
+
+//     res.status(200).json(arr);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
 // })
 
 
