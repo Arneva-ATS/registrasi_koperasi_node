@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="RegistrasiAnggota Koperasi" />
+    <meta name="author" content="RKIAPP" />
+    <title>Register Anggota Koperasi</title>
+
+    <!-- Favicons-->
+    <link
+      rel="shortcut icon"
+      href="/registrasi/img/favicon.ico"
+      type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      href="/registrasi/img/apple-touch-icon-57x57-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="72x72"
+      href="/registrasi/img/apple-touch-icon-72x72-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="114x114"
+      href="/registrasi/img/apple-touch-icon-114x114-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="144x144"
+      href="/registrasi/img/apple-touch-icon-144x144-precomposed.png" />
+
+    <!-- GOOGLE WEB FONT -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat|Poppins:300,400,500,600,700&display=swap"
+      rel="stylesheet" />
+
+    <!-- BASE CSS -->
+    <link href="/registrasi/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/registrasi/css/style.css" rel="stylesheet" />
+    <link href="/registrasi/css/vendors.css" rel="stylesheet" />
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="/registrasi/css/custom.css" rel="stylesheet" />
+  </head>
+
+  <body class="style_2">
+    <div id="preloader">
+      <div data-loader="circle-side"></div>
+    </div>
+    <!-- /Preload -->
+
+    <div id="loader_form">
+      <div data-loader="circle-side-2"></div>
+    </div>
+    <!-- /loader_form -->
+
+    <header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-5">
+            <a href="index.html"
+              ><img
+                src="/registrasi/img/logo.svg"
+                alt=""
+                width="50"
+                height="55"
+            /></a>
+          </div>
+          <div class="col-7">
+            <div id="social">
+              <ul>
+                <li>
+                  <a href="#0"><i class="social_facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#0"><i class="social_twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#0"><i class="social_instagram"></i></a>
+                </li>
+                <li>
+                  <a href="#0"><i class="social_linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper_centering">
+      <div class="container_centering">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-xl-6 col-lg-6 d-flex align-items-center">
+              <div class="main_title_1">
+                <h3>REGISTRASI INKOP</h3>
+                <p>
+                  An mei sadipscing dissentiet, eos ea partem viderer facilisi.
+                  Brute nostrud democritum in vis, nam ei erat zril mediocrem.
+                  No postea diceret vix.
+                </p>
+                <p><em>- Rumah Kesejahteraan Indonesia</em></p>
+              </div>
+            </div>
+            <!-- /col -->
+            <div class="col-xl-5 col-lg-5">
+              <div id="wizard_container">
+                <div id="top-wizard">
+                  <div id="progressbar"></div>
+                </div>
+                <!-- /top-wizard -->
+                <form id="wrapped" method="POST" autocomplete="off">
+                  <input id="website" name="website" type="text" value="" />
+                  <!-- Leave for security protection, read docs for details -->
+                  <div id="middle-wizard">
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>1 of 12</strong>Data Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_koperasi">Nama Koperasi</label>
+                        <input
+                          type="text"
+                          name="nama_koperasi"
+                          id="nama_koperasi"
+                          class="form-control"
+                          placeholder="Masukan Nama Koperasi" />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Koperasi</label>
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Masukan Nama Lengkap" />
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_telp">No Telp</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_telp"
+                              id="no_telp"
+                              placeholder="no_telp" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_wa">No WA</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_wa"
+                              id="no_wa"
+                              placeholder="no_wa" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_fax">No Fax</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_fax"
+                              id="no_fax"
+                              placeholder="no_fax" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="web">Website</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="web"
+                              id="web"
+                              placeholder="web" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="bidang_koperasi">Bidang Koperasi</label>
+                        <input
+                          type="text"
+                          name="bidang_koperasi"
+                          id="bidang_koperasi"
+                          class="form-control"
+                          placeholder="Masukan Bidang Koperasi" />
+                      </div>
+                    </div>
+                    <!-- /step 1-->
+
+                    <div class="step">
+                      <h3 class="main_question mb-4">
+                        <strong>2 of 12</strong>Alamat Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea
+                          name="alamat"
+                          id="alamat"
+                          class="form-control"
+                          style="height: 120px"
+                          onkeyup="getVals(this, 'alamat');"></textarea>
+                      </div>
+                      <!-- /review_block-->
+                      <div class="form-group">
+                        <label for="provinsi">Provinsi</label>
+                        <input
+                          type="text"
+                          name="provinsi"
+                          id="provinsi"
+                          class="form-control"
+                          placeholder="Masukan Provinsi" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kabupaten">Kabupaten/Kota</label>
+                        <input
+                          type="text"
+                          name="kabupaten"
+                          id="kabupaten"
+                          class="form-control"
+                          placeholder="Masukan Kabupaten" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kecamatan">Kecamatan</label>
+                        <input
+                          type="text"
+                          name="kecamatan"
+                          id="kecamatan"
+                          class="form-control"
+                          placeholder="Masukan kecamatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kelurahan">Kelurahan/Desa</label>
+                        <input
+                          type="text"
+                          name="kelurahan"
+                          id="kelurahan"
+                          class="form-control"
+                          placeholder="Masukan Kelurahan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kode_pos">Kode Pos</label>
+                        <input
+                          type="text"
+                          name="kode_pos"
+                          id="kode_pos"
+                          class="form-control"
+                          placeholder="Masukan kode_pos" />
+                      </div>
+                    </div>
+                    <!-- /step 2-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>3 of 12</strong>Pengurus Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_pengurus">Nama Pengurus</label>
+                        <input
+                          type="text"
+                          name="nama_pengurus"
+                          id="nama_pengurus"
+                          class="form-control"
+                          placeholder="Masukan nama_pengurus" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_anggota">No Anggota</label>
+                        <input
+                          type="text"
+                          name="no_anggota"
+                          id="no_anggota"
+                          class="form-control"
+                          placeholder="Masukan no_anggota" />
+                      </div>
+                      <div class="form-group">
+                        <label for="jabatan_pengurus">Jabatan Pengurus</label>
+                        <input
+                          type="text"
+                          name="jabatan_pengurus"
+                          id="jabatan_pengurus"
+                          class="form-control"
+                          placeholder="Masukan Jabatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="wa_pengurus">No Wa</label>
+                        <input
+                          type="text"
+                          name="wa_pengurus"
+                          id="wa_pengurus"
+                          class="form-control"
+                          placeholder="Masukan wa_pengurus" />
+                      </div>
+                    </div>
+                    <!-- /step 3-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>4 of 12</strong>Pengawas Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_pengawas">Nama Pengawas</label>
+                        <input
+                          type="text"
+                          name="nama_pengawas"
+                          id="nama_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nama Pengawas" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_anggota_pengawas">No Anggota</label>
+                        <input
+                          type="text"
+                          name="no_anggota_pengawas"
+                          id="no_anggota_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nomor Anggota" />
+                      </div>
+                      <div class="form-group">
+                        <label for="jabatan_pengawas">Jabatan Pengawas</label>
+                        <input
+                          type="text"
+                          name="jabatan_pengawas"
+                          id="jabatan_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Jabatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="wa_pengawas">No Wa</label>
+                        <input
+                          type="text"
+                          name="wa_pengawas"
+                          id="wa_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nomor WA" />
+                      </div>
+                    </div>
+                    <!-- /step 4-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>5 of 12</strong>Akta Pendirian
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_akta">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_akta"
+                              id="no_akta"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_akta"
+                              id="tanggal_akta"
+                              placeholder="Masukan Tanggal Akta"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- /row -->
+                      <!-- <div class="form-group terms">
+                        <label class="container_check"
+                          >Please accept our
+                          <a
+                            href="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#terms-txt"
+                            style="color: #fff; text-decoration: underline"
+                            >Terms and conditions</a
+                          >
+                          <input
+                            type="checkbox"
+                            name="terms"
+                            value="Yes"
+                            class="required" />
+                          <span class="checkmark"></span>
+                        </label>
+                      </div> -->
+                    </div>
+                    <!-- /step 5-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>6 of 12</strong>SK. Kemenkumham
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_skk">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_skk"
+                              id="no_skk"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_skk"
+                              id="tanggal_skk"
+                              placeholder="Masukan Tanggal SK"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 6-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>7 of 12</strong> Surat Pengesahan Koperasi dari
+                        Kemenkop & UKM
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_spkk">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_spkk"
+                              id="no_spkk"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_spkk"
+                              id="tanggal_spkk"
+                              placeholder="Masukan Tanggal Surat Pengesahan"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 7-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>8 of 12</strong> Akta Perubahan
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_akta_perubahan">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_akta_perubahan"
+                              id="no_akta_perubahan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_perubahan"
+                              id="masa_berlaku_perubahan"
+                              placeholder="Masukan Masa Berlaku"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 8-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>9 of 12</strong>SIUP/NIB
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_siup">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_siup"
+                              id="no_siup"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_siup"
+                              id="masa_berlaku_siup"
+                              placeholder="Masukan Masa Berlaku"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 9-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>10 of 12</strong>Surat Keterangan Domisili Usaha
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_skdu">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_skdu"
+                              id="no_skdu"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_skdu"
+                              id="masa_berlaku_skdu"
+                              placeholder="Masukan Masa Berlaku"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_npwp">Nomor NPWP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_npwp"
+                              id="no_npwp"
+                              placeholder="Masukan Nomor NPWP"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_pkp">Nomor PKP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_pkp"
+                              id="no_pkp"
+                              placeholder="Masukan Nomor PKP"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 10-->
+                    <div class="submit step">
+                      <h3 class="main_question">
+                        <strong>11 of 12</strong>No BPJS
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_kesehatan">Kesehatan</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_kesehatan"
+                              id="bpjs_kesehatan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_ketenagakerjaan"
+                              >Ketenagakerjaan</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_ketenagakerjaan"
+                              id="bpjs_ketenagakerjaan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="nama_pengurus"
+                          >No. Sertifikat Koperasi</label
+                        >
+                        <input
+                          type="text"
+                          name="nama_pengurus"
+                          id="nama_pengurus"
+                          class="form-control"
+                          placeholder="Masukan nama_pengurus" />
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 11-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>10 of 12</strong>Surat Keterangan Domisili Usaha
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_skdu">Nomor</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_skdu"
+                              id="no_skdu"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_skdu"
+                              id="masa_berlaku_skdu"
+                              placeholder="Masukan Masa Berlaku"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_npwp">Nomor NPWP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_npwp"
+                              id="no_npwp"
+                              placeholder="Masukan Nomor NPWP"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_pkp">Nomor PKP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_pkp"
+                              id="no_pkp"
+                              placeholder="Masukan Nomor PKP"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 10-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>11 of 12</strong>No BPJS
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_kesehatan">Kesehatan</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_kesehatan"
+                              id="bpjs_kesehatan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_ketenagakerjaan"
+                              >Ketenagakerjaan</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_ketenagakerjaan"
+                              id="bpjs_ketenagakerjaan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="nama_pengurus"
+                          >No. Sertifikat Koperasi</label
+                        >
+                        <input
+                          type="text"
+                          name="nama_pengurus"
+                          id="nama_pengurus"
+                          class="form-control"
+                          placeholder="Masukan nama_pengurus" />
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 11-->
+                    <div class="submit step">
+                      <h3 class="main_question">
+                        <strong>12 of 12</strong>Foto Dokumentasi
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_kesehatan">Kesehatan</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_kesehatan"
+                              id="bpjs_kesehatan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_ketenagakerjaan"
+                              >Ketenagakerjaan</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_ketenagakerjaan"
+                              id="bpjs_ketenagakerjaan"
+                              placeholder="Masukan Nomor"
+                              required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="nama_pengurus"
+                          >No. Sertifikat Koperasi</label
+                        >
+                        <input
+                          type="text"
+                          name="nama_pengurus"
+                          id="nama_pengurus"
+                          class="form-control"
+                          placeholder="Masukan nama_pengurus" />
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 12-->
+                  </div>
+                  <!-- /middle-wizard -->
+
+                  <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">
+                      Prev
+                    </button>
+                    <button type="button" name="forward" class="forward">
+                      Next
+                    </button>
+                    <button type="submit" name="process" class="submit">
+                      Submit
+                    </button>
+                  </div>
+                  <!-- /bottom-wizard -->
+                </form>
+              </div>
+              <!-- /Wizard container -->
+            </div>
+            <!-- /col -->
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container_centering -->
+      <footer>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">©2023 Satisfyc</div>
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container-fluid -->
+      </footer>
+      <!-- /footer -->
+    </div>
+    <!-- /wrapper_centering -->
+
+    <!-- Modal terms -->
+    <div
+      class="modal fade"
+      id="terms-txt"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="termsLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Lorem ipsum dolor sit amet, in porro albucius qui, in
+              <strong>nec quod novum accumsan</strong>, mei ludus tamquam
+              dolores id. No sit debitis meliore postulant, per ex prompta
+              alterum sanctus, pro ne quod dicunt sensibus.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod
+              novum accumsan, mei ludus tamquam dolores id. No sit debitis
+              meliore postulant, per ex prompta alterum sanctus, pro ne quod
+              dicunt sensibus. Lorem ipsum dolor sit amet,
+              <strong>in porro albucius qui</strong>, in nec quod novum
+              accumsan, mei ludus tamquam dolores id. No sit debitis meliore
+              postulant, per ex prompta alterum sanctus, pro ne quod dicunt
+              sensibus.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod
+              novum accumsan, mei ludus tamquam dolores id. No sit debitis
+              meliore postulant, per ex prompta alterum sanctus, pro ne quod
+              dicunt sensibus.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn_1" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- COMMON SCRIPTS -->
+    <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
+    <script src="/registrasi/js/common_scripts.min.js"></script>
+    <script src="/registrasi/js/functions.js"></script>
+
+    <!-- Wizard script -->
+    <script src="/registrasi/js/survey_func.js"></script>
+  </body>
+</html>
