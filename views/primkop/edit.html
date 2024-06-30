@@ -3,13 +3,25 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>INKOP Admin Dashboard</title>
+    <title>PRIMKOP Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
     <meta name="author" content="Zoyothemes" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <link href="/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="/assets/libs/datatables.net-keytable-bs5/css/keyTable.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
+
+
     <!-- App css -->
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
     <!-- Icons -->
@@ -38,7 +50,7 @@
                                 role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="/assets/images/users/user-11.jpg" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ms-1" id="roles">
-                                     <i class="mdi mdi-chevron-down"></i>
+                                    <i class="mdi mdi-chevron-down"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -92,27 +104,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/inkop">
-                                <i data-feather="globe"></i>
-                                <span> Inkop </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/puskop">
-                                <i data-feather="globe"></i>
-                                <span> Puskop </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/primkop">
+                            <a href="/primkop/list">
                                 <i data-feather="globe"></i>
                                 <span> Primkop </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/anggota">
-                                <i data-feather="globe"></i>
-                                <span> Anggota </span>
                             </a>
                         </li>
                     </ul>
@@ -141,11 +135,304 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-xl-3">
-                        Inkop
+                    <div class="col-md-12">
+
+                        <h3>EDIT FORMULIR REGISTRASI PRIMER KOPERASI</h3>
+                        <hr />
+                        <table id="responsive-datatable"
+                            class="table table-bordered table-bordered dt-responsive nowrap">
+                            <tr>
+                                <td width="289">Masukan OTP</td>
+                                <td width="489"><input type="text" name="textfield" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red"><em>Formulir Pendaftaran </em></strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Nama Koperasi </td>
+                                <td><input type="text" name="textfield2" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Telpon </td>
+                                <td><input type="text" name="textfield3" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td><input type="text" name="textfield4" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Fax </td>
+                                <td><input type="text" name="textfield5" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Provinsi</td>
+                                <td><input type="text" name="textfield6" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No HP </td>
+                                <td><input type="text" name="textfield7" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kab/Kota</td>
+                                <td><input type="text" name="textfield8" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="textfield9" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kecamatan</td>
+                                <td><input type="text" name="textfield10" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Website</td>
+                                <td><input type="text" name="textfield11" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kelurahan</td>
+                                <td><input type="text" name="textfield12" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Bidang Koperasi </td>
+                                <td><input type="text" name="textfield13" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kode Pos </td>
+                                <td><input type="text" name="textfield14" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red"><em>Pengurus</em></strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td><input type="text" name="textfield142" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Jabatan</td>
+                                <td><input type="text" name="textfield143" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Anggota </td>
+                                <td><input type="text" name="textfield144" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Hp </td>
+                                <td><input type="text" name="textfield145" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red"><em>Pengawas</em></strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td><input type="text" name="textfield146" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Jabatan</td>
+                                <td><input type="text" name="textfield147" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Anggota </td>
+                                <td><input type="text" name="textfield148" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No Hp </td>
+                                <td><input type="text" name="textfield149" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red"><em>Dokumentasi</em></strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">Akta Pendirian </strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>No Akta </td>
+                                <td><input type="text" name="textfield1410" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Akta</td>
+                                <td><input type="text" name="textfield1411" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">SK. Kemenkumham</strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor</td>
+                                <td><input type="text" name="textfield1412" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Bulan</td>
+                                <td><input type="text" name="textfield1413" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal</td>
+                                <td><input type="text" name="textfield1414" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tahun</td>
+                                <td><input type="text" name="textfield1415" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">No. Surat Pengesahan Koperasi dari Kemenkop &amp; UKM</strong style="color:red"></td>
+                                <td><input type="text" name="textfield1417" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor</td>
+                                <td><input type="text" name="textfield1416" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Bulan</td>
+                                <td><input type="text" name="textfield1418" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal</td>
+                                <td><input type="text" name="textfield1419" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tahun</td>
+                                <td><input type="text" name="textfield1420" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">Akta Perubahan</strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>No </td>
+                                <td><input type="text" name="textfield1421" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Akta </td>
+                                <td><input type="text" name="textfield1422" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">SIUP/NIB </strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor </td>
+                                <td><input type="text" name="textfield1423" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Masa Berlaku </td>
+                                <td><input type="text" name="textfield1424" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">Surat Keterangan Domisili Usaha</strong style="color:red"></td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>No</td>
+                                <td><input type="text" name="textfield1425" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Masa Berlaku </td>
+                                <td><input type="text" name="textfield1426" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No NPWP </td>
+                                <td><input type="text" name="textfield1427" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No PKP(Pengusaha Kena Pajak) </td>
+                                <td><input type="text" name="textfield1428" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">No. SK Pengesahan Pengurus dan Pengawas Koperasi:</strong style="color:red"></td>
+                                <td><input type="text" name="textfield1429" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>No. BPJS</td>
+                                <td><input type="text" name="textfield1430" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kesehatan</td>
+                                <td><input type="text" name="textfield1431" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Ketenagakerjaan</td>
+                                <td><input type="text" name="textfield1432" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:red">No Sertifikat Koperasi</strong style="color:red"> </td>
+                                <td><input type="text" name="textfield1433" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Pendirian Akta </td>
+                                <td><label>
+                                        <input type="file" name="file" class="form-control" />
+                                    </label></td>
+                            </tr>
+                            <tr>
+                                <td>Perubahan Akta </td>
+                                <td><input type="file" name="file2" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>SK Kemenkumhan </td>
+                                <td><input type="file" name="file3" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Surat Pengesahan Koperasi dari Kemenkop &amp; UKM</td>
+                                <td><input type="file" name="file4" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>SIUP/NIB</td>
+                                <td><input type="file" name="file5" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Tanda Daftar Perusahaan (TDP)</td>
+                                <td><input type="file" name="file6" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Surat Keterangan Domisili Usaha</td>
+                                <td><input type="file" name="file7" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>NPWP</td>
+                                <td><input type="file" name="file8" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Pengusaha Kena Pajak (PKP):</td>
+                                <td><input type="file" name="file9" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>SK Pengesahan Pengurus dan Pengawas Koperasi: </td>
+                                <td><input type="file" name="file10" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>BPJS Kesehatan</td>
+                                <td><input type="file" name="file11" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>BPJS Ketenagakerjaan</td>
+                                <td><input type="file" name="file12" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>Sertfikat Koperasi (NIK)</td>
+                                <td><input type="file" name="file13" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>*Profil </td>
+                                <td><input type="file" name="file14" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>*Logo</td>
+                                <td><input type="file" name="file15" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>*Penanggungjawab</td>
+                                <td><input type="file" name="file16" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
                     </div>
-
-
                 </div> <!-- container-fluid -->
             </div> <!-- content -->
 
@@ -181,6 +468,39 @@
     <script src="/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
     <script src="/assets/libs/feather-icons/feather.min.js"></script>
+
+    <!-- Datatables js -->
+    <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+
+    <!-- dataTables.bootstrap5 -->
+    <script src="/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+
+    <!-- buttons.colVis -->
+    <script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+
+    <!-- buttons.bootstrap5 -->
+    <script src="/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+
+    <!-- dataTables.keyTable -->
+    <script src="/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="/assets/libs/datatables.net-keytable-bs5/js/keyTable.bootstrap5.min.js"></script>
+
+    <!-- dataTable.responsive -->
+    <script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+
+    <!-- dataTables.select -->
+    <script src="/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="/assets/libs/datatables.net-select-bs5/js/select.bootstrap5.min.js"></script>
+
+    <!-- Datatable Demo App Js -->
+    <script src="/assets/js/pages/datatable.init.js"></script>
+
+
     <!-- Apexcharts JS -->
     <!-- <script src="/assets/libs/apexcharts/apexcharts.min.js"></script> -->
     <!-- for basic area chart -->
@@ -197,7 +517,7 @@
             var [key, value] = b;
             cookie[key.trim()] = value;
         }
-        document.getElementById("roles").innerText=cookie['roles'];
+        document.getElementById("roles").innerText = cookie['roles'];
     </script>
 
 </body>
