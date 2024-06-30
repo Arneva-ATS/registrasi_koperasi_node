@@ -74,12 +74,12 @@ apps.get('/', (req, res) => {
 })
 
 apps.post('/dologin', (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, setroles } = req.body;
     if (email == 'admin@arneva.co.id' && password == '12345') {
         const isLogin = true;
         res.cookie('token', uuidv4());
         res.cookie('islogin', isLogin);
-        res.cookie('roles', "inkop");
+        res.cookie('roles', setroles);
         res.redirect('/dashboard');
     } else {
         res.redirect('/login');

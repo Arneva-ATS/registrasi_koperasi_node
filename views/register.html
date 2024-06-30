@@ -30,7 +30,7 @@
             <td valign="top" height="30">NIS :</td>
           </tr>
           <tr>
-            <td valign="top"><input type="text" name="nis" id="nis" class="form-control" placeholder="masukan nis" />
+            <td valign="top"><input type="text" name="nis" id="nis" class="form-control" placeholder="masukan nis" required />
             </td>
           </tr>
           <tr>
@@ -47,21 +47,21 @@
             <td>NIK :</td>
           </tr>
           <tr>
-            <td><input type="text" name="nik" id="nik" class="form-control" placeholder="Masukan Nik" /></td>
+            <td><input type="text" name="nik" id="nik" class="form-control" placeholder="Masukan Nik" required/></td>
           </tr>
           <tr>
             <td>Nama Lengkap:</td>
           </tr>
           <tr>
-            <td><input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Masukan Nama Lengkap"/></td>
+            <td><input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Masukan Nama Lengkap" required/></td>
           </tr>
           <tr>
             <td>Tempat/Tanggal Lahir:</td>
           </tr>
           <tr>
-            <td><input type="text" name="tempat_lahir" id="tempat_lahir" style="width:45%; border:1px solid #006699; padding:2px;" placeholder="Masukan Tempat Lahir"/>
+            <td><input type="text" name="tempat_lahir" id="tempat_lahir" style="width:45%; border:1px solid #006699; padding:2px;" placeholder="Masukan Tempat Lahir" required/>
               <input type="date" name="tanggal_lahir" id="tanggal_lahir"
-                style="width:45%;border:none; border:1px solid #006699; padding:2px;" placeholder="Masukan Tanggal Lahir"/>
+                style="width:45%;border:none; border:1px solid #006699; padding:2px;" placeholder="Masukan Tanggal Lahir" required/>
             </td>
           </tr>
           <tr>
@@ -70,63 +70,63 @@
           </tr>
           <tr>
             <td>
-              <textarea name="textarea" class="form-control w-100"></textarea>
+              <!-- <textarea name="textarea" class="form-control w-100"></textarea> -->
             </td>
             <td>
               <input type="file" name="ktp" id="ktp" class="form-control" onchange="convertBase64ktp()"
-                accept="image/jpeg, image/jpg, image/png" />
+                accept="image/jpeg, image/jpg, image/png"  required/>
             </td>
           </tr>
           <tr>
-            <td>RT/RW: <input type="text" name="rt_rw" id="rt_rw" class="form-control" placeholder="Masukan Rt & Rw"/> </td>
+            <td>RT/RW: <input type="text" name="rt_rw" id="rt_rw" class="form-control" placeholder="Masukan Rt & Rw" required/> </td>
             <td></td>
           </tr>
           <tr>
-            <td>Kelurahan/Desa: <input type="text" name="kelurahan" id="kelurahan" class="form-control" placeholder="Masukan Keluarahan"/> </td>
+            <td>Kelurahan/Desa: <input type="text" name="kelurahan" id="kelurahan" class="form-control" placeholder="Masukan Keluarahan" required/> </td>
             <td></td>
           </tr>
           <tr>
-            <td>Kecamatan: <input type="text" name="kecamatan" id="kecamatan" class="form-control" placeholder="Masukan Kecamatan"/></td>
+            <td>Kecamatan: <input type="text" name="kecamatan" id="kecamatan" class="form-control" placeholder="Masukan Kecamatan" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Kab/Kota: <input type="text" name="kota" id="kota" class="form-control" placeholder="Masukan Kota"/></td>
+            <td>Kab/Kota: <input type="text" name="kota" id="kota" class="form-control" placeholder="Masukan Kota" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Provinsi: <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Masukan Provinsi"/> </td>
+            <td>Provinsi: <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Masukan Provinsi" required/> </td>
             <td></td>
           </tr>
           <tr>
-            <td>Kode Pos: <input type="text" name="kode_pos" id="kode_pos" class="form-control" placeholder="Masukan Kode Pos"/></td>
+            <td>Kode Pos: <input type="text" name="kode_pos" id="kode_pos" class="form-control" placeholder="Masukan Kode Pos" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Agama: <input type="text" name="agama" id="agama" class="form-control" placeholder="Masukan Agama"/></td>
+            <td>Agama: <input type="text" name="agama" id="agama" class="form-control" placeholder="Masukan Agama" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Status Perkawinan: <input type="text" name="status_pernikahan" id="status_pernikahan" class="form-control" placeholder="Masukan Status Perkawinan"/></td>
+            <td>Status Perkawinan: <input type="text" name="status_pernikahan" id="status_pernikahan" class="form-control" placeholder="Masukan Status Perkawinan" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Pekerjaan: <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Masukan Pekerjaan"/></td>
+            <td>Pekerjaan: <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Masukan Pekerjaan" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Kewarganegaraan: <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" placeholder="Masukan Kewarganegaraan"/></td>
+            <td>Kewarganegaraan: <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" placeholder="Masukan Kewarganegaraan" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Alamat jika tidak sesuai KTP: <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukan Alamat" /></td>
+            <td>Alamat jika tidak sesuai KTP: <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukan Alamat" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>No. HP (WhatsApp): <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" placeholder="Masukan No HP"/></td>
+            <td>No. HP (WhatsApp): <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" placeholder="Masukan No HP" required/></td>
             <td></td>
           </tr>
           <tr>
-            <td>Email: <input type="text" name="email" id="email" class="form-control" placeholder="Masukan Email"/></td>
+            <td>Email: <input type="text" name="email" id="email" class="form-control" placeholder="Masukan Email" required/></td>
             <td></td>
           </tr>
           <tr>
