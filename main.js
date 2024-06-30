@@ -64,7 +64,7 @@ apps.post('/register/insert', async (req, res) => {
             [nis, nik, nama_lengkap, tempat_lahir, tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, img_url, img_urls, roles]);
         res.status(200).json({ "message": "success" });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json({ "message": err });
     }
 })
 
