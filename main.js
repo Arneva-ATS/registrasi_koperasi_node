@@ -129,6 +129,13 @@ apps.get("/dashboard", (req, res) => {
 apps.get("/registrasi-anggota", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi.html"));
 });
+
+apps.get("/register-anggota", (req, res) => {
+  res.sendFile(path.resolve("./views/register-new.html"));
+});
+apps.get("/register-koperasi", (req, res) => {
+  res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
+});
 //----------------------RKI-----------------------------
 
 apps.get("/rki", (req, res) => {

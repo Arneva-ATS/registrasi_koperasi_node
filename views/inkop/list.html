@@ -1,220 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>INKOP Admin Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
     <meta name="author" content="Zoyothemes" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
 
-    <link href="/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/libs/datatables.net-keytable-bs5/css/keyTable.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link
+      href="/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link
+      href="/assets/libs/datatables.net-keytable-bs5/css/keyTable.bootstrap5.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link
+      href="/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link
+      href="/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css"
+      rel="stylesheet"
+      type="text/css" />
 
     <!-- App css -->
-    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link
+      href="/assets/css/app.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-style" />
     <!-- Icons -->
     <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-</head>
-<!-- body start -->
+  </head>
+  <!-- body start -->
 
-<body data-menu-color="dark" data-sidebar="default">
+  <body data-menu-color="dark" data-sidebar="default">
     <!-- Begin page -->
     <div id="app-layout">
-        <!-- Topbar Start -->
-        <div class="topbar-custom">
-            <div class="container-fluid">
-                <div class="d-flex justify-content-between">
-                    <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
-                        <li>
-                            <button class="button-toggle-menu nav-link">
-                                <i data-feather="menu" class="noti-icon"></i>
-                            </button>
-                        </li>
-                    </ul>
-                    <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+      <!-- Topbar Start -->
+      <div class="topbar-custom">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-between">
+            <ul
+              class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+              <li>
+                <button class="button-toggle-menu nav-link">
+                  <i data-feather="menu" class="noti-icon"></i>
+                </button>
+              </li>
+            </ul>
+            <ul
+              class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+              <li class="dropdown notification-list topbar-dropdown">
+                <a
+                  class="nav-link dropdown-toggle nav-user me-0"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="false"
+                  aria-expanded="false">
+                  <img
+                    src="/assets/images/users/user-11.jpg"
+                    alt="user-image"
+                    class="rounded-circle" />
+                  <span class="pro-user-name ms-1" id="roles">
+                    <i class="mdi mdi-chevron-down"></i>
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                  <div class="dropdown-divider"></div>
 
-                        <li class="dropdown notification-list topbar-dropdown">
-                            <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#"
-                                role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="/assets/images/users/user-11.jpg" alt="user-image" class="rounded-circle">
-                                <span class="pro-user-name ms-1" id="roles">
-                                     <i class="mdi mdi-chevron-down"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- item-->
-                                <a href="/logout" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-location-exit fs-16 align-middle"></i>
-                                    <span>Logout</span>
-                                </a>
-
-                            </div>
-                        </li>
-
-                    </ul>
+                  <!-- item-->
+                  <a href="/logout" class="dropdown-item notify-item">
+                    <i class="mdi mdi-location-exit fs-16 align-middle"></i>
+                    <span>Logout</span>
+                  </a>
                 </div>
-
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- end Topbar -->
+      <!-- Left Sidebar Start -->
+      <div class="app-sidebar-menu">
+        <div class="h-100" data-simplebar>
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <div class="logo-box">
+              <a href="index.html" class="logo logo-light">
+                <span class="logo-sm">
+                  <img src="/assets/images/logo-sm.png" alt="" height="22" />
+                </span>
+                <span class="logo-lg">
+                  <img src="/assets/images/logo-light.png" alt="" height="24" />
+                </span>
+              </a>
+              <a href="index.html" class="logo logo-dark">
+                <span class="logo-sm">
+                  <img src="/assets/images/logo-sm.png" alt="" height="22" />
+                </span>
+                <span class="logo-lg">
+                  <img src="/assets/images/logo-dark.png" alt="" height="24" />
+                </span>
+              </a>
             </div>
+            <ul id="side-menu">
+              <li class="menu-title">Menu</li>
+              <li>
+                <a href="/dashboard">
+                  <i data-feather="home"></i>
+                  <span> Dashboard </span>
+                </a>
+              </li>
+              <li>
+                <a href="/inkop/list">
+                  <i data-feather="globe"></i>
+                  <span> Inkop </span>
+                </a>
+              </li>
+              <li>
+                <a href="/inkop/puskop">
+                  <i data-feather="globe"></i>
+                  <span> Puskop </span>
+                </a>
+              </li>
+              <li>
+                <a href="/inkop/primkop">
+                  <i data-feather="globe"></i>
+                  <span> Primkop </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidebar -->
+
+          <div class="clearfix"></div>
         </div>
-        <!-- end Topbar -->
-        <!-- Left Sidebar Start -->
-        <div class="app-sidebar-menu">
-            <div class="h-100" data-simplebar>
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <div class="logo-box">
-                        <a href="index.html" class="logo logo-light">
-                            <span class="logo-sm">
-                                <img src="/assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="/assets/images/logo-light.png" alt="" height="24">
-                            </span>
-                        </a>
-                        <a href="index.html" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="/assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="/assets/images/logo-dark.png" alt="" height="24">
-                            </span>
-                        </a>
-                    </div>
-                    <ul id="side-menu">
-                        <li class="menu-title">Menu</li>
-                        <li>
-                            <a href="/dashboard">
-                                <i data-feather="home"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/inkop/list">
-                                <i data-feather="globe"></i>
-                                <span> Inkop </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/inkop/puskop">
-                                <i data-feather="globe"></i>
-                                <span> Puskop </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/inkop/primkop">
-                                <i data-feather="globe"></i>
-                                <span> Primkop </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Sidebar -->
+      </div>
+      <!-- Left Sidebar End -->
 
-                <div class="clearfix"></div>
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
 
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-xxl">
+            <div
+              class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+              <div class="flex-grow-1">
+                <h4 class="fs-18 fw-semibold m-0">Dashboard</h4>
+              </div>
             </div>
-        </div>
-        <!-- Left Sidebar End -->
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
-        <div class="content-page">
-            <div class="content">
-
-                <!-- Start Content-->
-                <div class="container-xxl">
-
-                    <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
-                        <div class="flex-grow-1">
-                            <h4 class="fs-18 fw-semibold m-0">Dashboard</h4>
-                        </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="card-title mb-0">
+                        DATA INKOP , [
+                        http://registrasi.rifhandi.com/register/inkop ]
+                      </h5>
+                      <br />
+                      <a href="/inkop/add" class="btn btn-primary">
+                        Add Inkop
+                      </a>
                     </div>
-
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">DATA INKOP , [ http://registrasi.rifhandi.com/register/inkop ] </h5>  
-                                        <br />
-                                        <a href="/inkop/add" class="btn btn-primary"> Add Inkop </a>
-                                    </div><!-- end card header -->
-                                    <div class="card-body">
-                                        <table id="responsive-datatable"
-                                            class="table table-bordered table-bordered dt-responsive nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>John Smith</td>
-                                                    <td>Project Manager</td>
-                                                    <td>Los Angeles</td>
-                                                    <td>35</td>
-                                                    <td>2023-08-10</td>
-                                                    <td>$110,000</td>
-                                                    <td><a href="/inkop/edit" class="btn btn-warning">EDIT</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Aiden Evans</td>
-                                                    <td>Business Consultant</td>
-                                                    <td>Seattle</td>
-                                                    <td>32</td>
-                                                    <td>2023-04-05</td>
-                                                    <td>$100,000</td>
-                                                    <td><a href="/inkop/edit" class="btn btn-warning">EDIT</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- end card header -->
+                    <div class="card-body">
+                      <table
+                        id="responsive-datatable"
+                        class="table table-bordered table-bordered dt-responsive nowrap">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>John Smith</td>
+                            <td>Project Manager</td>
+                            <td>Los Angeles</td>
+                            <td>35</td>
+                            <td>2023-08-10</td>
+                            <td>$110,000</td>
+                            <td>
+                              <a href="/inkop/edit" class="btn btn-warning"
+                                >EDIT</a
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Aiden Evans</td>
+                            <td>Business Consultant</td>
+                            <td>Seattle</td>
+                            <td>32</td>
+                            <td>2023-04-05</td>
+                            <td>$100,000</td>
+                            <td>
+                              <a href="/inkop/edit" class="btn btn-warning"
+                                >EDIT</a
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                </div> <!-- container-fluid -->
-            </div> <!-- content -->
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col fs-13 text-muted text-center">
-                            &copy;
-                            <script>document.write(new Date().getFullYear())</script> - Made with <span
-                                class="mdi mdi-heart text-danger"></span> by <a href="#!"
-                                class="text-reset fw-semibold">Zoyothemes</a>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </footer>
-            <!-- end Footer -->
-
+              </div>
+            </div>
+          </div>
+          <!-- container-fluid -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+        <!-- content -->
 
-
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col fs-13 text-muted text-center">
+                &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                - Made with <span class="mdi mdi-heart text-danger"></span> by
+                <a href="#!" class="text-reset fw-semibold">Zoyothemes</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
 
@@ -258,7 +297,6 @@
     <!-- Datatable Demo App Js -->
     <script src="/assets/js/pages/datatable.init.js"></script>
 
-
     <!-- Apexcharts JS -->
     <!-- <script src="/assets/libs/apexcharts/apexcharts.min.js"></script> -->
     <!-- for basic area chart -->
@@ -268,16 +306,14 @@
     <!-- App js-->
     <script src="/assets/js/app.js"></script>
     <script>
-        let cookie = {};
-        var a = document.cookie.split(';');
-        for (var i = 0; i < a.length; i++) {
-            var b = a[i].split('=');
-            var [key, value] = b;
-            cookie[key.trim()] = value;
-        }
-        document.getElementById("roles").innerText=cookie['roles'];
+      let cookie = {};
+      var a = document.cookie.split(";");
+      for (var i = 0; i < a.length; i++) {
+        var b = a[i].split("=");
+        var [key, value] = b;
+        cookie[key.trim()] = value;
+      }
+      document.getElementById("roles").innerText = cookie["roles"];
     </script>
-
-</body>
-
+  </body>
 </html>
