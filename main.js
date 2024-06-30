@@ -22,7 +22,7 @@ apps.use(express.static("public"));
 
 apps.get("/register/:name", (req, res) => {
   // console.log(req.params.name);
-  res.sendFile(path.resolve("./views/register.html"));
+  res.sendFile(path.resolve("./views/register-new.html"));
 });
 
 apps.post("/register/insert", async (req, res) => {

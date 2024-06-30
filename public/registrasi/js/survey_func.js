@@ -7,11 +7,12 @@
 		// PHPmailer text/html SMPT > phpmailer/survey_phpmailer_smpt.php
 		// PHPmailer with html template > phpmailer/survey_phpmailer_template.php
 		// PHPmailer with html template SMTP> phpmailer/survey_phpmailer_template_smpt.php
-		$('form#wrapped').attr('action', 'survey.php');
+		// $('form#wrapped').attr('action', 'survey.php');
 		$("#wizard_container").wizard({
 			stepsWrapper: "#wrapped",
 			submit: ".submit",
 			beforeSelect: function (event, state) {
+				console.log(state, event);
 				if ($('input#website').val().length != 0) {
 					return false;
 				}
