@@ -5,6 +5,7 @@
   <title>Register Anggota Koperasi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="bg-secondary">
@@ -12,124 +13,251 @@
     <div class="col-md-8 offset-2">
       <h4>FORMULIR REGISTRASI ANGGOTA</h4>
       <hr />
-      <table class="table-responsive w-80" style="margin: 10px; padding: 4px;">
-        <tr>
-          <td width="100%" class="text-danger" valign="top">
-            <em>Masukkan NIS &amp; foto pribadi )* </em>
-          </td>
-          <td width="100%" rowspan="4">
-            <img src="/assets/images/selfie.JPG" alt="selfie" width="236" height="227" />
-            <p> <input type="file" name="file" class="form-control" /> </p>
-          </td>
-        </tr>
-        <tr>
-          <td valign="top" height="30">NIS :</td>
-        </tr>
-        <tr>
-          <td valign="top"><input type="text" name="textfield" class="form-control" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
+      <form enctype="multipart/form-data">
+        <input type="hidden" name="roles" id="roles">
+        <table class="table-responsive w-80" style="margin: 10px; padding: 4px;">
+          <tr>
+            <td width="100%" class="text-danger" valign="top">
+              <em>Masukkan NIS &amp; foto pribadi )* </em>
+            </td>
+            <td width="100%" rowspan="4">
+              <img src="/assets/images/selfie.JPG" alt="selfie" width="236" height="227" />
+              <p> <input type="file" name="selfie" id="selfie" class="form-control" onchange="convertBase64selfie()"
+                  accept="image/jpeg, image/png, image/jpg" /> </p>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" height="30">NIS :</td>
+          </tr>
+          <tr>
+            <td valign="top"><input type="text" name="nis" id="nis" class="form-control" placeholder="masukan nis" />
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
 
-        <tr>
-          <td class="text-danger"><em> Formulir Registrasi )* </em> </td>
-          <td rowspan="8" valign="top">
-            <img src="/assets/images/ktp.JPG" alt="ktp" width="239" height="275" />
-          </td>
-        </tr>
-        <tr>
-          <td>NIK :</td>
-        </tr>
-        <tr>
-          <td><input type="text" name="textfield2" class="form-control" /></td>
-        </tr>
-        <tr>
-          <td>Nama Lengkap:</td>
-        </tr>
-        <tr>
-          <td><input type="text" name="textfield22" class="form-control" /></td>
-        </tr>
-        <tr>
-          <td>Tempat/Tanggal Lahir:</td>
-        </tr>
-        <tr>
-          <td><input type="text" name="textfield222" style="width:45%; border:none" />
-            <input type="text" name="textfield223" style="width:45%;border:none" />
-          </td>
-        </tr>
-        <tr>
-          <td>Jenis Kelamin: <input type="checkbox" name="jk">Laki Laki <input type="checkbox" name="jk">Perempuan </td>
-        </tr>
-        <tr>
-          <td>
-            <textarea name="textarea" class="form-control w-100"></textarea>
-          </td>
-          <td>
-            <input type="file" name="file" class="form-control" />
-          </td>
-        </tr>
-        <tr>
-          <td>RT/RW: <input type="text" name="textfield224" class="form-control" /> </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Kelurahan/Desa: <input type="text" name="textfield2242" class="form-control" /> </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Kecamatan: <input type="text" name="textfield2243" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Provinsi: <input type="text" name="textfield2244" class="form-control" /> </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Kode Pos: <input type="text" name="textfield2245" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Agama: <input type="text" name="textfield2246" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Status Perkawinan: <input type="text" name="textfield2247" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Pekerjaan: <input type="text" name="textfield2248" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Kewarganegaraan: <input type="text" name="textfield2249" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Alamat jika tidak sesuai KTP: <input type="text" name="textfield22410" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>No. HP (WhatsApp): <input type="text" name="textfield22411" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Email: <input type="text" name="textfield22412" class="form-control" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-             <br />
-             <Button class="btn btn-primary">Simpan</Button>
-          </td>
-          <td></td>
-        </tr>
-      </table>
-      <br /> <br />
+          <tr>
+            <td class="text-danger"><em> Formulir Registrasi )* </em> </td>
+            <td rowspan="8" valign="top">
+              <img src="/assets/images/ktp.JPG" alt="ktp" width="239" height="275" />
+            </td>
+          </tr>
+          <tr>
+            <td>NIK :</td>
+          </tr>
+          <tr>
+            <td><input type="text" name="nik" id="nik" class="form-control" placeholder="Masukan Nik" /></td>
+          </tr>
+          <tr>
+            <td>Nama Lengkap:</td>
+          </tr>
+          <tr>
+            <td><input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Masukan Nama Lengkap"/></td>
+          </tr>
+          <tr>
+            <td>Tempat/Tanggal Lahir:</td>
+          </tr>
+          <tr>
+            <td><input type="text" name="tempat_lahir" id="tempat_lahir" style="width:45%; border:1px solid #006699; padding:2px;" placeholder="Masukan Tempat Lahir"/>
+              <input type="date" name="tanggal_lahir" id="tanggal_lahir"
+                style="width:45%;border:none; border:1px solid #006699; padding:2px;" placeholder="Masukan Tanggal Lahir"/>
+            </td>
+          </tr>
+          <tr>
+            <td>Jenis Kelamin: <input type="radio" name="jenis_kelamin" value="laki-laki" checked> Laki Laki <input type="radio" name="jenis_kelamin" value="perempuan"> Perempuan
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <textarea name="textarea" class="form-control w-100"></textarea>
+            </td>
+            <td>
+              <input type="file" name="ktp" id="ktp" class="form-control" onchange="convertBase64ktp()"
+                accept="image/jpeg, image/jpg, image/png" />
+            </td>
+          </tr>
+          <tr>
+            <td>RT/RW: <input type="text" name="rt_rw" id="rt_rw" class="form-control" placeholder="Masukan Rt & Rw"/> </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Kelurahan/Desa: <input type="text" name="kelurahan" id="kelurahan" class="form-control" placeholder="Masukan Keluarahan"/> </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Kecamatan: <input type="text" name="kecamatan" id="kecamatan" class="form-control" placeholder="Masukan Kecamatan"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Kab/Kota: <input type="text" name="kota" id="kota" class="form-control" placeholder="Masukan Kota"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Provinsi: <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Masukan Provinsi"/> </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Kode Pos: <input type="text" name="kode_pos" id="kode_pos" class="form-control" placeholder="Masukan Kode Pos"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Agama: <input type="text" name="agama" id="agama" class="form-control" placeholder="Masukan Agama"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Status Perkawinan: <input type="text" name="status_pernikahan" id="status_pernikahan" class="form-control" placeholder="Masukan Status Perkawinan"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Pekerjaan: <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Masukan Pekerjaan"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Kewarganegaraan: <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" placeholder="Masukan Kewarganegaraan"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Alamat jika tidak sesuai KTP: <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukan Alamat" /></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>No. HP (WhatsApp): <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" placeholder="Masukan No HP"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Email: <input type="text" name="email" id="email" class="form-control" placeholder="Masukan Email"/></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <br />
+              <Button class="btn btn-primary" type="button" onclick="saveData()">Simpan</Button>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+        <br /> <br />
+      </form>
     </div>
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+
+  let baseStringSelfie;
+  let baseStringKtp;
+  let type1;
+  let type2;
+
+  window.addEventListener("load", () => {
+    const url = new URL(window.location.href);
+    const path = url.pathname.split('/');
+    document.getElementById("roles").value = path[2];
+  })
+
+  function convertBase64selfie() {
+    var fl = document.getElementById("selfie").files[0];
+    type1 = fl.type.split('/')[1];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      baseStringSelfie = reader.result;
+    };
+    reader.readAsDataURL(fl);
+  }
+
+  function convertBase64ktp() {
+    var flt = document.getElementById("ktp").files[0];
+    type2 = flt.type.split('/')[1];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      baseStringKtp = reader.result;
+    };
+    reader.readAsDataURL(flt);
+  }
+
+  function saveData() {
+    var nis = document.getElementById("nis").value;
+    var nik = document.getElementById("nik").value;
+    var nama_lengkap = document.getElementById("nama_lengkap").value;
+    var tempat_lahir = document.getElementById("tempat_lahir").value;
+    var tanggal_lahir = document.getElementById("tanggal_lahir").value;
+    var jenis_kelamin = document.querySelector('input[name="jenis_kelamin"]:checked').value;
+    var rt_rw = document.getElementById("rt_rw").value;
+    var kelurahan = document.getElementById("kelurahan").value;
+    var kecamatan = document.getElementById("kecamatan").value;
+    var kota = document.getElementById("kota").value;
+    var provinsi = document.getElementById("provinsi").value;
+    var kode_pos = document.getElementById("kode_pos").value;
+    var agama = document.getElementById("agama").value;
+    var status_pernikahan = document.getElementById("status_pernikahan").value;
+    var pekerjaan = document.getElementById("pekerjaan").value;
+    var kewarganegaraan = document.getElementById("kewarganegaraan").value;
+    var alamat = document.getElementById("alamat").value;
+    var nomor_hp = document.getElementById("nomor_hp").value;
+    var email = document.getElementById("email").value;
+    var roles = document.getElementById("roles").value;
+    var image_selfie = baseStringSelfie;
+    var image_ktp = baseStringKtp;
+
+    var jsondata = {
+      "nis": nis,
+      "nik": nik,
+      "nama_lengkap": nama_lengkap,
+      "tempat_lahir": tempat_lahir,
+      "tanggal_lahir": tanggal_lahir,
+      "jenis_kelamin": jenis_kelamin,
+      "rt_rw": rt_rw,
+      "kelurahan": kelurahan,
+      "kecamatan": kecamatan,
+      "kota": kota,
+      "provinsi": provinsi,
+      "kode_pos": kode_pos,
+      "agama": agama,
+      "status_pernikahan": status_pernikahan,
+      "pekerjaan": pekerjaan,
+      "kewarganegaraan": kewarganegaraan,
+      "alamat": alamat,
+      "nomor_hp": nomor_hp,
+      "email": email,
+      "selfie": image_selfie,
+      "ktp": image_ktp,
+      "roles": roles,
+      "type1": type1,
+      "type2": type2
+    }
+    fetch('/register/insert', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify(jsondata)
+    })
+      .then(response => response.json())
+      .then(data => {
+        swal({
+          title: "Status Registrasi",
+          text: "Input Data "+data?.message+"",
+          icon: "info",
+          buttons: true,
+        })
+          .then((willOut) => {
+            if (willOut) {
+              window.location.replace('/register/'+roles);
+            } else {
+              console.log('error')
+            }
+          });
+
+      })
+
+  }
+
+
+
+</script>
 
 </html>

@@ -5,7 +5,7 @@ const pool = mysql.createPool({
 	host     : 'localhost',
   user     : 'root',   
   password : '',  
-  database : 'db_kasir'  
+  database : 'web_registrasi'  
 });
 
 // Ping database to check for common exception errors.
