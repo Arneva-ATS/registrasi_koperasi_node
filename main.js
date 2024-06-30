@@ -82,7 +82,7 @@ apps.post('/dologin', (req, res) => {
         res.cookie('roles', setroles);
         res.redirect('/dashboard');
     } else {
-        res.redirect('/login');
+        res.redirect('/');
     }
 
 })
