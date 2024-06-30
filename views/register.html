@@ -202,6 +202,14 @@
     var image_selfie = baseStringSelfie;
     var image_ktp = baseStringKtp;
 
+    var validselfie = document.getElementById("selfie").files[0];
+    var validktp = document.getElementById("ktp").files[0];
+
+    if(nis == "" || validselfie == "" || validktp == ""){
+      alert("Pastikan Data Terisi Semua !")
+      return false;
+    }
+
     var jsondata = {
       "nis": nis,
       "nik": nik,
