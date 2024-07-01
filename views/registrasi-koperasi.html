@@ -643,6 +643,7 @@
     function saveData() {
       const nama_koperasi = document.getElementById("nama_koperasi").value;
       const singkatan_koperasi = document.getElementById("singkatan_koperasi").value;
+      singkatan_koperasi = singkatan_koperasi.replace(/\s+/g, '-');
       const email = document.getElementById("email").value;
       const no_telp = document.getElementById("no_telp").value;
       const no_wa = document.getElementById("no_wa").value;
