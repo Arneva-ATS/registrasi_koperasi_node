@@ -126,11 +126,11 @@ apps.get("/dashboard", (req, res) => {
     res.redirect("/logout");
   }
 });
-apps.get("/registrasi-anggota/:name", (req, res) => {
+apps.get("/registrasi-anggota", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi.html"));
 });
 
-apps.get("/register-anggota", (req, res) => {
+apps.get("/register-anggota/:name", (req, res) => {
   res.sendFile(path.resolve("./views/register-new.html"));
 });
 apps.get("/register-koperasi", (req, res) => {
