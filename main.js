@@ -20,13 +20,14 @@ apps.use(cookieParser());
 
 apps.use(express.static("public"));
 
-apps.get("/register/:name", (req, res) => {
-  // console.log(req.params.name);
-  res.sendFile(path.resolve("./views/register.html"));
-});
+// apps.get("/register/:name", (req, res) => {
+//   // console.log(req.params.name);
+//   res.sendFile(path.resolve("./views/register.html"));
+// });
 
 apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
   const {
+    singkatan_koperasi,
     nama_koperasi,
     email,
     no_telp,
@@ -79,6 +80,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
     let queryPengurus
     let values = [
       nama_koperasi,
+      singkatan_koperasi,
       email,
       no_telp,
       no_wa,
@@ -113,20 +115,20 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
 
     if (tingkat_koperasi == 'inkop') {
       query = `INSERT INTO koperasi_induk (
-        nama_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
+        nama_koperasi,singkatan_koperasi,email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
         no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     } else if (tingkat_koperasi == 'puskop') {
       query = `INSERT INTO koperasi_pusat (
-        nama_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
+        nama_koperasi,singkatan_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
         no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       // values.push(dokumen);
     } else if (tingkat_koperasi == 'primkop') {
       query = `INSERT INTO koperasi_primer (
-        nama_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
+        nama_koperasi,singkatan_koperasim email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
         no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -280,14 +282,17 @@ apps.get("/dashboard", (req, res) => {
     res.redirect("/logout");
   }
 });
-apps.get("/registrasi-anggota", (req, res) => {
-  res.sendFile(path.resolve("./views/registrasi.html"));
+apps.get("/registrasi/anggota/:name", (req, res) => {
+  res.sendFile(path.resolve("./views/register-new.html"));
 });
 
 apps.get("/register-anggota", (req, res) => {
   res.sendFile(path.resolve("./views/register-new.html"));
 });
-apps.get("/register-koperasi/:name", (req, res) => {
+apps.get("/register/rki/:tingkatan", (req, res) => {
+  res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
+});
+apps.get("/koperasi/:name/:tingkatan", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
 });
 //----------------------RKI-----------------------------
