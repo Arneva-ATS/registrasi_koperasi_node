@@ -8,9 +8,10 @@ const pool = mysql.createPool({
   // user     : process.env.USER,
   // password : process.env.PASS,
   // database : process.env.DB
+  //az6:#FtjSjHR
   host: "localhost",
   user: "root",
-  password: "az6:#FtjSjHR",
+  password: "",
   database: "web_registrasi",
 });
 

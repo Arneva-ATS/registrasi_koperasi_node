@@ -70,9 +70,21 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
     no_sertifikat,
     ktp,
     logo,
+    type1,
+    type2,
     dokumen
   } = req.body;
   const tingkat_koperasi = req.params.tingkat;
+
+  const pathToSaveImage =
+    "./public/koperasi/" + new Date().getTime() + "." + type1;
+  const imgs_logo = "/koperasi/" + new Date().getTime() + "." + type2;
+  convertB64.converBase64ToImage(logo, pathToSaveImage);
+  const pathToSaveImages =
+    "./public/koperasi/" + new Date().getTime() + "." + type1;
+  const imgs_ktp = "/koperasi/" + new Date().getTime() + "." + type2;
+  convertB64.converBase64ToImage(ktp, pathToSaveImages);
+
 
   try {
     let query = "";
@@ -110,28 +122,30 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
       bpjs_kesehatan,
       bpjs_ketenagakerjaan,
       no_sertifikat,
-      // logo // menambahkan logo dalam base64
+      imgs_logo,
+      imgs_ktp,
+      dokumen
     ];
 
     if (tingkat_koperasi == 'inkop') {
       query = `INSERT INTO koperasi_induk (
         nama_koperasi,singkatan_koperasi,email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?)`;
     } else if (tingkat_koperasi == 'puskop') {
       query = `INSERT INTO koperasi_pusat (
         nama_koperasi,singkatan_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?)`;
       // values.push(dokumen);
     } else if (tingkat_koperasi == 'primkop') {
       query = `INSERT INTO koperasi_primer (
         nama_koperasi,singkatan_koperasim email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi,image_logo, ktp , doc_url
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?)`;
       // values.push(dokumen);
     }
 
@@ -164,7 +178,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
       koperasiId
     ]
     await executeQuery(queryPengurus, valuesPengurus);
-    const valuesPengawas= [
+    const valuesPengawas = [
       no_ktp_pengawas,
       nama_pengawas,
       no_anggota_pengawas,
@@ -218,7 +232,7 @@ apps.post("/register/insert", async (req, res) => {
 
   try {
     await executeQuery(
-      "insert into tbl_anggota(nis,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      "insert into anggota(nis,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
       [
         nis,
         nik,
