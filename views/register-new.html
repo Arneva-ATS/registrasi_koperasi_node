@@ -70,7 +70,7 @@
 	                <div class="col-xl-6 col-lg-6 d-flex align-items-center">
 	                    <div class="main_title_1">
 	                        <h3>REGISTRASI ANGGOTA</h3>
-	                        <p>An mei sadipscing dissentiet, eos ea partem viderer facilisi. Brute nostrud democritum in vis, nam ei erat zril mediocrem. No postea diceret vix.</p>
+	                        <p>Jadilah bagian dari perubahan! Bergabunglah dengan koperasi kami dan nikmati manfaatnya! Sebagai anggota, Anda akan mendapatkan akses ke berbagai layanan dan dukungan yang dirancang untuk meningkatkan kesejahteraan Anda. Mari kita bersama-sama membangun komunitas yang lebih kuat dan ekonomi yang lebih adil.</p>
 	                        <p><em>- Rumah Kesejahteraan Indonesia</em></p>
 	                    </div>
 	                </div>
@@ -89,7 +89,7 @@
 	                                <div class="step">
 	                                    <h3 class="main_question"><strong>1 of 4</strong>Data Pribadi</h3>
 	                                    <div class="row">
-									        <input type="hidden" name="roles" id="roles">
+									        <input type="hidden" name="koperasi_name" id="koperasi_name">
 											<div class="col-12">
 												<div class="form-group">
 													<label for="nis">NIS</label>
@@ -352,7 +352,7 @@
 		  var alamat = document.getElementById("alamat").value;
 		  var nomor_hp = document.getElementById("nomor_hp").value;
 		  var email = document.getElementById("email").value;
-		  var roles = document.getElementById("roles").value;
+		  var koperasi_name = document.getElementById("koperasi_name").value;
 		  var image_selfie = baseStringSelfie;
 		  var image_ktp = baseStringKtp;
 	  
@@ -386,7 +386,7 @@
 			"email": email,
 			"selfie": image_selfie,
 			"ktp": image_ktp,
-			"roles": roles,
+			"koperasi_name": koperasi_name,
 			"type1": type1,
 			"type2": type2
 		  }
@@ -408,7 +408,7 @@
 			  })
 				.then((willOut) => {
 				  if (willOut) {
-					window.location.replace('/registrasi/anggota/'+roles);
+					window.location.replace('/registrasi/anggota/'+koperasi_name);
 				  } else {
 					console.log('error')
 				  }

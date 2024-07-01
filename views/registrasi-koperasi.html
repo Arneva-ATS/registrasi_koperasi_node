@@ -63,11 +63,7 @@
             <div class="main_title_1">
               <h3 class="fs-4" id="nama_koperasi"></h3>
               <h3>REGISTRASI <span id="tingkatan_koperasi"></span></h3>
-              <p>
-                An mei sadipscing dissentiet, eos ea partem viderer facilisi.
-                Brute nostrud democritum in vis, nam ei erat zril mediocrem.
-                No postea diceret vix.
-              </p>
+              <p id="message_tingkatan"></p>
               <p><em>- Rumah Kesejahteraan Indonesia</em></p>
             </div>
           </div>
@@ -511,49 +507,6 @@
   </div>
   <!-- /wrapper_centering -->
 
-  <!-- Modal terms -->
-  <div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>
-            Lorem ipsum dolor sit amet, in porro albucius qui, in
-            <strong>nec quod novum accumsan</strong>, mei ludus tamquam
-            dolores id. No sit debitis meliore postulant, per ex prompta
-            alterum sanctus, pro ne quod dicunt sensibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod
-            novum accumsan, mei ludus tamquam dolores id. No sit debitis
-            meliore postulant, per ex prompta alterum sanctus, pro ne quod
-            dicunt sensibus. Lorem ipsum dolor sit amet,
-            <strong>in porro albucius qui</strong>, in nec quod novum
-            accumsan, mei ludus tamquam dolores id. No sit debitis meliore
-            postulant, per ex prompta alterum sanctus, pro ne quod dicunt
-            sensibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod
-            novum accumsan, mei ludus tamquam dolores id. No sit debitis
-            meliore postulant, per ex prompta alterum sanctus, pro ne quod
-            dicunt sensibus.
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn_1" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- /.modal -->
   <script>
     let baseStringKtp;
     let baseStringLogo;
@@ -575,6 +528,17 @@
       const path = url.pathname.split('/');
       document.getElementById("tingkatan_koperasi").innerText = path[3];
       tingkatan_koperasi = path[3];
+      
+      if (tingkatan_koperasi == 'inkop') {
+        document.getElementById("message_tingkatan").innerText = "Bersama Induk Koperasi, kita wujudkan ekonomi mandiri yang kokoh dan berkelanjutan! Kami berkomitmen untuk mengoordinasikan dan mengawasi koperasi di seluruh jaringan kami, memastikan setiap anggota mendapatkan manfaat maksimal dan berkontribusi pada pertumbuhan ekonomi bersama. Bergabunglah dengan kami untuk masa depan yang lebih stabil dan makmur.";
+      } else if (tingkatan_koperasi == 'puskop') {
+        document.getElementById("message_tingkatan").innerText = "Menghubungkan dan memperkuat jaringan koperasi demi kesejahteraan bersama! Kami adalah jembatan antara Induk Koperasi dan Koperasi Primer, bekerja untuk menyelaraskan tujuan dan menyediakan dukungan yang dibutuhkan. Bersama, kita dapat mencapai kesejahteraan kolektif melalui kolaborasi yang solid dan berkesinambungan.";
+      } else if (tingkatan_koperasi == 'primkop') {
+        document.getElementById("message_tingkatan").innerText = "Solusi ekonomi berbasis kebersamaan, untuk masa depan yang lebih cerah! Kami berdiri untuk melayani kebutuhan anggota kami, menyediakan solusi ekonomi yang efektif dan berbasis komunitas. Dengan menjadi anggota, Anda tidak hanya memperoleh manfaat langsung tetapi juga berkontribusi pada pembangunan ekonomi yang inklusif dan berkelanjutan.";
+      } else {
+        document.getElementById("message_tingkatan").innerText = "Jadilah bagian dari perubahan! Bergabunglah dengan koperasi kami dan nikmati manfaatnya! Sebagai anggota, Anda akan mendapatkan akses ke berbagai layanan dan dukungan yang dirancang untuk meningkatkan kesejahteraan Anda. Mari kita bersama-sama membangun komunitas yang lebih kuat dan ekonomi yang lebih adil.";
+      }
+      
       koperasi = path[2]
       console.log(path);
       if(path[2] !== 'rki'){
@@ -643,6 +607,7 @@
     function saveData() {
       const nama_koperasi = document.getElementById("nama_koperasi").value;
       const singkatan_koperasi = document.getElementById("singkatan_koperasi").value;
+      singkatan_koperasi = singkatan_koperasi.replace(/\s+/g, '-');
       const email = document.getElementById("email").value;
       const no_telp = document.getElementById("no_telp").value;
       const no_wa = document.getElementById("no_wa").value;
