@@ -77,7 +77,7 @@
                 <div id="progressbar"></div>
               </div>
               <!-- /top-wizard -->
-              <form id="wrapped" method="POST" autocomplete="off">
+              <form id="wrapped" enctype="multipart/form-data">
                 <input id="website" name="website" type="text" value="" />
                 <!-- Leave for security protection, read docs for details -->
                 <div id="middle-wizard">
@@ -182,6 +182,11 @@
                         placeholder="Masukan nama_pengurus" />
                     </div>
                     <div class="form-group">
+                      <label for="no_ktp_pengurus">No KTP Pengurus</label>
+                      <input type="text" name="no_ktp_pengurus" id="no_ktp_pengurus" class="form-control"
+                        placeholder="Masukan no_ktp_pengurus" />
+                    </div>
+                    <div class="form-group">
                       <label for="no_anggota_pengurus">No Anggota</label>
                       <input type="text" name="no_anggota_pengurus" id="no_anggota_pengurus" class="form-control"
                         placeholder="Masukan no_anggota" />
@@ -192,9 +197,9 @@
                         placeholder="Masukan Jabatan" />
                     </div>
                     <div class="form-group">
-                      <label for="wa_pengurus">No Wa</label>
-                      <input type="text" name="wa_pengurus" id="wa_pengurus" class="form-control"
-                        placeholder="Masukan wa_pengurus" />
+                      <label for="no_wa_pengurus">No Wa</label>
+                      <input type="text" name="no_wa_pengurus" id="no_wa_pengurus" class="form-control"
+                        placeholder="Masukan no_wa_pengurus" />
                     </div>
                   </div>
                   <!-- /step 3-->
@@ -209,6 +214,11 @@
                         placeholder="Masukan Nama Pengawas" />
                     </div>
                     <div class="form-group">
+                      <label for="no_ktp_pengawas">No KTP Pengawas</label>
+                      <input type="text" name="no_ktp_pengawas" id="no_ktp_pengawas" class="form-control"
+                        placeholder="Masukan no_ktp_pengawas" />
+                    </div>
+                    <div class="form-group">
                       <label for="no_anggota_pengawas">No Anggota</label>
                       <input type="text" name="no_anggota_pengawas" id="no_anggota_pengawas" class="form-control"
                         placeholder="Masukan Nomor Anggota" />
@@ -219,8 +229,8 @@
                         placeholder="Masukan Jabatan" />
                     </div>
                     <div class="form-group">
-                      <label for="wa_pengawas">No Wa</label>
-                      <input type="text" name="wa_pengawas" id="wa_pengawas" class="form-control"
+                      <label for="no_wa_pengawas">No Wa</label>
+                      <input type="text" name="no_wa_pengawas" id="no_wa_pengawas" class="form-control"
                         placeholder="Masukan Nomor WA" />
                     </div>
                   </div>
@@ -431,8 +441,8 @@
                     <div class="row">
                       <div class="col-12 col-md-6">
                         <div class="form-group">
-                          <label for="foto_profil">Upload Foto Profil<span style="color: red;">*</span< /label>
-                              <input type="file" class="form-control" id="foto_profil" name="foto_profil" />
+                          <label for="foto_ktp">Upload Foto KTP<span style="color: red;">*</span< /label>
+                              <input type="file" class="form-control" id="foto_ktp" name="foto_ktp" />
                               <img id="preview-profil" height="100" width="100" class="mt-1"
                                 src="/assets/images/AGT1.jpg" alt="Preview Image">
                         </div>
@@ -467,7 +477,7 @@
                   <button type="button" name="forward" class="forward">
                     Next
                   </button>
-                  <button type="submit" name="process" class="submit">
+                  <button type="button" onclick="saveData()" name="process" class="submit">
                     Submit
                   </button>
                 </div>
@@ -539,27 +549,29 @@
   </div>
   <!-- /.modal -->
   <script>
-    let baseStringProfil;
+    let baseStringKtp;
     let baseStringLogo;
     let baseStringDokumen;
     let type1;
     let type2;
     let type3;
     let tingkatan_koperasi;
-    const profilInput = document.getElementById('foto_profil');
+    const ktpInput = document.getElementById('foto_ktp');
     const logoInput = document.getElementById('foto_logo');
-
+    const dokumenInput = document.getElementById('dokumen');
+    
     const previewProfil = document.getElementById('preview-profil');
     const previewLogo = document.getElementById('preview-logo');
+    
     window.addEventListener("load", () => {
       const url = new URL(window.location.href);
       const path = url.pathname.split('/');
       document.getElementById("tingkatan_koperasi").innerText = path[2];
-      let tingkatan_koperasi = path[2];
-      console.log(path)
-    })
-
-    profilInput.addEventListener('change', (event) => {
+      tingkatan_koperasi = path[2];
+      console.log(path);
+    });
+    
+    ktpInput.addEventListener('change', (event) => {
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
@@ -568,8 +580,9 @@
         }
         reader.readAsDataURL(file);
       }
-      convertBase64profil()
+      convertBase64ktp();
     });
+    
     logoInput.addEventListener('change', (event) => {
       const file = event.target.files[0];
       if (file) {
@@ -579,146 +592,147 @@
         }
         reader.readAsDataURL(file);
       }
-      convertBase64logo()
-
+      convertBase64logo();
     });
-
-    window.addEventListener("load", () => {
-      const url = new URL(window.location.href);
-      const path = url.pathname.split('/');
-      document.getElementById("roles").value = path[2];
-    })
-
+    
+    dokumenInput.addEventListener('change', () => {
+      convertBase64dokumen();
+    });
+    
     function convertBase64dokumen() {
-      var fld = document.getElementById("dokumen").files[0];
-      type3 = fld.type.split('/')[1];
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        baseStringProfil = reader.result;
+      const file = dokumenInput.files[0];
+      type3 = file.type.split('/')[1];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        baseStringDokumen = reader.result;
       };
-      reader.readAsDataURL(fld);
+      reader.readAsDataURL(file);
     }
-
-    function convertBase64profil() {
-      var fl = document.getElementById("foto_profil").files[0];
-      type1 = fl.type.split('/')[1];
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        baseStringProfil = reader.result;
+    
+    function convertBase64ktp() {
+      const file = ktpInput.files[0];
+      type1 = file.type.split('/')[1];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        baseStringKtp = reader.result;
       };
-      reader.readAsDataURL(fl);
+      reader.readAsDataURL(file);
     }
-
+    
     function convertBase64logo() {
-      var flt = document.getElementById("foto_logo").files[0];
-      type2 = flt.type.split('/')[1];
-      var reader = new FileReader();
-      reader.onloadend = function () {
+      const file = logoInput.files[0];
+      type2 = file.type.split('/')[1];
+      const reader = new FileReader();
+      reader.onloadend = () => {
         baseStringLogo = reader.result;
       };
-      reader.readAsDataURL(flt);
+      reader.readAsDataURL(file);
     }
-
+    
     function saveData() {
-      var nama_koperasi = document.getElementById("nama_koperasi").value;
-      var email = document.getElementById("email").value;
-      var no_telp = document.getElementById("no_telp").value;
-      var no_wa = document.getElementById("no_wa").value;
-      var no_fax = document.getElementById("no_fax").value;
-      var web = document.getElementById("web").value;
-      var bidang_koperasi = document.getElementById("bidang_koperasi").value;
-      var alamat = document.getElementById("alamat").value;
-      var kecamatan = document.getElementById("kecamatan").value;
-      var kabupaten = document.getElementById("kabupaten").value;
-      var provinsi = document.getElementById("provinsi").value;
-      var kode_pos = document.getElementById("kode_pos").value;
-      var nama_pengurus = document.getElementById("nama_pengurus").value;
-      var no_anggota_pengurus = document.getElementById("no_anggota_pengurus").value;
-      var jabatan_pengurus = document.getElementById("jabatan_pengurus").value;
-      var no_wa_pengurus = document.getElementById("no_wa_pengurus").value;
-      var nama_pengawas = document.getElementById("nama_pengawas").value;
-      var no_anggota_pengawas = document.getElementById("no_anggota_pengawas").value;
-      var jabatan_pengawas = document.getElementById("jabatan_pengawas").value;
-      var no_wa_pengawas = document.getElementById("no_wa_pengawas").value;
-      var no_akta = document.getElementById("no_akta").value;
-      var tanggal_akta = document.getElementById("tanggal_akta").value;
-      var no_skk = document.getElementById("no_skk").value;
-      var tanggal_skk = document.getElementById("tanggal_skk").value;
-      var no_spkk = document.getElementById("no_spkk").value;
-      var tanggal_spkk = document.getElementById("tanggal_spkk").value;
-      var no_akta_perubahan = document.getElementById("no_akta_perubahan").value;
-      var masa_berlaku_perubahan = document.getElementById("masa_berlaku_perubahan").value;
-      var no_siup = document.getElementById("no_siup").value;
-      var masa_berlaku_siup = document.getElementById("masa_berlaku_siup").value;
-      var no_skdu = document.getElementById("no_skdu").value;
-      var masa_berlaku_skdu = document.getElementById("masa_berlaku_skdu").value;
-      var no_npwp = document.getElementById("no_npwp").value;
-      var no_pkp = document.getElementById("no_pkp").value;
-      var bpjs_kesehatan = document.getElementById("bpjs_kesehatan").value;
-      var bpjs_ketenagakerjaan = document.getElementById("bpjs_ketenagakerjaan").value;
-      var no_sertifikat = document.getElementById("no_sertifikat").value;
-      var image_profil = baseStringProfil;
-      var image_logo = baseStringLogo;
-      var doc_dokumen = baseStringDokumen;
-
-      var validProfil = document.getElementById("foto_profil").files[0];
-      var validLogo = document.getElementById("foto_logo").files[0];
-      var validDokumen = document.getElementById("dokumen").files[0];
-
-      if (validProfil == "" || validLogo == "" || validDokumen == "") {
-        alert("Pastikan Data Terisi Semua !")
+      const nama_koperasi = document.getElementById("nama_koperasi").value;
+      const email = document.getElementById("email").value;
+      const no_telp = document.getElementById("no_telp").value;
+      const no_wa = document.getElementById("no_wa").value;
+      const no_fax = document.getElementById("no_fax").value;
+      const web = document.getElementById("web").value;
+      const bidang_koperasi = document.getElementById("bidang_koperasi").value;
+      const alamat = document.getElementById("alamat").value;
+      const kelurahan = document.getElementById("kelurahan").value;
+      const kecamatan = document.getElementById("kecamatan").value;
+      const kabupaten = document.getElementById("kabupaten").value;
+      const provinsi = document.getElementById("provinsi").value;
+      const kode_pos = document.getElementById("kode_pos").value;
+      const no_ktp_pengurus = document.getElementById("no_ktp_pengurus").value;
+      const nama_pengurus = document.getElementById("nama_pengurus").value;
+      const no_anggota_pengurus = document.getElementById("no_anggota_pengurus").value;
+      const jabatan_pengurus = document.getElementById("jabatan_pengurus").value;
+      const no_wa_pengurus = document.getElementById("no_wa_pengurus").value;
+      const no_ktp_pengawas = document.getElementById("no_ktp_pengawas").value;
+      const nama_pengawas = document.getElementById("nama_pengawas").value;
+      const no_anggota_pengawas = document.getElementById("no_anggota_pengawas").value;
+      const jabatan_pengawas = document.getElementById("jabatan_pengawas").value;
+      const no_wa_pengawas = document.getElementById("no_wa_pengawas").value;
+      const no_akta = document.getElementById("no_akta").value;
+      const tanggal_akta = document.getElementById("tanggal_akta").value;
+      const no_skk = document.getElementById("no_skk").value;
+      const tanggal_skk = document.getElementById("tanggal_skk").value;
+      const no_spkk = document.getElementById("no_spkk").value;
+      const tanggal_spkk = document.getElementById("tanggal_spkk").value;
+      const no_akta_perubahan = document.getElementById("no_akta_perubahan").value;
+      const masa_berlaku_perubahan = document.getElementById("masa_berlaku_perubahan").value;
+      const no_siup = document.getElementById("no_siup").value;
+      const masa_berlaku_siup = document.getElementById("masa_berlaku_siup").value;
+      const no_skdu = document.getElementById("no_skdu").value;
+      const masa_berlaku_skdu = document.getElementById("masa_berlaku_skdu").value;
+      const no_npwp = document.getElementById("no_npwp").value;
+      const no_pkp = document.getElementById("no_pkp").value;
+      const bpjs_kesehatan = document.getElementById("bpjs_kesehatan").value;
+      const bpjs_ketenagakerjaan = document.getElementById("bpjs_ketenagakerjaan").value;
+      const no_sertifikat = document.getElementById("no_sertifikat").value;
+      const image_ktp = baseStringKtp;
+      const image_logo = baseStringLogo;
+      const doc_dokumen = baseStringDokumen;
+    
+      const validKtp = ktpInput.files[0];
+      const validLogo = logoInput.files[0];
+      const validDokumen = dokumenInput.files[0];
+    
+      if (!validKtp || !validLogo || !validDokumen) {
+        alert("Pastikan Data Terisi Semua!");
         return false;
       }
-
-      var jsondata = {
-        "nama_koperasi": nama_koperasi,
-        "email": email,
-        "no_telp": no_telp,
-        "no_wa": no_wa,
-        "no_fax": no_fax,
-        "web": web,
-        "bidang_koperasi": bidang_koperasi,
-        "alamat": alamat,
-        "kelurahan": kelurahan,
-        "kecamatan": kecamatan,
-        "kabupaten": kabupaten,
-        "provinsi": provinsi,
-        "kode_pos": kode_pos,
-        "nama_pengurus": nama_pengurus,
-        "no_anggota_pengurus": no_anggota_pengurus,
-        "jabatan_pengurus": jabatan_pengurus,
-        "no_wa_pengurus": no_wa_pengurus,
-        "nama_pengawas": nama_pengawas,
-        "no_anggota_pengawas": no_anggota_pengawas,
-        "jabatan_pengawas": jabatan_pengawas,
-        "no_wa_pengawas": no_wa_pengawas,
-        "no_akta": no_akta,
-        "tanggal_akta": tanggal_akta,
-        "no_skk": no_skk,
-        "tanggal_skk": tanggal_skk,
-        "no_spkk": no_spkk,
-        "tanggal_spkk": tanggal_spkk,
-        "no_akta_perubahan": no_akta_perubahan,
-        "masa_berlaku_perubahan": masa_berlaku_perubahan,
-        "no_siup": no_siup,
-        "masa_berlaku_siup": masa_berlaku_siup,
-        "no_skdu": no_skdu,
-        "masa_berlaku_skdu": masa_berlaku_skdu,
-        "no_npwp": no_npwp,
-        "no_pkp": no_pkp,
-        "bpjs_kesehatan": bpjs_kesehatan,
-        "bpjs_ketenagakerjaan": bpjs_ketenagakerjaan,
-        "no_sertifikat": no_sertifikat,
-        "profil": image_profil,
-        "logo": image_logo,
-        "dokumen": doc_dokumen,
-        "type1": type1,
-        "type2": type2,
-        "type3": type3
-
-      }
-      
-      fetch('/register/koperasi/insert/' + tingkatan_koperasi , {
+    
+      const jsondata = {
+        nama_koperasi,
+        email,
+        no_telp,
+        no_wa,
+        no_fax,
+        web,
+        bidang_koperasi,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kabupaten,
+        provinsi,
+        kode_pos,
+        no_ktp_pengurus,
+        nama_pengurus,
+        no_anggota_pengurus,
+        jabatan_pengurus,
+        no_wa_pengurus,
+        no_ktp_pengawas,
+        nama_pengawas,
+        no_anggota_pengawas,
+        jabatan_pengawas,
+        no_wa_pengawas,
+        no_akta,
+        tanggal_akta,
+        no_skk,
+        tanggal_skk,
+        no_spkk,
+        tanggal_spkk,
+        no_akta_perubahan,
+        masa_berlaku_perubahan,
+        no_siup,
+        masa_berlaku_siup,
+        no_skdu,
+        masa_berlaku_skdu,
+        no_npwp,
+        no_pkp,
+        bpjs_kesehatan,
+        bpjs_ketenagakerjaan,
+        no_sertifikat,
+        ktp: image_ktp,
+        logo: image_logo,
+        dokumen: doc_dokumen,
+        type1,
+        type2,
+        type3
+      };
+    
+      fetch(`/register/koperasi/insert/${tingkatan_koperasi}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
@@ -728,22 +742,11 @@
       })
         .then(response => response.json())
         .then(data => {
-          swal({
-            title: "Status Registrasi",
-            text: "Input Data " + data?.message + "",
-            icon: "info",
-            buttons: true,
-          })
-            .then((willOut) => {
-              if (willOut) {
-                window.location.replace('/register/' + roles);
-              } else {
-                console.log('error')
-              }
-            });
-        })
-
+          alert(data.message);
+          console.log(data.message);
+        });
     }
+    
   </script>
   <!-- COMMON SCRIPTS -->
   <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
