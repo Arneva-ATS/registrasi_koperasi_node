@@ -126,7 +126,7 @@ apps.get("/dashboard", (req, res) => {
     res.redirect("/logout");
   }
 });
-apps.get("/registrasi-anggota", (req, res) => {
+apps.get("/registrasi-anggota/:name", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi.html"));
 });
 
