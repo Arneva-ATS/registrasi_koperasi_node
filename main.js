@@ -75,6 +75,8 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
 
   try {
     let query = "";
+    let queryPengawas;
+    let queryPengurus
     let values = [
       nama_koperasi,
       email,
@@ -120,35 +122,53 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
         nama_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
         no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       // values.push(dokumen);
     } else if (tingkat_koperasi == 'primkop') {
       query = `INSERT INTO koperasi_primer (
         nama_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
         no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       // values.push(dokumen);
     }
 
-    console.log(values);
-    await executeQuery(query, values);
-    const queryPengurus = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp)VALUES (?, ?, ?, ?, ?)`;
+    let result = await executeQuery(query, values);
+    let koperasiId = result.insertId;
+
+    if (tingkat_koperasi == 'inkop') {
+      queryPengurus = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_induk)VALUES (?, ?, ?, ?, ?,?)`;
+      queryPengawas = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_induk)VALUES (?, ?, ?, ?, ?,?)`;
+
+
+    } else if (tingkat_koperasi == 'puskop') {
+      queryPengurus = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_pusat)VALUES (?, ?, ?, ?, ?,?)`;
+      queryPengawas = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_pusat)VALUES (?, ?, ?, ?, ?,?)`;
+
+
+      // values.push(dokumen);
+    } else if (tingkat_koperasi == 'primkop') {
+      queryPengurus = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_primer)VALUES (?, ?, ?, ?, ?,?)`;
+      queryPengawas = `INSERT INTO anggota(nik, nama_lengkap, no_anggota, roles, nomor_hp, id_koperasi_primer)VALUES (?, ?, ?, ?, ?,?)`;
+
+    }
+
     const valuesPengurus = [
       no_ktp_pengurus,
       nama_pengurus,
       no_anggota_pengurus,
       jabatan_pengurus,
-      no_wa_pengurus
+      no_wa_pengurus,
+      koperasiId
     ]
     await executeQuery(queryPengurus, valuesPengurus);
-    const queryPengawas = `INSERT INTO anggota(nik,nama_lengkap, no_anggota, roles, nomor_hp)VALUES (?, ?, ?, ?, ?)`;
     const valuesPengawas= [
       no_ktp_pengawas,
       nama_pengawas,
       no_anggota_pengawas,
       jabatan_pengawas,
-      no_wa_pengawas
+      no_wa_pengawas,
+      koperasiId
     ]
     await executeQuery(queryPengawas, valuesPengawas);
 
