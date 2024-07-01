@@ -58,7 +58,7 @@ body.style_1 {
   }
 }
 body.style_2 {
-  background: #9933ff url(../img/pattern_3.svg) no-repeat center left;
+  background: #304378 url(../img/pattern_3.svg) no-repeat center left;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -66,7 +66,7 @@ body.style_2 {
 }
 @media (max-width: 767px) {
   body.style_2 {
-    background: #9933ff;
+    background: #304378;
   }
 }
 body.style_3 {
