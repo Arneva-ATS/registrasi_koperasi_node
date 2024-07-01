@@ -25,6 +25,200 @@ apps.get("/register/:name", (req, res) => {
   res.sendFile(path.resolve("./views/register.html"));
 });
 
+apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
+  const tingkat_koperasi = req.params.tingkat;
+  const nama_koperasi = req.body.nama_koperasi;
+  const email = req.body.email;
+  const no_telp = req.body.no_telp;
+  const no_wa = req.body.no_wa;
+  const no_fax = req.body.no_fax;
+  const web = req.body.web;
+  const bidang_koperasi = req.body.bidang_koperasi;
+  const alamat = req.body.alamat;
+  const kelurahan = req.body.kelurahan;
+  const kecamatan = req.body.kecamatan;
+  const kabupaten = req.body.kabupaten;
+  const provinsi = req.body.provinsi;
+
+  // Data Pengurus
+  const nama_pengurus = req.body.nama_pengurus;
+  const no_anggota_pengurus = req.body.no_anggota_pengurus;
+  const jabatan_pengurus = req.body.jabatan_pengurus;
+  const no_wa_pengurus = req.body.no_wa_pengurus;
+
+  // Data Pengawas
+  const nama_pengawas = req.body.nama_pengawas;
+  const no_anggota_pengawas = req.body.no_anggota_pengawas;
+  const jabatan_pengawas = req.body.jabatan_pengawas;
+  const no_wa_pengawas = req.body.no_wa_pengawas;
+
+  const no_akta = req.body.no_akta;
+  const tanggal_akta = req.body.tanggal_akta;
+  const no_skk = req.body.no_skk;
+  const tanggal_skk = req.body.tanggal_skk;
+  const no_spkk = req.body.no_spkk;
+  const tanggal_spkk = req.body.tanggal_spkk;
+  const no_akta_perubahan = req.body.no_akta_perubahan;
+  const masa_berlaku_perubahan = req.body.masa_berlaku_perubahan;
+  const no_siup = req.body.no_siup;
+  const masa_berlaku_siup = req.body.masa_berlaku_siup;
+  const no_skdu = req.body.no_skdu;
+  const masa_berlaku_skdu = req.body.masa_berlaku_skdu;
+  const no_npwp = req.body.no_npwp;
+  const no_pkp = req.body.no_pkp;
+  const bpjs_kesehatan = req.body.bpjs_kesehatan;
+  const bpjs_ketenagakerjaan = req.body.bpjs_ketenagakerjaan;
+  const no_sertifikat = req.body.no_sertifikat;
+  const base64profil = req.body.profil;
+  const base64logo = req.body.logo;
+  const base64doc = req.body.dokumen;
+
+  const roles = req.body.roles;
+  const type1 = req.body.type1;
+  const type2 = req.body.type2;
+
+  const pathToSaveImage =
+    "./public/" + roles + "/" + new Date().getTime() + "." + type1;
+  const img_url = "/" + roles + "/" + new Date().getTime() + "." + type1;
+  convertB64.converBase64ToImage(base64profil, pathToSaveImage);
+  const pathToSaveImages =
+    "./public/" + roles + "/" + new Date().getTime() + "." + type2;
+  const img_urls = "/" + roles + "/" + new Date().getTime() + "." + type2;
+  convertB64.converBase64ToImage(base64logo, pathToSaveImages);
+  const pathToSaveDoc =
+    "./public/" + roles + "/" + new Date().getTime() + "." + type2;
+  const doc_url = "/" + roles + "/" + new Date().getTime() + "." + type2;
+  convertB64.converBase64ToImage(base64doc, pathToSaveDoc);
+  try {
+    if (tingkat_koperasi == 'inkop') {
+      await executeQuery(
+        "insert into tbl_koperasi_induk(nama_koperasi,nik,no_telp,no_wa,no_fax, web, bidang_koperasi, kelurahan, kecamatan, kabupaten, provinsi, kode_pos, no_akta, tanggal_akta, no_skk, tanggal_skk, alamat, no_spkk, email, profil, logo, dokumen) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [
+          nama_koperasi,
+          nik,
+          email,
+          no_telp,
+          no_wa,
+          no_fax,
+          web,
+          bidang_koperasi,
+          alamat,
+          kelurahan,
+          kecamatan,
+          kabupaten,
+          provinsi,
+          kode_pos,
+          no_akta,
+          tanggal_akta,
+          no_skk,
+          tanggal_skk,
+          no_spkk,
+          tanggal_spkk,
+          no_akta_perubahan,
+          masa_berlaku_perubahan,
+          no_siup,
+          masa_berlaku_siup,
+          no_skdu,
+          masa_berlaku_skdu,
+          no_npwp,
+          no_pkp,
+          bpjs_kesehatan,
+          bpjs_ketenagakerjaan,
+          no_sertifikat,
+          img_url,
+          img_urls,
+          doc_url
+        ]
+      );
+    } else if (tingkat_koperasi == 'puskop') {
+      await executeQuery(
+        "insert into tbl_koperasi_pusat(nama_koperasi,nik,no_telp,no_wa,no_fax, web, bidang_koperasi, kelurahan, kecamatan, kabupaten, provinsi, kode_pos, no_akta, tanggal_akta, no_skk, tanggal_skk, alamat, no_spkk, email, profil, logo, dokumen) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [
+          nama_koperasi,
+          nik,
+          email,
+          no_telp,
+          no_wa,
+          no_fax,
+          web,
+          bidang_koperasi,
+          alamat,
+          kelurahan,
+          kecamatan,
+          kabupaten,
+          provinsi,
+          kode_pos,
+          no_akta,
+          tanggal_akta,
+          no_skk,
+          tanggal_skk,
+          no_spkk,
+          tanggal_spkk,
+          no_akta_perubahan,
+          masa_berlaku_perubahan,
+          no_siup,
+          masa_berlaku_siup,
+          no_skdu,
+          masa_berlaku_skdu,
+          no_npwp,
+          no_pkp,
+          bpjs_kesehatan,
+          bpjs_ketenagakerjaan,
+          no_sertifikat,
+          img_url,
+          img_urls,
+          doc_url
+        ]
+      );
+    } else if (tingkat_koperasi == 'primkop') {
+      await executeQuery(
+        "insert into tbl_primer_koperasi(nama_koperasi,nik,no_telp,no_wa,no_fax, web, bidang_koperasi, kelurahan, kecamatan, kabupaten, provinsi, kode_pos, no_akta, tanggal_akta, no_skk, tanggal_skk, alamat, no_spkk, email, profil, logo, dokumen) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [
+          nama_koperasi,
+          nik,
+          email,
+          no_telp,
+          no_wa,
+          no_fax,
+          web,
+          bidang_koperasi,
+          alamat,
+          kelurahan,
+          kecamatan,
+          kabupaten,
+          provinsi,
+          kode_pos,
+          no_akta,
+          tanggal_akta,
+          no_skk,
+          tanggal_skk,
+          no_spkk,
+          tanggal_spkk,
+          no_akta_perubahan,
+          masa_berlaku_perubahan,
+          no_siup,
+          masa_berlaku_siup,
+          no_skdu,
+          masa_berlaku_skdu,
+          no_npwp,
+          no_pkp,
+          bpjs_kesehatan,
+          bpjs_ketenagakerjaan,
+          no_sertifikat,
+          img_url,
+          img_urls,
+          doc_url
+        ]
+      );
+    }
+
+    res.status(200).json({ message: "success" });
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+});
+
+
 apps.post("/register/insert", async (req, res) => {
   const nis = req.body.nis;
   const nik = req.body.nik;
@@ -45,7 +239,7 @@ apps.post("/register/insert", async (req, res) => {
   const alamat = req.body.alamat;
   const nomor_hp = req.body.nomor_hp;
   const email = req.body.email;
-  const base64selfie = req.body.selfie;
+  const base64profil = req.body.selfie;
   const base64ktp = req.body.ktp;
   const roles = req.body.roles;
   const type1 = req.body.type1;
@@ -54,7 +248,7 @@ apps.post("/register/insert", async (req, res) => {
   const pathToSaveImage =
     "./public/" + roles + "/" + new Date().getTime() + "." + type1;
   const img_url = "/" + roles + "/" + new Date().getTime() + "." + type1;
-  convertB64.converBase64ToImage(base64selfie, pathToSaveImage);
+  convertB64.converBase64ToImage(base64profil, pathToSaveImage);
   const pathToSaveImages =
     "./public/" + roles + "/" + new Date().getTime() + "." + type2;
   const img_urls = "/" + roles + "/" + new Date().getTime() + "." + type2;
@@ -133,7 +327,7 @@ apps.get("/registrasi-anggota", (req, res) => {
 apps.get("/register-anggota", (req, res) => {
   res.sendFile(path.resolve("./views/register-new.html"));
 });
-apps.get("/register-koperasi", (req, res) => {
+apps.get("/register-koperasi/:name", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
 });
 //----------------------RKI-----------------------------
