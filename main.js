@@ -9,6 +9,7 @@ const { v4: uuidv4 } = require("uuid");
 const cookieParser = require("cookie-parser");
 // const md5 = require('md5');
 const convertB64 = require("convert-base64-to-image");
+const base64 = require('base64topdf');
 
 apps.use(bodyParser.json({ limit: "5mb" }));
 apps.use(
@@ -85,6 +86,8 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
   const imgs_ktp = "/koperasi/" + new Date().getTime() + "." + type2;
   convertB64.converBase64ToImage(ktp, pathToSaveImages);
 
+  base64.base64Decode(dokumen, "./public/koperasi/" + new Date().getTime() + ".pdf");
+  const url_pdf =   "/koperasi/" + new Date().getTime() + ".pdf";
 
   try {
     let query = "";
@@ -124,7 +127,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
       no_sertifikat,
       imgs_logo,
       imgs_ktp,
-      dokumen
+      url_pdf
     ];
 
     if (tingkat_koperasi == 'inkop') {
