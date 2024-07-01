@@ -61,6 +61,7 @@
         <div class="row justify-content-between">
           <div class="col-xl-6 col-lg-6 d-flex align-items-center">
             <div class="main_title_1">
+              <h3 class="fs-4" id="nama_koperasi"></h3>
               <h3>REGISTRASI <span id="tingkatan_koperasi"></span></h3>
               <p>
                 An mei sadipscing dissentiet, eos ea partem viderer facilisi.
@@ -89,6 +90,11 @@
                       <label for="nama_koperasi">Nama Koperasi</label>
                       <input type="text" name="nama_koperasi" id="nama_koperasi" class="form-control"
                         placeholder="Masukan Nama Koperasi" />
+                    </div>
+                    <div class="form-group">
+                      <label for="singkatan_koperasi">Nama Singkat Koperasi</label>
+                      <input type="text" name="singkatan_koperasi" id="singkatan_koperasi" class="form-control"
+                        placeholder="Masukan Singkatan Koperasi" />
                     </div>
                     <div class="form-group">
                       <label for="email">Email Koperasi</label>
@@ -121,7 +127,7 @@
                       </div>
                       <div class="col-12 col-md-6">
                         <div class="form-group">
-                          <label for="web">Website</label>
+                          <label for="web">Website (Opsional)</label>
                           <input type="text" class="form-control w-100" name="web" id="web" placeholder="web" />
                         </div>
                       </div>
@@ -556,6 +562,7 @@
     let type2;
     let type3;
     let tingkatan_koperasi;
+    let koperasi
     const ktpInput = document.getElementById('foto_ktp');
     const logoInput = document.getElementById('foto_logo');
     const dokumenInput = document.getElementById('dokumen');
@@ -566,9 +573,13 @@
     window.addEventListener("load", () => {
       const url = new URL(window.location.href);
       const path = url.pathname.split('/');
-      document.getElementById("tingkatan_koperasi").innerText = path[2];
-      tingkatan_koperasi = path[2];
+      document.getElementById("tingkatan_koperasi").innerText = path[3];
+      tingkatan_koperasi = path[3];
+      koperasi = path[2]
       console.log(path);
+      if(path[2] !== 'rki'){
+        document.getElementById("nama_koperasi").innerText = 'Koperasi ' + koperasi;
+      }
     });
     
     ktpInput.addEventListener('change', (event) => {
@@ -631,6 +642,7 @@
     
     function saveData() {
       const nama_koperasi = document.getElementById("nama_koperasi").value;
+      const singkatan_koperasi = document.getElementById("singkatan_koperasi").value;
       const email = document.getElementById("email").value;
       const no_telp = document.getElementById("no_telp").value;
       const no_wa = document.getElementById("no_wa").value;
@@ -684,6 +696,7 @@
       }
     
       const jsondata = {
+        singkatan_koperasi,
         nama_koperasi,
         email,
         no_telp,
