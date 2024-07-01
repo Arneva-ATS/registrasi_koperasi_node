@@ -87,7 +87,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
   convertB64.converBase64ToImage(ktp, pathToSaveImages);
 
   base64.base64Decode(dokumen, "./public/koperasi/" + new Date().getTime() + ".pdf");
-  const url_pdf =   "/koperasi/" + new Date().getTime() + ".pdf";
+  const url_pdf = "/koperasi/" + new Date().getTime() + ".pdf";
 
   try {
     let query = "";
@@ -384,43 +384,90 @@ apps.get("/primkop/list", (req, res) => {
   });
 });
 
+
+
+apps.get("/api/list/inkop", async (req, res) => {
+  try {
+    let ind = await executeQuery("select * from koperasi_induk");
+    res.status(200).json(ind);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+apps.get("/api/list/puskop", async (req, res) => {
+  try {
+    let pus = await executeQuery("select * from koperasi_pusat");
+    res.status(200).json(pus);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+apps.get("/api/list/primkop", async (req, res) => {
+  try {
+    let prim = await executeQuery("select * from koperasi_primer");
+    res.status(200).json(prim);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // ---------------------Detail -------------------------------
 
-// apps.get('/detail/:id', (req, res) => {
-//     res.sendFile(path.resolve('./views/detail.html'));
-// const idTx = req.params.id;
-// try {
-//     let employeeData = await executeQuery(
-//       "select * from user where id_user=?",
-//       [id]
-//     );
+apps.get('/detail_inkop/:id', async (req, res) => {
+  const idTx = req.params.id;
+  try {
+    let koperasi = await executeQuery(
+      "select * from koperasi_inkop where id=?",
+      [idTx]
+    );
+    const arr = {
+      "id": koperasi[0].id,
+      "nama_koperasi": koperasi[0].nama_koperasi,
+      "no_phone": koperasi[0].no_phone,
+      "hp_wa": koperasi[0].hp_wa,
+      "hp_fax": koperasi[0].hp_fax,
+      "email_koperasi": koperasi[0].email_koperasi,
+      "url_website": koperasi[0].url_website,
+      "bidang_koperasi": koperasi[0].bidang_koperasi,
+      "alamat": koperasi[0].alamat,
+      "provinsi": koperasi[0].provinsi,
+      "kota": koperasi[0].kota,
+      "kecamatan": koperasi[0].kecamatan,
+      "kelurahan": koperasi[0].kelurahan,
+      "kode_pos": koperasi[0].kode_pos,
+      "image_logo": koperasi[0].image_logo,
+      "no_akta_pendirian": koperasi[0].no_akta_pendirian,
+      "tanggal_akta_pendirian": koperasi[0].tanggal_akta_pendirian,
+      "no_akta_perubahan": koperasi[0].no_akta_perubahan,
+      "tanggal_akta_perubahan": koperasi[0].tanggal_akta_perubahan,
+      "no_sk_kemenkumham": koperasi[0].no_sk_kemenkumham,
+      "tanggal_sk_kemenkumham": koperasi[0].tanggal_sk_kemenkumham,
+      "no_spkum": koperasi[0].no_spkum,
+      "tanggal_spkum": koperasi[0].tanggal_spkum,
+      "no_siup": koperasi[0].no_siup,
+      "masa_berlaku_siup": koperasi[0].masa_berlaku_siup,
+      "no_sk_domisili": koperasi[0].no_sk_domisili,
+      "masa_berlaku_sk_domisili": koperasi[0].masa_berlaku_sk_domisili,
+      "no_npwp": koperasi[0].no_npwp,
+      "no_pkp": koperasi[0].no_pkp,
+      "no_bpjs_kesehatan": koperasi[0].no_bpjs_kesehatan,
+      "no_bpjs_tenaga_kerja": koperasi[0].no_bpjs_tenaga_kerja,
+      "no_sertifikat_koperasi": koperasi[0].no_sertifikat_koperasi,
+      "approval": koperasi[0].approval,
+      "singkatan_koperasi": koperasi[0].singkatan_koperasi,
+      "ktp": koperasi[0].ktp
 
-//   //   console.log(employeeData[0].id_user);
 
-//     const arr =  {
-//       "id_user": employeeData[0].id_user,
-//       "id_warung": employeeData[0].id_warung,
-//       "username": employeeData[0].username,
-//       "email": employeeData[0].email,
-//       "password": employeeData[0].password,
-//       "status": employeeData[0].status,
-//       "token": employeeData[0].token
-//     };
+    };
 
-//     res.status(200).json(arr);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// })
-
-// apps.get("/pengguna", async (req, res) => {
-//     try {
-//       let employeeData = await executeQuery("select * from user");
-//       res.status(200).json(employeeData);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+    res.status(200).json(arr);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 apps.get("/logout", (req, res) => {
   res.clearCookie("token");

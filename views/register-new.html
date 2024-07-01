@@ -309,7 +309,7 @@
 		window.addEventListener("load", () => {
 		  const url = new URL(window.location.href);
 		  const path = url.pathname.split('/');
-		  document.getElementById("roles").value = path[2];
+		  document.getElementById("roles").value = path[3];
 		})
 	  
 		function convertBase64selfie() {
@@ -408,7 +408,7 @@
 			  })
 				.then((willOut) => {
 				  if (willOut) {
-					window.location.replace('/anggota/'+roles);
+					window.location.replace('/registrasi/anggota/'+roles);
 				  } else {
 					console.log('error')
 				  }

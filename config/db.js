@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   //az6:#FtjSjHR
   host: "localhost",
   user: "root",
-  password: "az6:#FtjSjHR",
+  password: "",
   database: "web_registrasi",
 });
 
