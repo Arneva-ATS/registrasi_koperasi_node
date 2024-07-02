@@ -147,24 +147,22 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">DATA PRIMKOP , [
-                                            http://registrasi.rifhandi.com/register/primkop ]</h5>
+                                            http://registrasi.rkicoop.co.id/registrasi/anggota/primkop ]</h5>
                                         <br />
-                                        <a href="/primkop/add" class="btn btn-primary"> Add PRIMKOP </a>
+                                        <a href="/primkop/anggota/add" class="btn btn-primary"> Add PRIMKOP </a>
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <table id="responsive-datatable"
                                             class="table table-bordered table-bordered dt-responsive nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>No Anggota</th>
+                                                    <th>Nik</th>
+                                                    <th>Nama Lengkap</th>
+                                                    <th>No HP</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="primkops">
+                                            <tbody id="primkops_anggota">
                                                 
                                             </tbody>
                                         </table>
@@ -258,21 +256,19 @@
         });
 
         function list_primkops() {
-            fetch("/api/list/primkop")
+            fetch("/api/primkop/anggota")
                 .then((response) => response.json())
                 .then((data) => {
                     var html = "";
                     for (var i = 0; i < data.length; i++) {
                         html += `<tr>
-                            <td>${data[i]?.nama_koperasi}</td>
-                            <td>${data[i]?.email_koperasi}</td>
-                            <td>${data[i]?.url_website}</td>
-                            <td>${data[i]?.bidang_koperasi}</td>
-                            <td>${data[i]?.alamat}</td>
-                            <td>${data[i]?.kode_pos}</td>
+                            <td>${data[i]?.no_anggota}</td>
+                            <td>${data[i]?.nik}</td>
+                            <td>${data[i]?.nama_lengkap}</td>
+                            <td>${data[i]?.nomor_hp}</td>
                           </tr>`;
                     }
-                    document.getElementById("primkops").innerHTML = html;
+                    document.getElementById("primkops_anggota").innerHTML = html;
                 });
         }
 

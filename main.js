@@ -502,15 +502,20 @@ apps.get("/puskop/edit", (req, res) => {
 
 apps.get("/primkop/list", (req, res) => {
   res.sendFile(path.resolve("./views/primkop/list.html"));
-
-  apps.get("/primkop/add", (req, res) => {
-    res.sendFile(path.resolve("./views/primkop/add.html"));
-  });
-
-  apps.get("/primkop/edit", (req, res) => {
-    res.sendFile(path.resolve("./views/primkop/edit.html"));
-  });
 });
+
+apps.get("/primkop/add", (req, res) => {
+  res.sendFile(path.resolve("./views/primkop/add.html"));
+});
+
+apps.get("/primkop/edit", (req, res) => {
+  res.sendFile(path.resolve("./views/primkop/edit.html"));
+});
+
+apps.get("/primkop/anggota", (req, res) => {
+  res.sendFile(path.resolve("./views/primkop/anggota.html"));
+});
+
 
 apps.get("/api/list/inkop", async (req, res) => {
   try {
@@ -533,6 +538,15 @@ apps.get("/api/list/puskop", async (req, res) => {
 apps.get("/api/list/primkop", async (req, res) => {
   try {
     let prim = await executeQuery("select * from koperasi_primer");
+    res.status(200).json(prim);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+apps.get("/api/primkop/anggota", async (req, res) => {
+  try {
+    let prim = await executeQuery("select * from anggota where id_koperasi_primer = ?", [2]);
     res.status(200).json(prim);
   } catch (err) {
     res.status(500).json(err);
