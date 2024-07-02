@@ -573,7 +573,12 @@
     dokumenInput.addEventListener('change', () => {
       convertBase64dokumen();
     });
-    
+    function createSlug(name) {
+      return name
+        .toLowerCase()        // Mengubah semua huruf menjadi huruf kecil
+        .replace(/\s+/g, '-') // Mengganti semua spasi dengan strip (-)
+        .replace(/[^\w\-]+/g, ''); // Menghapus karakter non-alphanumeric kecuali strip (-) dan underscore (_)
+    }
     function convertBase64dokumen() {
       const file = dokumenInput.files[0];
       type3 = file.type.split('/')[1];
@@ -649,7 +654,7 @@
       const image_ktp = baseStringKtp;
       const image_logo = baseStringLogo;
       const doc_dokumen = baseStringDokumen;
-    
+      const slug = createSlug(nama_koperasi);
       const validKtp = ktpInput.files[0];
       const validLogo = logoInput.files[0];
       const validDokumen = dokumenInput.files[0];
@@ -662,6 +667,7 @@
       const jsondata = {
         singkatan_koperasi,
         nama_koperasi,
+        slug,
         email,
         no_telp,
         no_wa,

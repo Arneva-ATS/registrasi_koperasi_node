@@ -502,12 +502,12 @@
       let baseStringKtp;
       let type1;
       let type2;
-      let koperasi_asal;
+      let slug_url;
       window.addEventListener("load", () => {
         const url = new URL(window.location.href);
         const path = url.pathname.split("/");
         document.getElementById("roles").value = path[3];
-        koperasi_asal = path[3];
+        slug_url = path[3];
       });
 
       function convertBase64selfie() {
@@ -566,7 +566,7 @@
         }
 
         var jsondata = {
-          koperasi_asal,
+          slug_url,
           nis: nis,
           nik: nik,
           nama_lengkap: nama_lengkap,

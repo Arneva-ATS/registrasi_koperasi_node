@@ -74,6 +74,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
     type1,
     type2,
     dokumen,
+    slug
   } = req.body;
   const tingkat_koperasi = req.params.tingkat;
 
@@ -131,26 +132,27 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
       imgs_logo,
       imgs_ktp,
       url_pdf,
+      slug
     ];
 
     if (tingkat_koperasi == "inkop") {
       query = `INSERT INTO koperasi_induk (
         nama_koperasi,singkatan_koperasi,email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url,slug
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?)`;
     } else if (tingkat_koperasi == "puskop") {
       query = `INSERT INTO koperasi_pusat (
         nama_koperasi,singkatan_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi, image_logo, ktp , doc_url,slug
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?)`;
       // values.push(dokumen);
     } else if (tingkat_koperasi == "primkop") {
       query = `INSERT INTO koperasi_primer (
         nama_koperasi,singkatan_koperasi, email_koperasi, no_phone, hp_wa, hp_fax, url_website, bidang_koperasi, alamat, kelurahan, kecamatan, kota, provinsi, kode_pos,
         no_akta_pendirian, tanggal_akta_pendirian, no_sk_kemenkumham, tanggal_sk_kemenkumham, no_akta_perubahan, tanggal_akta_perubahan, no_spkum, tanggal_spkum, 
-        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi,image_logo, ktp , doc_url
+        no_siup, masa_berlaku_siup, no_sk_domisili, masa_berlaku_sk_domisili, no_npwp, no_pkp, no_bpjs_kesehatan, no_bpjs_tenaga_kerja, no_sertifikat_koperasi,image_logo, ktp , doc_url,slug
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?)`;
       // values.push(dokumen);
     }
@@ -197,7 +199,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
 });
 
 apps.post("/register/insert", async (req, res) => {
-  const koperasi_asal = req.body.koperasi_asal;
+  const slug_url = req.body.slug_url;
   const nis = req.body.nis;
   const nik = req.body.nik;
   const nama_lengkap = req.body.nama_lengkap;
@@ -223,13 +225,13 @@ apps.post("/register/insert", async (req, res) => {
   const type1 = req.body.type1;
   const type2 = req.body.type2;
   let inkop = await executeQuery(
-    `select * from koperasi_induk where singkatan_koperasi = ${koperasi_asal}`
+    `select * from koperasi_induk where slug = ${slug_url}`
   );
   let puskop = await executeQuery(
-    `select * from koperasi_pusat where singkatan_koperasi = ${koperasi_asal}`
+    `select * from koperasi_pusat where slug = ${slug_url}`
   );
   let primkop = await executeQuery(
-    `select * from koperasi_primer where singkatan_koperasi = ${koperasi_asal}`
+    `select * from koperasi_primer where slug = ${slug_url}`
   );
   console.log(puskop, inkop, primkop);
   const pathToSaveImage =
