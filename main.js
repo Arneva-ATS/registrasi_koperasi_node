@@ -344,16 +344,71 @@ apps.get("/", (req, res) => {
   res.sendFile(path.resolve("./views/index.html"));
 });
 
-apps.post("/dologin", (req, res) => {
+apps.post("/dologin", async (req, res) => {
   const { email, password, setroles } = req.body;
-  if (email == "admin@arneva.co.id" && password == "12345") {
-    const isLogin = true;
-    res.cookie("token", uuidv4());
-    res.cookie("islogin", isLogin);
-    res.cookie("roles", setroles);
-    res.redirect("/dashboard");
+
+  if (setroles == 'primkop') {
+    let prm = await executeQuery(
+      "select * from koperasi_primer where email_koperasi=? and password=?",
+      [email, password]
+    );
+    if(prm?.length > 0){
+      const isLogin = true;
+      res.cookie("token", uuidv4());
+      res.cookie("islogin", isLogin);
+      res.cookie("roles", 'primkop');
+      res.cookie("name", prm[0]?.slug);
+      res.cookie("id", prm[0]?.id);
+      res.redirect("/dashboard");
+    }else{
+      res.redirect("/");
+    }
+
+  } else if (setroles == 'puskop') {
+    let pusk = await executeQuery(
+      "select * from koperasi_pusat where email_koperasi=? and password=?",
+      [email, password]
+    );
+
+    if(pusk?.length > 0){
+      const isLogin = true;
+      res.cookie("token", uuidv4());
+      res.cookie("islogin", isLogin);
+      res.cookie("roles", 'puskop');
+      res.cookie("name", prm[0]?.slug);
+      res.cookie("id", prm[0]?.id);
+      res.redirect("/dashboard");
+    }else{
+      res.redirect("/");
+    }
+
+  } else if (setroles == 'inkop') {
+    let ink = await executeQuery(
+      "select * from koperasi_induk where email_koperasi=? and password=?",
+      [email, password]
+    );
+    if(ink?.length > 0){
+      const isLogin = true;
+      res.cookie("token", uuidv4());
+      res.cookie("islogin", isLogin);
+      res.cookie("roles", 'inkop');
+      res.cookie("name", prm[0]?.slug);
+      res.cookie("id", prm[0]?.id);
+      res.redirect("/dashboard");
+    }else{
+      res.redirect("/");
+    }
+
   } else {
-    res.redirect("/");
+    if (email == "admin@arneva.co.id" && password == "12345") {
+      const isLogin = true;
+      res.cookie("token", uuidv4());
+      res.cookie("islogin", isLogin);
+      res.cookie("roles", 'rki');
+      res.redirect("/dashboard");
+    } else {
+      res.redirect("/");
+    }
   }
 });
 
@@ -540,6 +595,8 @@ apps.get("/logout", (req, res) => {
   res.clearCookie("token");
   res.clearCookie("roles");
   res.clearCookie("islogin");
+  res.clearCookie("id");
+  res.clearCookie("name");
   res.redirect("/");
 });
 

@@ -101,6 +101,7 @@
                       <strong>1 of 4</strong>Data Pribadi
                     </h3>
                     <div class="row">
+                      <input type="hidden" name="roles" id="roles" />
                       <input type="hidden" name="koperasi_name" id="koperasi_name" />
                       <div class="col-12">
                         <div class="form-group">
@@ -317,6 +318,7 @@
                   <button type="button" name="process" id="button-submit" class="submit" onclick="saveData()">
                     Simpan
                   </button>
+                  <h3 id="success"></h3>
                 </div>
                 <!-- /bottom-wizard -->
               </form>
@@ -359,7 +361,7 @@
     window.addEventListener("load", () => {
       const url = new URL(window.location.href);
       const path = url.pathname.split("/");
-      document.getElementById("roles").value = path[3];
+      document.getElementById("roles").value = path[2];
       console.log(path[3])
       slug_url = path[3];
     });
@@ -385,6 +387,10 @@
     }
 
     async function saveData() {
+
+      document.getElementById("success").innerHTML = 'Please Wait....';
+      document.getElementById("button-submit").disabled = true;
+
       var nis = document.getElementById("nis").value;
       var nik = document.getElementById("nik").value;
       var nama_lengkap = document.getElementById("nama_lengkap").value;
@@ -456,7 +462,8 @@
       })
         .then((response) => response.json())
         .then((data) => {
-          document.getElementById("button-submit").disabled = false
+          document.getElementById("success").innerHTML = 'Success Uploaded.';
+          document.getElementById("button-submit").disabled = false;
           swal({
             title: "Status Registrasi",
             text: "Input Data " + data?.message + "",
@@ -473,7 +480,7 @@
           (error) => {
             swal({
               title: "Status Registrasi",
-              text: err.message,
+              text: error,
               icon: "info",
               buttons: true,
             }).then((willOut) => {
