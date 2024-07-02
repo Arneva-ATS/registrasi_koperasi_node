@@ -1,74 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="RegistrasiAnggota Koperasi" />
-    <meta name="author" content="RKIAPP" />
-    <title>Registrasi Anggota Koperasi</title>
 
-    <!-- Favicons-->
-    <link
-      rel="shortcut icon"
-      href="/assets/images/rki_icon.png"
-      type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      type="image/x-icon"
-      href="/registrasi/img/apple-touch-icon-57x57-precomposed.png" />
-    <link
-      rel="apple-touch-icon"
-      type="image/x-icon"
-      sizes="72x72"
-      href="/registrasi/img/apple-touch-icon-72x72-precomposed.png" />
-    <link
-      rel="apple-touch-icon"
-      type="image/x-icon"
-      sizes="114x114"
-      href="/registrasi/img/apple-touch-icon-114x114-precomposed.png" />
-    <link
-      rel="apple-touch-icon"
-      type="image/x-icon"
-      sizes="144x144"
-      href="/registrasi/img/apple-touch-icon-144x144-precomposed.png" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RegistrasiAnggota Koperasi" />
+  <meta name="author" content="RKIAPP" />
+  <title>Registrasi Anggota Koperasi</title>
 
-    <!-- GOOGLE WEB FONT -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Caveat|Poppins:300,400,500,600,700&display=swap"
-      rel="stylesheet" />
+  <!-- Favicons-->
+  <link rel="shortcut icon" href="/assets/images/rki_icon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="/registrasi/img/apple-touch-icon-57x57-precomposed.png" />
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+    href="/registrasi/img/apple-touch-icon-72x72-precomposed.png" />
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+    href="/registrasi/img/apple-touch-icon-114x114-precomposed.png" />
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+    href="/registrasi/img/apple-touch-icon-144x144-precomposed.png" />
 
-    <!-- BASE CSS -->
-    <link href="/registrasi/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/registrasi/css/style.css" rel="stylesheet" />
-    <link href="/registrasi/css/vendors.css" rel="stylesheet" />
+  <!-- GOOGLE WEB FONT -->
+  <link href="https://fonts.googleapis.com/css?family=Caveat|Poppins:300,400,500,600,700&display=swap"
+    rel="stylesheet" />
 
-    <!-- YOUR CUSTOM CSS -->
-    <link href="/registrasi/css/custom.css" rel="stylesheet" />
+  <!-- BASE CSS -->
+  <link href="/registrasi/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/registrasi/css/style.css" rel="stylesheet" />
+  <link href="/registrasi/css/vendors.css" rel="stylesheet" />
 
-    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </head>
+  <!-- YOUR CUSTOM CSS -->
+  <link href="/registrasi/css/custom.css" rel="stylesheet" />
 
-  <body class="style_2">
-    <div id="preloader">
-      <div data-loader="circle-side"></div>
-    </div>
-    <!-- /Preload -->
+  <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 
-    <div id="loader_form">
-      <div data-loader="circle-side-2"></div>
-    </div>
-    <!-- /loader_form -->
+<body class="style_2">
+  <div id="preloader">
+    <div data-loader="circle-side"></div>
+  </div>
+  <!-- /Preload -->
 
-    <header>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-5">
-            <a href="index.html"
-              ><img src="/assets/images/rki.png" alt="" width="100" height="30"
-            /></a>
-          </div>
-          <div class="col-7">
-            <!-- <div id="social">
+  <div id="loader_form">
+    <div data-loader="circle-side-2"></div>
+  </div>
+  <!-- /loader_form -->
+
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <a href="index.html"><img src="/assets/images/rki.png" alt="" width="100" height="30" /></a>
+        </div>
+        <div class="col-7">
+          <!-- <div id="social">
 	                    <ul>
 	                        <li><a href="#0"><i class="social_facebook"></i></a></li>
 	                        <li><a href="#0"><i class="social_twitter"></i></a></li>
@@ -76,546 +59,435 @@
 	                        <li><a href="#0"><i class="social_linkedin"></i></a></li>
 	                    </ul>
 	                </div> -->
-          </div>
         </div>
-        <!-- /row -->
       </div>
-      <!-- /container -->
-    </header>
-    <!-- /header -->
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </header>
+  <!-- /header -->
 
-    <div class="wrapper_centering">
-      <div class="container_centering">
-        <div class="container">
-          <div class="row justify-content-between">
-            <div class="col-xl-6 col-lg-6 d-flex align-items-center">
-              <div class="main_title_1">
-                <h3>REGISTRASI ANGGOTA</h3>
-                <p>
-                  Jadilah bagian dari perubahan! Bergabunglah dengan koperasi
-                  kami dan nikmati manfaatnya! Sebagai anggota, Anda akan
-                  mendapatkan akses ke berbagai layanan dan dukungan yang
-                  dirancang untuk meningkatkan kesejahteraan Anda. Mari kita
-                  bersama-sama membangun komunitas yang lebih kuat dan ekonomi
-                  yang lebih adil.
-                </p>
-                <p><em>- Rumah Kesejahteraan Indonesia</em></p>
-              </div>
+  <div class="wrapper_centering">
+    <div class="container_centering">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-xl-6 col-lg-6 d-flex align-items-center">
+            <div class="main_title_1">
+              <h3>REGISTRASI ANGGOTA</h3>
+              <p>
+                Jadilah bagian dari perubahan! Bergabunglah dengan koperasi
+                kami dan nikmati manfaatnya! Sebagai anggota, Anda akan
+                mendapatkan akses ke berbagai layanan dan dukungan yang
+                dirancang untuk meningkatkan kesejahteraan Anda. Mari kita
+                bersama-sama membangun komunitas yang lebih kuat dan ekonomi
+                yang lebih adil.
+              </p>
+              <p><em>- Rumah Kesejahteraan Indonesia</em></p>
             </div>
-            <!-- /col -->
-            <div class="col-xl-5 col-lg-5">
-              <div id="wizard_container">
-                <div id="top-wizard">
-                  <div id="progressbar"></div>
-                </div>
-                <!-- /top-wizard -->
-                <form id="wrapped" enctype="multipart/form-data">
-                  <input id="website" name="website" type="text" value="" />
-                  <!-- Leave for security protection, read docs for details -->
-                  <div id="middle-wizard">
-                    <div class="step">
-                      <h3 class="main_question">
-                        <strong>1 of 4</strong>Data Pribadi
-                      </h3>
-                      <div class="row">
-                        <input
-                          type="hidden"
-                          name="koperasi_name"
-                          id="koperasi_name" />
-                        <div class="col-12">
-                          <div class="form-group">
-                            <label for="nis">No Anggota</label>
-                            <input
-                              type="text"
-                              name="nis"
-                              id="nis"
-                              class="form-control"
-                              placeholder="masukan nis"
-                              required />
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-group">
-                            <label for="nik">NIK</label>
-                            <input
-                              type="text"
-                              name="nik"
-                              id="nik"
-                              class="form-control"
-                              placeholder="Masukan Nik"
-                              required />
-                          </div>
+          </div>
+          <!-- /col -->
+          <div class="col-xl-5 col-lg-5">
+            <div id="wizard_container">
+              <div id="top-wizard">
+                <div id="progressbar"></div>
+              </div>
+              <!-- /top-wizard -->
+              <form id="wrapped" enctype="multipart/form-data">
+                <input id="website" name="website" type="text" value="" />
+                <!-- Leave for security protection, read docs for details -->
+                <div id="middle-wizard">
+                  <div class="step">
+                    <h3 class="main_question">
+                      <strong>1 of 4</strong>Data Pribadi
+                    </h3>
+                    <div class="row">
+                      <input type="hidden" name="koperasi_name" id="koperasi_name" />
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="nis">No Anggota</label>
+                          <input type="text" name="nis" id="nis" class="form-control" placeholder="masukan nis"
+                            required />
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label for="nama_lengkap">Nama Lengkap</label>
-                        <input
-                          type="text"
-                          name="nama_lengkap"
-                          id="nama_lengkap"
-                          class="form-control"
-                          placeholder="Masukan Nama Lengkap"
-                          required />
-                      </div>
-
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="tempat_lahir">Tempat</label>
-                            <input
-                              type="text"
-                              class="form-control w-100"
-                              name="tempat_lahir"
-                              id="tempat_lahir"
-                              placeholder="Masukan Tempat Lahir"
-                              required />
-                          </div>
-                        </div>
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <input
-                              type="date"
-                              class="form-control w-100"
-                              name="tanggal_lahir"
-                              id="tanggal_lahir"
-                              placeholder="Masukan Tanggal Lahir"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <label for="">Jenis Kelamin</label>
-                        <div class="col-12">
-                          <div class="form-group">
-                            <div
-                              class="d-flex justify-content-start align-items-center gap-2">
-                              <input
-                                type="radio"
-                                name="jenis_kelamin"
-                                class="form-check"
-                                value="laki-laki"
-                                checked />
-                              Laki Laki
-                            </div>
-                            <div
-                              class="d-flex justify-content-start align-items-center gap-2">
-                              <input
-                                type="radio"
-                                name="jenis_kelamin"
-                                class="form-check"
-                                value="perempuan"
-                                checked />
-                              Perempuan
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- /step 1-->
-
-                    <div class="step">
-                      <h3 class="main_question mb-4">
-                        <strong>2 of 4</strong>Data Pribadi
-                      </h3>
-
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="rt_rw">RT / RW</label>
-                            <input
-                              type="text"
-                              name="rt_rw"
-                              id="rt_rw"
-                              class="form-control"
-                              placeholder="Masukan Rt & Rw"
-                              required />
-                          </div>
-                        </div>
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <label for="kelurahan">Kelurahan / Desa</label>
-                            <input
-                              type="text"
-                              name="kelurahan"
-                              id="kelurahan"
-                              class="form-control"
-                              placeholder="Masukan Keluarahan"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="kecamatan">Kecamatan</label>
-                            <input
-                              type="text"
-                              name="kecamatan"
-                              id="kecamatan"
-                              class="form-control"
-                              placeholder="Masukan Kecamatan"
-                              required />
-                          </div>
-                        </div>
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <label for="kota">Kab/Kota</label>
-                            <input
-                              type="text"
-                              name="kota"
-                              id="kota"
-                              class="form-control"
-                              placeholder="Masukan Kota"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="provinsi">Provinsi</label>
-                            <input
-                              type="text"
-                              name="provinsi"
-                              id="provinsi"
-                              class="form-control"
-                              placeholder="Masukan Provinsi"
-                              required />
-                          </div>
-                        </div>
-
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <label for="kode_pos">Kode Pos</label>
-                            <input
-                              type="text"
-                              name="kode_pos"
-                              id="kode_pos"
-                              class="form-control"
-                              placeholder="Masukan Kode Pos"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="kewarganegaraan">Kewarganegaraan</label>
-                        <input
-                          type="text"
-                          name="kewarganegaraan"
-                          id="kewarganegaraan"
-                          class="form-control"
-                          placeholder="Masukan Kewarganegaraan"
-                          required />
-                      </div>
-                    </div>
-                    <!-- /step 2-->
-
-                    <div class="step">
-                      <h3 class="main_question">
-                        <strong>3 of 4</strong>Data Pribadi
-                      </h3>
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="nomor_hp">No. HP (WhatsApp)</label>
-                            <input
-                              type="text"
-                              name="nomor_hp"
-                              id="nomor_hp"
-                              class="form-control"
-                              placeholder="Masukan No HP"
-                              required />
-                          </div>
-                        </div>
-
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <label for="email">Email</label>
-                            <input
-                              type="text"
-                              name="email"
-                              id="email"
-                              class="form-control"
-                              placeholder="Masukan Email"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-6 pe-2">
-                          <div class="form-group">
-                            <label for="status_pernikahan"
-                              >Status Perkawinan</label
-                            >
-                            <input
-                              type="text"
-                              name="status_pernikahan"
-                              id="status_pernikahan"
-                              class="form-control"
-                              placeholder="Masukan Status Perkawinan"
-                              required />
-                          </div>
-                        </div>
-
-                        <div class="col-6 ps-2">
-                          <div class="form-group">
-                            <label for="agama">Agama</label>
-                            <input
-                              type="text"
-                              name="agama"
-                              id="agama"
-                              class="form-control"
-                              placeholder="Masukan Agama"
-                              required />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="pekerjaan">Pekerjaan</label>
-                        <input
-                          type="text"
-                          name="pekerjaan"
-                          id="pekerjaan"
-                          class="form-control"
-                          placeholder="Masukan Pekerjaan"
-                          required />
-                      </div>
-
-                      <div class="form-group">
-                        <label for="alamat">Alamat jika tidak sesuai KTP</label>
-                        <textarea
-                          name="alamat"
-                          id="alamat"
-                          class="form-control"
-                          style="height: 8rem"
-                          placeholder="Masukan Alamat"></textarea>
-                      </div>
-                    </div>
-                    <!-- /step 3-->
-
-                    <div class="submit step">
-                      <h3 class="main_question">
-                        <strong>4 of 4</strong>Data Pribadi
-                      </h3>
-                      <div class="form-group">
-                        <label for="ktp">Foto KTP</label>
-                        <input
-                          type="file"
-                          name="ktp"
-                          id="ktp"
-                          class="form-control px-4"
-                          style="
-                            height: auto !important;
-                            padding-top: 15px !important;
-                            padding-bottom: 15px !important;
-                          "
-                          onchange="convertBase64ktp()"
-                          accept="image/jpeg, image/jpg, image/png"
-                          required />
-                      </div>
-                      <div class="form-group">
-                        <label for="alamat">foto pribadi</label>
-                        <div class="">
-                          <img
-                            src="/assets/images/selfie.JPG"
-                            alt="selfie"
-                            width="150"
-                            height="150"
-                            class="d-block mx-auto mb-3"
-                            style="border-radius: 10%" />
-                          <input
-                            type="file"
-                            name="selfie"
-                            id="selfie"
-                            class="form-control form-control px-4"
-                            onchange="convertBase64selfie()"
-                            style="
-                              height: auto !important;
-                              padding-top: 15px !important;
-                              padding-bottom: 15px !important;
-                            "
-                            accept="image/jpeg, image/png, image/jpg"
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="nik">NIK</label>
+                          <input type="text" name="nik" id="nik" class="form-control" placeholder="Masukan Nik"
                             required />
                         </div>
                       </div>
                     </div>
-                    <!-- /step 4-->
-                  </div>
-                  <!-- /middle-wizard -->
 
-                  <div id="bottom-wizard">
-                    <button type="button" name="backward" class="backward">
-                      Kembali
-                    </button>
-                    <button type="button" name="forward" class="forward">
-                      Selanjutnya
-                    </button>
-                    <button
-                      type="button"
-                      name="process"
-                      class="submit"
-                      onclick="saveData()">
-                      Simpan
-                    </button>
+                    <div class="form-group">
+                      <label for="nama_lengkap">Nama Lengkap</label>
+                      <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control"
+                        placeholder="Masukan Nama Lengkap" required />
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="tempat_lahir">Tempat</label>
+                          <input type="text" class="form-control w-100" name="tempat_lahir" id="tempat_lahir"
+                            placeholder="Masukan Tempat Lahir" required />
+                        </div>
+                      </div>
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <input type="date" class="form-control w-100" name="tanggal_lahir" id="tanggal_lahir"
+                            placeholder="Masukan Tanggal Lahir" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label for="">Jenis Kelamin</label>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="d-flex justify-content-start align-items-center gap-2">
+                            <input type="radio" name="jenis_kelamin" class="form-check" value="laki-laki" checked />
+                            Laki Laki
+                          </div>
+                          <div class="d-flex justify-content-start align-items-center gap-2">
+                            <input type="radio" name="jenis_kelamin" class="form-check" value="perempuan" checked />
+                            Perempuan
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <!-- /bottom-wizard -->
-                </form>
-              </div>
-              <!-- /Wizard container -->
+                  <!-- /step 1-->
+
+                  <div class="step">
+                    <h3 class="main_question mb-4">
+                      <strong>2 of 4</strong>Data Pribadi
+                    </h3>
+
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="rt_rw">RT / RW</label>
+                          <input type="text" name="rt_rw" id="rt_rw" class="form-control" placeholder="Masukan Rt & Rw"
+                            required />
+                        </div>
+                      </div>
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <label for="kelurahan">Kelurahan / Desa</label>
+                          <input type="text" name="kelurahan" id="kelurahan" class="form-control"
+                            placeholder="Masukan Keluarahan" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="kecamatan">Kecamatan</label>
+                          <input type="text" name="kecamatan" id="kecamatan" class="form-control"
+                            placeholder="Masukan Kecamatan" required />
+                        </div>
+                      </div>
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <label for="kota">Kab/Kota</label>
+                          <input type="text" name="kota" id="kota" class="form-control" placeholder="Masukan Kota"
+                            required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="provinsi">Provinsi</label>
+                          <input type="text" name="provinsi" id="provinsi" class="form-control"
+                            placeholder="Masukan Provinsi" required />
+                        </div>
+                      </div>
+
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <label for="kode_pos">Kode Pos</label>
+                          <input type="text" name="kode_pos" id="kode_pos" class="form-control"
+                            placeholder="Masukan Kode Pos" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="kewarganegaraan">Kewarganegaraan</label>
+                      <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control"
+                        placeholder="Masukan Kewarganegaraan" required />
+                    </div>
+                  </div>
+                  <!-- /step 2-->
+
+                  <div class="step">
+                    <h3 class="main_question">
+                      <strong>3 of 4</strong>Data Pribadi
+                    </h3>
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="nomor_hp">No. HP (WhatsApp)</label>
+                          <input type="text" name="nomor_hp" id="nomor_hp" class="form-control"
+                            placeholder="Masukan No HP" required />
+                        </div>
+                      </div>
+
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="text" name="email" id="email" class="form-control" placeholder="Masukan Email"
+                            required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6 pe-2">
+                        <div class="form-group">
+                          <label for="status_pernikahan">Status Perkawinan</label>
+                          <input type="text" name="status_pernikahan" id="status_pernikahan" class="form-control"
+                            placeholder="Masukan Status Perkawinan" required />
+                        </div>
+                      </div>
+
+                      <div class="col-6 ps-2">
+                        <div class="form-group">
+                          <label for="agama">Agama</label>
+                          <input type="text" name="agama" id="agama" class="form-control" placeholder="Masukan Agama"
+                            required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="pekerjaan">Pekerjaan</label>
+                      <input type="text" name="pekerjaan" id="pekerjaan" class="form-control"
+                        placeholder="Masukan Pekerjaan" required />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="alamat">Alamat jika tidak sesuai KTP</label>
+                      <textarea name="alamat" id="alamat" class="form-control" style="height: 8rem"
+                        placeholder="Masukan Alamat"></textarea>
+                    </div>
+                  </div>
+                  <!-- /step 3-->
+
+                  <div class="submit step">
+                    <h3 class="main_question">
+                      <strong>4 of 4</strong>Data Pribadi
+                    </h3>
+                    <div class="form-group">
+                      <label for="ktp">Foto KTP</label>
+                      <input type="file" name="ktp" id="ktp" class="form-control px-4" style="
+                            height: auto !important;
+                            padding-top: 15px !important;
+                            padding-bottom: 15px !important;
+                          " onchange="convertBase64ktp()" accept="image/jpeg, image/jpg, image/png" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="alamat">foto pribadi</label>
+                      <div class="">
+                        <img src="/assets/images/selfie.JPG" alt="selfie" width="150" height="150"
+                          class="d-block mx-auto mb-3" style="border-radius: 10%" />
+                        <input type="file" name="selfie" id="selfie" class="form-control form-control px-4"
+                          onchange="convertBase64selfie()" style="
+                              height: auto !important;
+                              padding-top: 15px !important;
+                              padding-bottom: 15px !important;
+                            " accept="image/jpeg, image/png, image/jpg" required />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /step 4-->
+                </div>
+                <!-- /middle-wizard -->
+
+                <div id="bottom-wizard">
+                  <button type="button" name="backward" class="backward">
+                    Kembali
+                  </button>
+                  <button type="button" name="forward" class="forward">
+                    Selanjutnya
+                  </button>
+                  <button type="button" name="process" id="button-submit" class="submit" onclick="saveData()">
+                    Simpan
+                  </button>
+                </div>
+                <!-- /bottom-wizard -->
+              </form>
             </div>
-            <!-- /col -->
+            <!-- /Wizard container -->
           </div>
+          <!-- /col -->
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container_centering -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">©2024 RKI APP</div>
         </div>
         <!-- /row -->
       </div>
-      <!-- /container_centering -->
-      <footer>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">©2024 RKI APP</div>
-          </div>
-          <!-- /row -->
-        </div>
-        <!-- /container-fluid -->
-      </footer>
-      <!-- /footer -->
-    </div>
-    <!-- /wrapper_centering -->
+      <!-- /container-fluid -->
+    </footer>
+    <!-- /footer -->
+  </div>
+  <!-- /wrapper_centering -->
 
-    <!-- COMMON SCRIPTS -->
-    <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
-    <script src="/registrasi/js/common_scripts.min.js"></script>
-    <script src="/registrasi/js/functions.js"></script>
+  <!-- COMMON SCRIPTS -->
+  <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
+  <script src="/registrasi/js/common_scripts.min.js"></script>
+  <script src="/registrasi/js/functions.js"></script>
 
-    <!-- Wizard script -->
-    <script src="/registrasi/js/survey_func.js"></script>
+  <!-- Wizard script -->
+  <script src="/registrasi/js/survey_func.js"></script>
 
-    <script>
-      let baseStringSelfie;
-      let baseStringKtp;
-      let type1;
-      let type2;
-      let slug_url;
-      window.addEventListener("load", () => {
-        const url = new URL(window.location.href);
-        const path = url.pathname.split("/");
-        document.getElementById("roles").value = path[3];
-        slug_url = path[3];
-      });
+  <script>
+    let baseStringSelfie;
+    let baseStringKtp;
+    let type1;
+    let type2;
+    let slug_url;
+    window.addEventListener("load", () => {
+      const url = new URL(window.location.href);
+      const path = url.pathname.split("/");
+      document.getElementById("roles").value = path[3];
+      console.log(path[3])
+      slug_url = path[3];
+    });
 
-      function convertBase64selfie() {
-        var fl = document.getElementById("selfie").files[0];
-        type1 = fl.type.split("/")[1];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-          baseStringSelfie = reader.result;
-        };
-        reader.readAsDataURL(fl);
+    function convertBase64selfie() {
+      var fl = document.getElementById("selfie").files[0];
+      type1 = fl.type.split("/")[1];
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        baseStringSelfie = reader.result;
+      };
+      reader.readAsDataURL(fl);
+    }
+
+    function convertBase64ktp() {
+      var flt = document.getElementById("ktp").files[0];
+      type2 = flt.type.split("/")[1];
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        baseStringKtp = reader.result;
+      };
+      reader.readAsDataURL(flt);
+    }
+
+    async function saveData() {
+      var nis = document.getElementById("nis").value;
+      var nik = document.getElementById("nik").value;
+      var nama_lengkap = document.getElementById("nama_lengkap").value;
+      var tempat_lahir = document.getElementById("tempat_lahir").value;
+      var tanggal_lahir = document.getElementById("tanggal_lahir").value;
+      var jenis_kelamin = document.querySelector(
+        'input[name="jenis_kelamin"]:checked'
+      ).value;
+      var rt_rw = document.getElementById("rt_rw").value;
+      var kelurahan = document.getElementById("kelurahan").value;
+      var kecamatan = document.getElementById("kecamatan").value;
+      var kota = document.getElementById("kota").value;
+      var provinsi = document.getElementById("provinsi").value;
+      var kode_pos = document.getElementById("kode_pos").value;
+      var agama = document.getElementById("agama").value;
+      var status_pernikahan =
+        document.getElementById("status_pernikahan").value;
+      var pekerjaan = document.getElementById("pekerjaan").value;
+      var kewarganegaraan = document.getElementById("kewarganegaraan").value;
+      var alamat = document.getElementById("alamat").value;
+      var nomor_hp = document.getElementById("nomor_hp").value;
+      var email = document.getElementById("email").value;
+      var koperasi_name = document.getElementById("koperasi_name").value;
+      var image_selfie = baseStringSelfie;
+      var image_ktp = baseStringKtp;
+
+      var validselfie = document.getElementById("selfie").files[0];
+      var validktp = document.getElementById("ktp").files[0];
+      document.getElementById("button-submit").disabled = true
+      if (nis == "" || validselfie == "" || validktp == "") {
+        alert("Pastikan Data Terisi Semua !");
+        return false;
       }
-
-      function convertBase64ktp() {
-        var flt = document.getElementById("ktp").files[0];
-        type2 = flt.type.split("/")[1];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-          baseStringKtp = reader.result;
-        };
-        reader.readAsDataURL(flt);
-      }
-
-      function saveData() {
-        var nis = document.getElementById("nis").value;
-        var nik = document.getElementById("nik").value;
-        var nama_lengkap = document.getElementById("nama_lengkap").value;
-        var tempat_lahir = document.getElementById("tempat_lahir").value;
-        var tanggal_lahir = document.getElementById("tanggal_lahir").value;
-        var jenis_kelamin = document.querySelector(
-          'input[name="jenis_kelamin"]:checked'
-        ).value;
-        var rt_rw = document.getElementById("rt_rw").value;
-        var kelurahan = document.getElementById("kelurahan").value;
-        var kecamatan = document.getElementById("kecamatan").value;
-        var kota = document.getElementById("kota").value;
-        var provinsi = document.getElementById("provinsi").value;
-        var kode_pos = document.getElementById("kode_pos").value;
-        var agama = document.getElementById("agama").value;
-        var status_pernikahan =
-          document.getElementById("status_pernikahan").value;
-        var pekerjaan = document.getElementById("pekerjaan").value;
-        var kewarganegaraan = document.getElementById("kewarganegaraan").value;
-        var alamat = document.getElementById("alamat").value;
-        var nomor_hp = document.getElementById("nomor_hp").value;
-        var email = document.getElementById("email").value;
-        var koperasi_name = document.getElementById("koperasi_name").value;
-        var image_selfie = baseStringSelfie;
-        var image_ktp = baseStringKtp;
-
-        var validselfie = document.getElementById("selfie").files[0];
-        var validktp = document.getElementById("ktp").files[0];
-
-        if (nis == "" || validselfie == "" || validktp == "") {
-          alert("Pastikan Data Terisi Semua !");
-          return false;
-        }
-
-        var jsondata = {
-          slug_url,
-          nis: nis,
-          nik: nik,
-          nama_lengkap: nama_lengkap,
-          tempat_lahir: tempat_lahir,
-          tanggal_lahir: tanggal_lahir,
-          jenis_kelamin: jenis_kelamin,
-          rt_rw: rt_rw,
-          kelurahan: kelurahan,
-          kecamatan: kecamatan,
-          kota: kota,
-          provinsi: provinsi,
-          kode_pos: kode_pos,
-          agama: agama,
-          status_pernikahan: status_pernikahan,
-          pekerjaan: pekerjaan,
-          kewarganegaraan: kewarganegaraan,
-          alamat: alamat,
-          nomor_hp: nomor_hp,
-          email: email,
-          selfie: image_selfie,
-          ktp: image_ktp,
-          koperasi_name: koperasi_name,
-          type1: type1,
-          type2: type2,
-        };
-        fetch("/register/insert", {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(jsondata),
-        })
-          .then((response) => response.json())
-          .then((data) => {
+      console.log(slug_url)
+      var jsondata = {
+        slug_url,
+        nis: nis,
+        nik: nik,
+        nama_lengkap: nama_lengkap,
+        tempat_lahir: tempat_lahir,
+        tanggal_lahir: tanggal_lahir,
+        jenis_kelamin: jenis_kelamin,
+        rt_rw: rt_rw,
+        kelurahan: kelurahan,
+        kecamatan: kecamatan,
+        kota: kota,
+        provinsi: provinsi,
+        kode_pos: kode_pos,
+        agama: agama,
+        status_pernikahan: status_pernikahan,
+        pekerjaan: pekerjaan,
+        kewarganegaraan: kewarganegaraan,
+        alamat: alamat,
+        nomor_hp: nomor_hp,
+        email: email,
+        selfie: image_selfie,
+        ktp: image_ktp,
+        koperasi_name: koperasi_name,
+        type1: type1,
+        type2: type2,
+      };
+      await fetch("/register/insert", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(jsondata),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("button-submit").disabled = false
+          swal({
+            title: "Status Registrasi",
+            text: "Input Data " + data?.message + "",
+            icon: "success",
+            buttons: true,
+          }).then((willOut) => {
+            if (willOut) {
+              window.location.replace("/registrasi/anggota/" + roles);
+            } else {
+              console.log("error");
+            }
+          });
+        }).catch(
+          (error) => {
             swal({
               title: "Status Registrasi",
-              text: "Input Data " + data?.message + "",
+              text: err.message,
               icon: "info",
               buttons: true,
             }).then((willOut) => {
+              document.getElementById("button-submit").disabled = false
               if (willOut) {
                 window.location.replace("/registrasi/anggota/" + roles);
               } else {
                 console.log("error");
               }
-            });
-          });
-      }
-    </script>
-  </body>
+            })
+          }
+        );
+    }
+  </script>
+</body>
+
 </html>
