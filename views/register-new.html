@@ -561,7 +561,6 @@
         var image_ktp = baseStringKtp;
         var validselfie = document.getElementById("selfie").files[0];
         var validktp = document.getElementById("ktp").files[0];
-        document.getElementById("button-submit").disabled = true;
         if (no_anggota == "" || validselfie == "" || validktp == "") {
           alert("Pastikan Data Terisi Semua !");
           return false;
@@ -594,6 +593,16 @@
           type2: type2,
           roles,
         };
+        // Show loading dialog
+        swal({
+          title: "Please wait",
+          text: "Submitting data...",
+          icon: "/assets/images/loading.gif",
+          button: false,
+          closeOnClickOutside: false,
+          closeOnEsc: false,
+          className: "swal-loading",
+        });
         await fetch("/register/insert", {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -605,8 +614,8 @@
           .then((response) => response.json())
           .then((data) => {
             const { message } = data;
+            swal.close();
             if (message == "success") {
-              document.getElementById("button-submit").disabled = false;
               swal({
                 title: "Status Registrasi",
                 text: "Input Data " + data?.message + "",
@@ -635,7 +644,7 @@
             }
           })
           .catch((error) => {
-            document.getElementById("button-submit").disabled = false;
+            swal.close();
             swal({
               title: "Status Registrasi",
               text: error?.message,

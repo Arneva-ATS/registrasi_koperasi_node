@@ -1,265 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Registrasi Koperasi" />
+    <meta name="author" content="RKIAPP" />
+    <title>Registrasi Koperasi</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Registrasi Koperasi" />
-  <meta name="author" content="RKIAPP" />
-  <title>Registrasi Koperasi</title>
+    <!-- Favicons-->
+    <link
+      rel="shortcut icon"
+      href="/assets/images/rki_icon.png"
+      type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      href="/registrasi/img/apple-touch-icon-57x57-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="72x72"
+      href="/registrasi/img/apple-touch-icon-72x72-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="114x114"
+      href="/registrasi/img/apple-touch-icon-114x114-precomposed.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/x-icon"
+      sizes="144x144"
+      href="/registrasi/img/apple-touch-icon-144x144-precomposed.png" />
 
-  <!-- Favicons-->
-  <link rel="shortcut icon" href="/assets/images/rki_icon.png" type="image/x-icon" />
-  <link rel="apple-touch-icon" type="image/x-icon" href="/registrasi/img/apple-touch-icon-57x57-precomposed.png" />
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
-    href="/registrasi/img/apple-touch-icon-72x72-precomposed.png" />
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
-    href="/registrasi/img/apple-touch-icon-114x114-precomposed.png" />
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
-    href="/registrasi/img/apple-touch-icon-144x144-precomposed.png" />
+    <!-- GOOGLE WEB FONT -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat|Poppins:300,400,500,600,700&display=swap"
+      rel="stylesheet" />
 
-  <!-- GOOGLE WEB FONT -->
-  <link href="https://fonts.googleapis.com/css?family=Caveat|Poppins:300,400,500,600,700&display=swap"
-    rel="stylesheet" />
+    <!-- BASE CSS -->
+    <link href="/registrasi/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/registrasi/css/style.css" rel="stylesheet" />
+    <link href="/registrasi/css/vendors.css" rel="stylesheet" />
 
-  <!-- BASE CSS -->
-  <link href="/registrasi/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/registrasi/css/style.css" rel="stylesheet" />
-  <link href="/registrasi/css/vendors.css" rel="stylesheet" />
+    <!-- YOUR CUSTOM CSS -->
+    <link href="/registrasi/css/custom.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <!-- YOUR CUSTOM CSS -->
-  <link href="/registrasi/css/custom.css" rel="stylesheet" />
-</head>
+    <style>
+      /* Loading Spinner CSS */
+      .swal-loading .swal-title {
+        font-size: 16px;
+      }
+      .swal-loading .swal-icon--custom {
+        animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
 
-<body class="style_2">
-  <div id="preloader">
-    <div data-loader="circle-side"></div>
-  </div>
-  <!-- /Preload -->
-
-  <div id="loader_form">
-    <div data-loader="circle-side-2"></div>
-  </div>
-  <!-- /loader_form -->
-
-  <header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-5">
-          <a href="index.html"><img src="/assets/images/rki.png" alt="" width="100" height="30" /></a>
-        </div>
-      </div>
-      <!-- /row -->
+  <body class="style_2">
+    <div id="preloader">
+      <div data-loader="circle-side"></div>
     </div>
-    <!-- /container -->
-  </header>
-  <!-- /header -->
+    <!-- /Preload -->
 
-  <div class="wrapper_centering">
-    <div class="container_centering">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-xl-6 col-lg-6 d-flex align-items-center">
-            <div class="main_title_1">
-              <h3 class="fs-4" id="koperasi"></h3>
-              <h3>REGISTRASI <span id="tingkatan_koperasi"></span></h3>
-              <p id="message_tingkatan"></p>
-              <p><em>- Rumah Kesejahteraan Indonesia</em></p>
-            </div>
+    <div id="loader_form">
+      <div data-loader="circle-side-2"></div>
+    </div>
+    <!-- /loader_form -->
+
+    <header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-5">
+            <a href="index.html"
+              ><img src="/assets/images/rki.png" alt="" width="100" height="30"
+            /></a>
           </div>
-          <!-- /col -->
-          <div class="col-xl-5 col-lg-5">
-            <div id="wizard_container">
-              <div id="top-wizard">
-                <div id="progressbar"></div>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper_centering">
+      <div class="container_centering">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-xl-6 col-lg-6 d-flex align-items-center">
+              <div class="main_title_1">
+                <h3 class="fs-4" id="koperasi"></h3>
+                <h3>REGISTRASI <span id="tingkatan_koperasi"></span></h3>
+                <p id="message_tingkatan"></p>
+                <p><em>- Rumah Kesejahteraan Indonesia</em></p>
               </div>
-              <!-- /top-wizard -->
-              <form id="wrapped" enctype="multipart/form-data">
-                <input id="website" name="website" type="text" value="" />
-                <!-- Leave for security protection, read docs for details -->
-                <div id="middle-wizard">
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>1 of 12</strong>Data Koperasi
-                    </h3>
-                    <div class="form-group">
-                      <label for="nama_koperasi">Nama Koperasi</label>
-                      <input type="text" name="nama_koperasi" id="nama_koperasi" class="form-control"
-                        placeholder="Masukan Nama Koperasi" />
-                    </div>
-                    <div class="form-group">
-                      <label for="singkatan_koperasi">Nama Singkat Koperasi</label>
-                      <input type="text" name="singkatan_koperasi" id="singkatan_koperasi" class="form-control"
-                        placeholder="Masukan Singkatan Koperasi" />
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Email Koperasi</label>
-                      <input type="text" name="email" id="email" class="form-control"
-                        placeholder="Masukan Nama Lengkap" />
-                    </div>
+            </div>
+            <!-- /col -->
+            <div class="col-xl-5 col-lg-5">
+              <div id="wizard_container">
+                <div id="top-wizard">
+                  <div id="progressbar"></div>
+                </div>
+                <!-- /top-wizard -->
+                <form id="wrapped" enctype="multipart/form-data">
+                  <input id="website" name="website" type="text" value="" />
+                  <!-- Leave for security protection, read docs for details -->
+                  <div id="middle-wizard">
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>1 of 12</strong>Data Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_koperasi">Nama Koperasi</label>
+                        <input
+                          type="text"
+                          name="nama_koperasi"
+                          id="nama_koperasi"
+                          class="form-control"
+                          placeholder="Masukan Nama Koperasi" />
+                      </div>
+                      <div class="form-group">
+                        <label for="singkatan_koperasi"
+                          >Nama Singkat Koperasi</label
+                        >
+                        <input
+                          type="text"
+                          name="singkatan_koperasi"
+                          id="singkatan_koperasi"
+                          class="form-control"
+                          placeholder="Masukan Singkatan Koperasi" />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Koperasi</label>
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Masukan Nama Lengkap" />
+                      </div>
 
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_telp">No Telp</label>
-                          <input type="text" class="form-control w-100" name="no_telp" id="no_telp"
-                            placeholder="no_telp" />
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_telp">No Telp</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_telp"
+                              id="no_telp"
+                              placeholder="no_telp" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_wa">No WA</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_wa"
+                              id="no_wa"
+                              placeholder="no_wa" />
+                          </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_wa">No WA</label>
-                          <input type="text" class="form-control w-100" name="no_wa" id="no_wa" placeholder="no_wa" />
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_fax">No Fax</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_fax"
+                              id="no_fax"
+                              placeholder="no_fax" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="web">Website (Opsional)</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="web"
+                              id="web"
+                              placeholder="web" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_fax">No Fax</label>
-                          <input type="text" class="form-control w-100" name="no_fax" id="no_fax"
-                            placeholder="no_fax" />
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="web">Website (Opsional)</label>
-                          <input type="text" class="form-control w-100" name="web" id="web" placeholder="web" />
-                        </div>
+                      <div class="form-group">
+                        <label for="bidang_koperasi">Bidang Koperasi</label>
+                        <input
+                          type="text"
+                          name="bidang_koperasi"
+                          id="bidang_koperasi"
+                          class="form-control"
+                          placeholder="Masukan Bidang Koperasi" />
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="bidang_koperasi">Bidang Koperasi</label>
-                      <input type="text" name="bidang_koperasi" id="bidang_koperasi" class="form-control"
-                        placeholder="Masukan Bidang Koperasi" />
-                    </div>
-                  </div>
-                  <!-- /step 1-->
+                    <!-- /step 1-->
 
-                  <div class="step">
-                    <h3 class="main_question mb-4">
-                      <strong>2 of 12</strong>Alamat Koperasi
-                    </h3>
-                    <div class="form-group">
-                      <label for="alamat">Alamat Lengkap</label>
-                      <textarea name="alamat" id="alamat" class="form-control" style="height: 120px"
-                        onkeyup="getVals(this, 'alamat');"></textarea>
-                    </div>
-                    <!-- /review_block-->
-                    <div class="form-group">
-                      <label for="provinsi">Provinsi</label>
-                      <input type="text" name="provinsi" id="provinsi" class="form-control"
-                        placeholder="Masukan Provinsi" />
-                    </div>
-                    <div class="form-group">
-                      <label for="kabupaten">Kabupaten/Kota</label>
-                      <input type="text" name="kabupaten" id="kabupaten" class="form-control"
-                        placeholder="Masukan Kabupaten" />
-                    </div>
-                    <div class="form-group">
-                      <label for="kecamatan">Kecamatan</label>
-                      <input type="text" name="kecamatan" id="kecamatan" class="form-control"
-                        placeholder="Masukan kecamatan" />
-                    </div>
-                    <div class="form-group">
-                      <label for="kelurahan">Kelurahan/Desa</label>
-                      <input type="text" name="kelurahan" id="kelurahan" class="form-control"
-                        placeholder="Masukan Kelurahan" />
-                    </div>
-                    <div class="form-group">
-                      <label for="kode_pos">Kode Pos</label>
-                      <input type="text" name="kode_pos" id="kode_pos" class="form-control"
-                        placeholder="Masukan kode_pos" />
-                    </div>
-                  </div>
-                  <!-- /step 2-->
-
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>3 of 12</strong>Pengurus Koperasi
-                    </h3>
-                    <div class="form-group">
-                      <label for="nama_pengurus">Nama Pengurus</label>
-                      <input type="text" name="nama_pengurus" id="nama_pengurus" class="form-control"
-                        placeholder="Masukan nama_pengurus" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_ktp_pengurus">No KTP Pengurus</label>
-                      <input type="text" name="no_ktp_pengurus" id="no_ktp_pengurus" class="form-control"
-                        placeholder="Masukan no_ktp_pengurus" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_anggota_pengurus">No Anggota</label>
-                      <input type="text" name="no_anggota_pengurus" id="no_anggota_pengurus" class="form-control"
-                        placeholder="Masukan no_anggota" />
-                    </div>
-                    <div class="form-group">
-                      <label for="jabatan_pengurus">Jabatan Pengurus</label>
-                      <input type="text" name="jabatan_pengurus" id="jabatan_pengurus" class="form-control"
-                        placeholder="Masukan Jabatan" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_wa_pengurus">No Wa</label>
-                      <input type="text" name="no_wa_pengurus" id="no_wa_pengurus" class="form-control"
-                        placeholder="Masukan no_wa_pengurus" />
-                    </div>
-                  </div>
-                  <!-- /step 3-->
-
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>4 of 12</strong>Pengawas Koperasi
-                    </h3>
-                    <div class="form-group">
-                      <label for="nama_pengawas">Nama Pengawas</label>
-                      <input type="text" name="nama_pengawas" id="nama_pengawas" class="form-control"
-                        placeholder="Masukan Nama Pengawas" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_ktp_pengawas">No KTP Pengawas</label>
-                      <input type="text" name="no_ktp_pengawas" id="no_ktp_pengawas" class="form-control"
-                        placeholder="Masukan no_ktp_pengawas" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_anggota_pengawas">No Anggota</label>
-                      <input type="text" name="no_anggota_pengawas" id="no_anggota_pengawas" class="form-control"
-                        placeholder="Masukan Nomor Anggota" />
-                    </div>
-                    <div class="form-group">
-                      <label for="jabatan_pengawas">Jabatan Pengawas</label>
-                      <input type="text" name="jabatan_pengawas" id="jabatan_pengawas" class="form-control"
-                        placeholder="Masukan Jabatan" />
-                    </div>
-                    <div class="form-group">
-                      <label for="no_wa_pengawas">No Wa</label>
-                      <input type="text" name="no_wa_pengawas" id="no_wa_pengawas" class="form-control"
-                        placeholder="Masukan Nomor WA" />
-                    </div>
-                  </div>
-                  <!-- /step 4-->
-
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>5 of 12</strong>Akta Pendirian
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_akta">Nomor Akta</label>
-                          <input type="text" class="form-control w-100" name="no_akta" id="no_akta"
-                            placeholder="Masukan Nomor" />
-                        </div>
+                    <div class="step">
+                      <h3 class="main_question mb-4">
+                        <strong>2 of 12</strong>Alamat Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea
+                          name="alamat"
+                          id="alamat"
+                          class="form-control"
+                          style="height: 120px"
+                          onkeyup="getVals(this, 'alamat');"></textarea>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="tanggal_akta" id="tanggal_akta"
-                            placeholder="Masukan Tanggal Akta" />
-                        </div>
+                      <!-- /review_block-->
+                      <div class="form-group">
+                        <label for="provinsi">Provinsi</label>
+                        <input
+                          type="text"
+                          name="provinsi"
+                          id="provinsi"
+                          class="form-control"
+                          placeholder="Masukan Provinsi" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kabupaten">Kabupaten/Kota</label>
+                        <input
+                          type="text"
+                          name="kabupaten"
+                          id="kabupaten"
+                          class="form-control"
+                          placeholder="Masukan Kabupaten" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kecamatan">Kecamatan</label>
+                        <input
+                          type="text"
+                          name="kecamatan"
+                          id="kecamatan"
+                          class="form-control"
+                          placeholder="Masukan kecamatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kelurahan">Kelurahan/Desa</label>
+                        <input
+                          type="text"
+                          name="kelurahan"
+                          id="kelurahan"
+                          class="form-control"
+                          placeholder="Masukan Kelurahan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="kode_pos">Kode Pos</label>
+                        <input
+                          type="text"
+                          name="kode_pos"
+                          id="kode_pos"
+                          class="form-control"
+                          placeholder="Masukan kode_pos" />
                       </div>
                     </div>
+                    <!-- /step 2-->
 
-                    <!-- /row -->
-                    <!-- <div class="form-group terms">
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>3 of 12</strong>Pengurus Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_pengurus">Nama Pengurus</label>
+                        <input
+                          type="text"
+                          name="nama_pengurus"
+                          id="nama_pengurus"
+                          class="form-control"
+                          placeholder="Masukan nama_pengurus" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_ktp_pengurus">No KTP Pengurus</label>
+                        <input
+                          type="text"
+                          name="no_ktp_pengurus"
+                          id="no_ktp_pengurus"
+                          class="form-control"
+                          placeholder="Masukan no_ktp_pengurus" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_anggota_pengurus">No Anggota</label>
+                        <input
+                          type="text"
+                          name="no_anggota_pengurus"
+                          id="no_anggota_pengurus"
+                          class="form-control"
+                          placeholder="Masukan no_anggota" />
+                      </div>
+                      <div class="form-group">
+                        <label for="jabatan_pengurus">Jabatan Pengurus</label>
+                        <input
+                          type="text"
+                          name="jabatan_pengurus"
+                          id="jabatan_pengurus"
+                          class="form-control"
+                          placeholder="Masukan Jabatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_wa_pengurus">No Wa</label>
+                        <input
+                          type="text"
+                          name="no_wa_pengurus"
+                          id="no_wa_pengurus"
+                          class="form-control"
+                          placeholder="Masukan no_wa_pengurus" />
+                      </div>
+                    </div>
+                    <!-- /step 3-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>4 of 12</strong>Pengawas Koperasi
+                      </h3>
+                      <div class="form-group">
+                        <label for="nama_pengawas">Nama Pengawas</label>
+                        <input
+                          type="text"
+                          name="nama_pengawas"
+                          id="nama_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nama Pengawas" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_ktp_pengawas">No KTP Pengawas</label>
+                        <input
+                          type="text"
+                          name="no_ktp_pengawas"
+                          id="no_ktp_pengawas"
+                          class="form-control"
+                          placeholder="Masukan no_ktp_pengawas" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_anggota_pengawas">No Anggota</label>
+                        <input
+                          type="text"
+                          name="no_anggota_pengawas"
+                          id="no_anggota_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nomor Anggota" />
+                      </div>
+                      <div class="form-group">
+                        <label for="jabatan_pengawas">Jabatan Pengawas</label>
+                        <input
+                          type="text"
+                          name="jabatan_pengawas"
+                          id="jabatan_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Jabatan" />
+                      </div>
+                      <div class="form-group">
+                        <label for="no_wa_pengawas">No Wa</label>
+                        <input
+                          type="text"
+                          name="no_wa_pengawas"
+                          id="no_wa_pengawas"
+                          class="form-control"
+                          placeholder="Masukan Nomor WA" />
+                      </div>
+                    </div>
+                    <!-- /step 4-->
+
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>5 of 12</strong>Akta Pendirian
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_akta">Nomor Akta</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_akta"
+                              id="no_akta"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_akta"
+                              id="tanggal_akta"
+                              placeholder="Masukan Tanggal Akta" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- /row -->
+                      <!-- <div class="form-group terms">
                         <label class="container_check"
                           >Please accept our
                           <a
@@ -277,467 +418,655 @@
                           <span class="checkmark"></span>
                         </label>
                       </div> -->
-                  </div>
-                  <!-- /step 5-->
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>6 of 12</strong>SK. Kemenkumham
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_skk">Nomor SK</label>
-                          <input type="text" class="form-control w-100" name="no_skk" id="no_skk"
-                            placeholder="Masukan Nomor" />
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="tanggal_skk" id="tanggal_skk"
-                            placeholder="Masukan Tanggal SK" />
-                        </div>
-                      </div>
                     </div>
+                    <!-- /step 5-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>6 of 12</strong>SK. Kemenkumham
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_skk">Nomor SK</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_skk"
+                              id="no_skk"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_skk"
+                              id="tanggal_skk"
+                              placeholder="Masukan Tanggal SK" />
+                          </div>
+                        </div>
+                      </div>
 
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 6-->
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>7 of 12</strong> Surat Pengesahan Koperasi dari
-                      Kemenkop & UKM
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_spkk">Nomor Surat Pengesahan</label>
-                          <input type="text" class="form-control w-100" name="no_spkk" id="no_spkk"
-                            placeholder="Masukan Nomor" />
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="tanggal_spkk" id="tanggal_spkk"
-                            placeholder="Masukan Tanggal Surat Pengesahan" />
-                        </div>
-                      </div>
+                      <!-- /row -->
                     </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 7-->
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>8 of 12</strong> Akta Perubahan
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_akta_perubahan">Nomor Akta</label>
-                          <input type="text" class="form-control w-100" name="no_akta_perubahan" id="no_akta_perubahan"
-                            placeholder="Masukan Nomor" />
+                    <!-- /step 6-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>7 of 12</strong> Surat Pengesahan Koperasi dari
+                        Kemenkop & UKM
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_spkk">Nomor Surat Pengesahan</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_spkk"
+                              id="no_spkk"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="tanggal_spkk"
+                              id="tanggal_spkk"
+                              placeholder="Masukan Tanggal Surat Pengesahan" />
+                          </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="masa_berlaku_perubahan"
-                            id="masa_berlaku_perubahan" placeholder="Masukan Masa Berlaku" />
-                        </div>
-                      </div>
+                      <!-- /row -->
                     </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 8-->
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>9 of 12</strong>SIUP/NIB
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_siup">Nomor SIUP/NIB</label>
-                          <input type="text" class="form-control w-100" name="no_siup" id="no_siup"
-                            placeholder="Masukan Nomor" />
+                    <!-- /step 7-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>8 of 12</strong> Akta Perubahan
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_akta_perubahan">Nomor Akta</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_akta_perubahan"
+                              id="no_akta_perubahan"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_perubahan"
+                              id="masa_berlaku_perubahan"
+                              placeholder="Masukan Masa Berlaku" />
+                          </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="masa_berlaku_siup" id="masa_berlaku_siup"
-                            placeholder="Masukan Masa Berlaku" />
-                        </div>
-                      </div>
+                      <!-- /row -->
                     </div>
+                    <!-- /step 8-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>9 of 12</strong>SIUP/NIB
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_siup">Nomor SIUP/NIB</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_siup"
+                              id="no_siup"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_siup"
+                              id="masa_berlaku_siup"
+                              placeholder="Masukan Masa Berlaku" />
+                          </div>
+                        </div>
+                      </div>
 
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 9-->
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 9-->
 
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>10 of 12</strong>Surat Keterangan Domisili Usaha
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_skdu">Nomor SKDU</label>
-                          <input type="text" class="form-control w-100" name="no_skdu" id="no_skdu"
-                            placeholder="Masukan Nomor" />
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>10 of 12</strong>Surat Keterangan Domisili Usaha
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_skdu">Nomor SKDU</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_skdu"
+                              id="no_skdu"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="date"
+                              class="form-control w-100"
+                              name="masa_berlaku_skdu"
+                              id="masa_berlaku_skdu"
+                              placeholder="Masukan Masa Berlaku" />
+                          </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <input type="date" class="form-control w-100" name="masa_berlaku_skdu" id="masa_berlaku_skdu"
-                            placeholder="Masukan Masa Berlaku" />
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_npwp">Nomor NPWP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_npwp"
+                              id="no_npwp"
+                              placeholder="Masukan Nomor NPWP" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="no_pkp">Nomor PKP</label>
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="no_pkp"
+                              id="no_pkp"
+                              placeholder="Masukan Nomor PKP" />
+                          </div>
                         </div>
                       </div>
+                      <!-- /row -->
                     </div>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_npwp">Nomor NPWP</label>
-                          <input type="text" class="form-control w-100" name="no_npwp" id="no_npwp"
-                            placeholder="Masukan Nomor NPWP" />
+                    <!-- /step 10-->
+                    <div class="step">
+                      <h3 class="main_question">
+                        <strong>11 of 12</strong>No BPJS
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_kesehatan"
+                              >Nomor BPJS Kesehatan</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_kesehatan"
+                              id="bpjs_kesehatan"
+                              placeholder="Masukan Nomor" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="bpjs_ketenagakerjaan"
+                              >Nomor BPJS Ketenagakerjaan</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control w-100"
+                              name="bpjs_ketenagakerjaan"
+                              id="bpjs_ketenagakerjaan"
+                              placeholder="Masukan Nomor" />
+                          </div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="no_pkp">Nomor PKP</label>
-                          <input type="text" class="form-control w-100" name="no_pkp" id="no_pkp"
-                            placeholder="Masukan Nomor PKP" />
-                        </div>
+                      <div class="form-group">
+                        <label for="no_sertifikat"
+                          >No. Sertifikat Koperasi</label
+                        >
+                        <input
+                          type="text"
+                          name="no_sertifikat"
+                          id="no_sertifikat"
+                          placeholder="Masukan nama_pengurus" />
                       </div>
+                      <!-- /row -->
                     </div>
-                    <!-- /row -->
+                    <!-- /step 11-->
+                    <div class="submit step">
+                      <h3 class="main_question">
+                        <strong>12 of 12</strong>Dokumentasi
+                      </h3>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="foto_ktp"
+                              >Upload Foto KTP<span style="color: red"
+                                >*</span
+                              ></label
+                            >
+                            <input
+                              type="file"
+                              class="form-control"
+                              id="foto_ktp"
+                              name="foto_ktp" />
+                            <img
+                              id="preview-profil"
+                              height="100"
+                              width="100"
+                              class="mt-1"
+                              src="/assets/images/AGT1.jpg"
+                              alt="Preview Image" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-group">
+                            <label for="foto_profil"
+                              >Upload Logo<span style="color: red"
+                                >*</span
+                              ></label
+                            >
+                            <input
+                              type="file"
+                              class="form-control"
+                              id="foto_logo"
+                              name="foto_logo" />
+                            <img
+                              id="preview-logo"
+                              height="100"
+                              width="100"
+                              class="mt-1"
+                              src="/assets/images/AGT1.jpg"
+                              alt="Preview Image" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="foto_profil"
+                          >Upload Dokumen<span style="color: red"
+                            >*</span
+                          ></label
+                        >
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="dokumen"
+                          name="dokumen" />
+                        <p>
+                          <span style="color: red">*)</span> Satukan semua
+                          dokumen dalam bentuk ZIP
+                        </p>
+                        <p>
+                          <span style="color: red">*)</span> Dokumen yang
+                          diupload yakni Akta pendirian, SK Kemenkumham, Surat
+                          Pengesahan Koperasi, Akta Perubahan, SIUP/NIB, Surat
+                          Keterangan Domisili Usaha, BPJS Kesehatan dan
+                          Ketenagakerjaan
+                        </p>
+                      </div>
+                      <!-- /row -->
+                    </div>
+                    <!-- /step 12-->
                   </div>
-                  <!-- /step 10-->
-                  <div class="step">
-                    <h3 class="main_question">
-                      <strong>11 of 12</strong>No BPJS
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="bpjs_kesehatan">Nomor BPJS Kesehatan</label>
-                          <input type="text" class="form-control w-100" name="bpjs_kesehatan" id="bpjs_kesehatan"
-                            placeholder="Masukan Nomor" />
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="bpjs_ketenagakerjaan">Nomor BPJS Ketenagakerjaan</label>
-                          <input type="text" class="form-control w-100" name="bpjs_ketenagakerjaan"
-                            id="bpjs_ketenagakerjaan" placeholder="Masukan Nomor" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="no_sertifikat">No. Sertifikat Koperasi</label>
-                      <input type="text" name="no_sertifikat" id="no_sertifikat" placeholder="Masukan nama_pengurus" />
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 11-->
-                  <div class="submit step">
-                    <h3 class="main_question">
-                      <strong>12 of 12</strong>Dokumentasi
-                    </h3>
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="foto_ktp">Upload Foto KTP<span style="color: red;">*</span< /label>
-                              <input type="file" class="form-control" id="foto_ktp" name="foto_ktp" />
-                              <img id="preview-profil" height="100" width="100" class="mt-1"
-                                src="/assets/images/AGT1.jpg" alt="Preview Image">
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                          <label for="foto_profil">Upload Logo<span style="color: red;">*</span< /label>
-                              <input type="file" class="form-control" id="foto_logo" name="foto_logo" />
-                              <img id="preview-logo" height="100" width="100" class="mt-1" src="/assets/images/AGT1.jpg"
-                                alt="Preview Image">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="foto_profil">Upload Dokumen<span style="color: red;">*</span< /label>
-                          <input type="file" class="form-control" id="dokumen" name="dokumen" />
-                          <p><span style="color: red;">*)</span> Satukan semua dokumen dalam bentuk ZIP </p>
-                          <p><span style="color: red;">*)</span> Dokumen yang diupload yakni Akta pendirian, SK
-                            Kemenkumham, Surat Pengesahan Koperasi, Akta Perubahan, SIUP/NIB, Surat Keterangan Domisili
-                            Usaha, BPJS Kesehatan dan Ketenagakerjaan </p>
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /step 12-->
-                </div>
-                <!-- /middle-wizard -->
+                  <!-- /middle-wizard -->
 
-                <div id="bottom-wizard">
-                  <button type="button" name="backward" class="backward">
-                    Prev
-                  </button>
-                  <button type="button" name="forward" class="forward">
-                    Next
-                  </button>
-                  <button type="button" onclick="saveData()" name="process" class="submit">
-                    Submit
-                  </button>
-                </div>
-                <!-- /bottom-wizard -->
-              </form>
+                  <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">
+                      Prev
+                    </button>
+                    <button type="button" name="forward" class="forward">
+                      Next
+                    </button>
+                    <button
+                      type="button"
+                      onclick="saveData()"
+                      name="process"
+                      id="button-submit"
+                      class="submit">
+                      Submit
+                    </button>
+                  </div>
+                  <!-- /bottom-wizard -->
+                </form>
+              </div>
+              <!-- /Wizard container -->
             </div>
-            <!-- /Wizard container -->
+            <!-- /col -->
           </div>
-          <!-- /col -->
-        </div>
-      </div>
-      <!-- /row -->
-    </div>
-    <!-- /container_centering -->
-    <footer>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">©2024 RKI APP</div>
         </div>
         <!-- /row -->
       </div>
-      <!-- /container-fluid -->
-    </footer>
-    <!-- /footer -->
-  </div>
-  <!-- /wrapper_centering -->
+      <!-- /container_centering -->
+      <footer>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">©2024 RKI APP</div>
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container-fluid -->
+      </footer>
+      <!-- /footer -->
+    </div>
+    <!-- /wrapper_centering -->
 
-  <script>
-    let baseStringKtp;
-    let baseStringLogo;
-    let baseStringDokumen;
-    let type1;
-    let type2;
-    let type3;
-    let tingkatan_koperasi;
-    let koperasi
-    const ktpInput = document.getElementById('foto_ktp');
-    const logoInput = document.getElementById('foto_logo');
-    const dokumenInput = document.getElementById('dokumen');
-    
-    const previewProfil = document.getElementById('preview-profil');
-    const previewLogo = document.getElementById('preview-logo');
-    
-    window.addEventListener("load", () => {
-      const url = new URL(window.location.href);
-      const path = url.pathname.split('/');
-      document.getElementById("tingkatan_koperasi").innerText = path[3];
-      tingkatan_koperasi = path[3];
-      
-      if (tingkatan_koperasi == 'inkop') {
-        document.getElementById("message_tingkatan").innerText = "Bersama Induk Koperasi, kita wujudkan ekonomi mandiri yang kokoh dan berkelanjutan! Kami berkomitmen untuk mengoordinasikan dan mengawasi koperasi di seluruh jaringan kami, memastikan setiap anggota mendapatkan manfaat maksimal dan berkontribusi pada pertumbuhan ekonomi bersama. Bergabunglah dengan kami untuk masa depan yang lebih stabil dan makmur.";
-      } else if (tingkatan_koperasi == 'puskop') {
-        document.getElementById("message_tingkatan").innerText = "Menghubungkan dan memperkuat jaringan koperasi demi kesejahteraan bersama! Kami adalah jembatan antara Induk Koperasi dan Koperasi Primer, bekerja untuk menyelaraskan tujuan dan menyediakan dukungan yang dibutuhkan. Bersama, kita dapat mencapai kesejahteraan kolektif melalui kolaborasi yang solid dan berkesinambungan.";
-      } else if (tingkatan_koperasi == 'primkop') {
-        document.getElementById("message_tingkatan").innerText = "Solusi ekonomi berbasis kebersamaan, untuk masa depan yang lebih cerah! Kami berdiri untuk melayani kebutuhan anggota kami, menyediakan solusi ekonomi yang efektif dan berbasis komunitas. Dengan menjadi anggota, Anda tidak hanya memperoleh manfaat langsung tetapi juga berkontribusi pada pembangunan ekonomi yang inklusif dan berkelanjutan.";
-      } else {
-        document.getElementById("message_tingkatan").innerText = "Jadilah bagian dari perubahan! Bergabunglah dengan koperasi kami dan nikmati manfaatnya! Sebagai anggota, Anda akan mendapatkan akses ke berbagai layanan dan dukungan yang dirancang untuk meningkatkan kesejahteraan Anda. Mari kita bersama-sama membangun komunitas yang lebih kuat dan ekonomi yang lebih adil.";
-      }
-      
-      koperasi = path[2]
-      console.log(path);
-      if(path[2] !== 'rki'){
-        document.getElementById("koperasi").innerText = 'Koperasi ' + koperasi;
-      }
-    });
-    
-    ktpInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          previewProfil.src = e.target.result;
+    <script>
+      let baseStringKtp;
+      let baseStringLogo;
+      let baseStringDokumen;
+      let type1;
+      let type2;
+      let type3;
+      let tingkatan_koperasi;
+      let koperasi;
+      const ktpInput = document.getElementById("foto_ktp");
+      const logoInput = document.getElementById("foto_logo");
+      const dokumenInput = document.getElementById("dokumen");
+      const buttonSubmit = document.getElementById("button-submit");
+      const previewProfil = document.getElementById("preview-profil");
+      const previewLogo = document.getElementById("preview-logo");
+      window.addEventListener("load", () => {
+        const url = new URL(window.location.href);
+        const path = url.pathname.split("/");
+        document.getElementById("tingkatan_koperasi").innerText = path[3];
+        tingkatan_koperasi = path[3];
+
+        if (tingkatan_koperasi == "inkop") {
+          document.getElementById("message_tingkatan").innerText =
+            "Bersama Induk Koperasi, kita wujudkan ekonomi mandiri yang kokoh dan berkelanjutan! Kami berkomitmen untuk mengoordinasikan dan mengawasi koperasi di seluruh jaringan kami, memastikan setiap anggota mendapatkan manfaat maksimal dan berkontribusi pada pertumbuhan ekonomi bersama. Bergabunglah dengan kami untuk masa depan yang lebih stabil dan makmur.";
+        } else if (tingkatan_koperasi == "puskop") {
+          document.getElementById("message_tingkatan").innerText =
+            "Menghubungkan dan memperkuat jaringan koperasi demi kesejahteraan bersama! Kami adalah jembatan antara Induk Koperasi dan Koperasi Primer, bekerja untuk menyelaraskan tujuan dan menyediakan dukungan yang dibutuhkan. Bersama, kita dapat mencapai kesejahteraan kolektif melalui kolaborasi yang solid dan berkesinambungan.";
+        } else if (tingkatan_koperasi == "primkop") {
+          document.getElementById("message_tingkatan").innerText =
+            "Solusi ekonomi berbasis kebersamaan, untuk masa depan yang lebih cerah! Kami berdiri untuk melayani kebutuhan anggota kami, menyediakan solusi ekonomi yang efektif dan berbasis komunitas. Dengan menjadi anggota, Anda tidak hanya memperoleh manfaat langsung tetapi juga berkontribusi pada pembangunan ekonomi yang inklusif dan berkelanjutan.";
+        } else {
+          document.getElementById("message_tingkatan").innerText =
+            "Jadilah bagian dari perubahan! Bergabunglah dengan koperasi kami dan nikmati manfaatnya! Sebagai anggota, Anda akan mendapatkan akses ke berbagai layanan dan dukungan yang dirancang untuk meningkatkan kesejahteraan Anda. Mari kita bersama-sama membangun komunitas yang lebih kuat dan ekonomi yang lebih adil.";
         }
+
+        koperasi = path[2];
+        if (path[2] !== "rki") {
+          document.getElementById("koperasi").innerText =
+            "Koperasi " + koperasi;
+        }
+      });
+
+      ktpInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            previewProfil.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+        convertBase64ktp();
+      });
+
+      logoInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            previewLogo.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+        convertBase64logo();
+      });
+
+      dokumenInput.addEventListener("change", () => {
+        convertBase64dokumen();
+      });
+      function createSlug(name) {
+        return name
+          .toLowerCase() // Mengubah semua huruf menjadi huruf kecil
+          .replace(/\s+/g, "-") // Mengganti semua spasi dengan strip (-)
+          .replace(/[^\w\-]+/g, ""); // Menghapus karakter non-alphanumeric kecuali strip (-) dan underscore (_)
+      }
+      function convertBase64dokumen() {
+        const file = dokumenInput.files[0];
+        type3 = file.type.split("/")[1];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          baseStringDokumen = reader.result;
+        };
         reader.readAsDataURL(file);
       }
-      convertBase64ktp();
-    });
-    
-    logoInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      if (file) {
+
+      function convertBase64ktp() {
+        const file = ktpInput.files[0];
+        type1 = file.type.split("/")[1];
         const reader = new FileReader();
-        reader.onload = (e) => {
-          previewLogo.src = e.target.result;
-        }
+        reader.onloadend = () => {
+          baseStringKtp = reader.result;
+        };
         reader.readAsDataURL(file);
       }
-      convertBase64logo();
-    });
-    
-    dokumenInput.addEventListener('change', () => {
-      convertBase64dokumen();
-    });
-    function createSlug(name) {
-      return name
-        .toLowerCase()        // Mengubah semua huruf menjadi huruf kecil
-        .replace(/\s+/g, '-') // Mengganti semua spasi dengan strip (-)
-        .replace(/[^\w\-]+/g, ''); // Menghapus karakter non-alphanumeric kecuali strip (-) dan underscore (_)
-    }
-    function convertBase64dokumen() {
-      const file = dokumenInput.files[0];
-      type3 = file.type.split('/')[1];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        baseStringDokumen = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
-    
-    function convertBase64ktp() {
-      const file = ktpInput.files[0];
-      type1 = file.type.split('/')[1];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        baseStringKtp = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
-    
-    function convertBase64logo() {
-      const file = logoInput.files[0];
-      type2 = file.type.split('/')[1];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        baseStringLogo = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
-    
-    function saveData() {
-      const nama_koperasi = document.getElementById("nama_koperasi").value;
-      const singkatan_koperasi = document.getElementById("singkatan_koperasi").value;
-      const email = document.getElementById("email").value;
-      const no_telp = document.getElementById("no_telp").value;
-      const no_wa = document.getElementById("no_wa").value;
-      const no_fax = document.getElementById("no_fax").value;
-      const web = document.getElementById("web").value;
-      const bidang_koperasi = document.getElementById("bidang_koperasi").value;
-      const alamat = document.getElementById("alamat").value;
-      const kelurahan = document.getElementById("kelurahan").value;
-      const kecamatan = document.getElementById("kecamatan").value;
-      const kabupaten = document.getElementById("kabupaten").value;
-      const provinsi = document.getElementById("provinsi").value;
-      const kode_pos = document.getElementById("kode_pos").value;
-      const no_ktp_pengurus = document.getElementById("no_ktp_pengurus").value;
-      const nama_pengurus = document.getElementById("nama_pengurus").value;
-      const no_anggota_pengurus = document.getElementById("no_anggota_pengurus").value;
-      const jabatan_pengurus = document.getElementById("jabatan_pengurus").value;
-      const no_wa_pengurus = document.getElementById("no_wa_pengurus").value;
-      const no_ktp_pengawas = document.getElementById("no_ktp_pengawas").value;
-      const nama_pengawas = document.getElementById("nama_pengawas").value;
-      const no_anggota_pengawas = document.getElementById("no_anggota_pengawas").value;
-      const jabatan_pengawas = document.getElementById("jabatan_pengawas").value;
-      const no_wa_pengawas = document.getElementById("no_wa_pengawas").value;
-      const no_akta = document.getElementById("no_akta").value;
-      const tanggal_akta = document.getElementById("tanggal_akta").value;
-      const no_skk = document.getElementById("no_skk").value;
-      const tanggal_skk = document.getElementById("tanggal_skk").value;
-      const no_spkk = document.getElementById("no_spkk").value;
-      const tanggal_spkk = document.getElementById("tanggal_spkk").value;
-      const no_akta_perubahan = document.getElementById("no_akta_perubahan").value;
-      const masa_berlaku_perubahan = document.getElementById("masa_berlaku_perubahan").value;
-      const no_siup = document.getElementById("no_siup").value;
-      const masa_berlaku_siup = document.getElementById("masa_berlaku_siup").value;
-      const no_skdu = document.getElementById("no_skdu").value;
-      const masa_berlaku_skdu = document.getElementById("masa_berlaku_skdu").value;
-      const no_npwp = document.getElementById("no_npwp").value;
-      const no_pkp = document.getElementById("no_pkp").value;
-      const bpjs_kesehatan = document.getElementById("bpjs_kesehatan").value;
-      const bpjs_ketenagakerjaan = document.getElementById("bpjs_ketenagakerjaan").value;
-      const no_sertifikat = document.getElementById("no_sertifikat").value;
-      const image_ktp = baseStringKtp;
-      const image_logo = baseStringLogo;
-      const doc_dokumen = baseStringDokumen;
-      const slug = createSlug(nama_koperasi);
-      const validKtp = ktpInput.files[0];
-      const validLogo = logoInput.files[0];
-      const validDokumen = dokumenInput.files[0];
-    
-      if (!validKtp || !validLogo || !validDokumen) {
-        alert("Pastikan Data Terisi Semua!");
-        return false;
+
+      function convertBase64logo() {
+        const file = logoInput.files[0];
+        type2 = file.type.split("/")[1];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          baseStringLogo = reader.result;
+        };
+        reader.readAsDataURL(file);
       }
-    
-      const jsondata = {
-        singkatan_koperasi,
-        nama_koperasi,
-        slug,
-        email,
-        no_telp,
-        no_wa,
-        no_fax,
-        web,
-        bidang_koperasi,
-        alamat,
-        kelurahan,
-        kecamatan,
-        kabupaten,
-        provinsi,
-        kode_pos,
-        no_ktp_pengurus,
-        nama_pengurus,
-        no_anggota_pengurus,
-        jabatan_pengurus,
-        no_wa_pengurus,
-        no_ktp_pengawas,
-        nama_pengawas,
-        no_anggota_pengawas,
-        jabatan_pengawas,
-        no_wa_pengawas,
-        no_akta,
-        tanggal_akta,
-        no_skk,
-        tanggal_skk,
-        no_spkk,
-        tanggal_spkk,
-        no_akta_perubahan,
-        masa_berlaku_perubahan,
-        no_siup,
-        masa_berlaku_siup,
-        no_skdu,
-        masa_berlaku_skdu,
-        no_npwp,
-        no_pkp,
-        bpjs_kesehatan,
-        bpjs_ketenagakerjaan,
-        no_sertifikat,
-        ktp: image_ktp,
-        logo: image_logo,
-        dokumen: doc_dokumen,
-        type1,
-        type2,
-        type3
-      };
-    
-      fetch(`/register/koperasi/insert/${tingkatan_koperasi}`, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify(jsondata)
-      })
-        .then(response => response.json())
-        .then(data => {
-          alert(data.message);
-          console.log(data.message);
+
+      function saveData() {
+        const nama_koperasi = document.getElementById("nama_koperasi").value;
+        const singkatan_koperasi =
+          document.getElementById("singkatan_koperasi").value;
+        const email = document.getElementById("email").value;
+        const no_telp = document.getElementById("no_telp").value;
+        const no_wa = document.getElementById("no_wa").value;
+        const no_fax = document.getElementById("no_fax").value;
+        const web = document.getElementById("web").value;
+        const bidang_koperasi =
+          document.getElementById("bidang_koperasi").value;
+        const alamat = document.getElementById("alamat").value;
+        const kelurahan = document.getElementById("kelurahan").value;
+        const kecamatan = document.getElementById("kecamatan").value;
+        const kabupaten = document.getElementById("kabupaten").value;
+        const provinsi = document.getElementById("provinsi").value;
+        const kode_pos = document.getElementById("kode_pos").value;
+        const no_ktp_pengurus =
+          document.getElementById("no_ktp_pengurus").value;
+        const nama_pengurus = document.getElementById("nama_pengurus").value;
+        const no_anggota_pengurus = document.getElementById(
+          "no_anggota_pengurus"
+        ).value;
+        const jabatan_pengurus =
+          document.getElementById("jabatan_pengurus").value;
+        const no_wa_pengurus = document.getElementById("no_wa_pengurus").value;
+        const no_ktp_pengawas =
+          document.getElementById("no_ktp_pengawas").value;
+        const nama_pengawas = document.getElementById("nama_pengawas").value;
+        const no_anggota_pengawas = document.getElementById(
+          "no_anggota_pengawas"
+        ).value;
+        const jabatan_pengawas =
+          document.getElementById("jabatan_pengawas").value;
+        const no_wa_pengawas = document.getElementById("no_wa_pengawas").value;
+        const no_akta = document.getElementById("no_akta").value;
+        const tanggal_akta = document.getElementById("tanggal_akta").value;
+        const no_skk = document.getElementById("no_skk").value;
+        const tanggal_skk = document.getElementById("tanggal_skk").value;
+        const no_spkk = document.getElementById("no_spkk").value;
+        const tanggal_spkk = document.getElementById("tanggal_spkk").value;
+        const no_akta_perubahan =
+          document.getElementById("no_akta_perubahan").value;
+        const masa_berlaku_perubahan = document.getElementById(
+          "masa_berlaku_perubahan"
+        ).value;
+        const no_siup = document.getElementById("no_siup").value;
+        const masa_berlaku_siup =
+          document.getElementById("masa_berlaku_siup").value;
+        const no_skdu = document.getElementById("no_skdu").value;
+        const masa_berlaku_skdu =
+          document.getElementById("masa_berlaku_skdu").value;
+        const no_npwp = document.getElementById("no_npwp").value;
+        const no_pkp = document.getElementById("no_pkp").value;
+        const bpjs_kesehatan = document.getElementById("bpjs_kesehatan").value;
+        const bpjs_ketenagakerjaan = document.getElementById(
+          "bpjs_ketenagakerjaan"
+        ).value;
+        const no_sertifikat = document.getElementById("no_sertifikat").value;
+        const image_ktp = baseStringKtp;
+        const image_logo = baseStringLogo;
+        const doc_dokumen = baseStringDokumen;
+        const slug = createSlug(singkatan_koperasi);
+        const validKtp = ktpInput.files[0];
+        const validLogo = logoInput.files[0];
+        const validDokumen = dokumenInput.files[0];
+
+        if (!validKtp || !validLogo || !validDokumen) {
+          alert("Pastikan Data Terisi Semua!");
+          return false;
+        }
+
+        const jsondata = {
+          singkatan_koperasi,
+          nama_koperasi,
+          slug,
+          email,
+          no_telp,
+          no_wa,
+          no_fax,
+          web,
+          bidang_koperasi,
+          alamat,
+          kelurahan,
+          kecamatan,
+          kabupaten,
+          provinsi,
+          kode_pos,
+          no_ktp_pengurus,
+          nama_pengurus,
+          no_anggota_pengurus,
+          jabatan_pengurus,
+          no_wa_pengurus,
+          no_ktp_pengawas,
+          nama_pengawas,
+          no_anggota_pengawas,
+          jabatan_pengawas,
+          no_wa_pengawas,
+          no_akta,
+          tanggal_akta,
+          no_skk,
+          tanggal_skk,
+          no_spkk,
+          tanggal_spkk,
+          no_akta_perubahan,
+          masa_berlaku_perubahan,
+          no_siup,
+          masa_berlaku_siup,
+          no_skdu,
+          masa_berlaku_skdu,
+          no_npwp,
+          no_pkp,
+          bpjs_kesehatan,
+          bpjs_ketenagakerjaan,
+          no_sertifikat,
+          ktp: image_ktp,
+          logo: image_logo,
+          dokumen: doc_dokumen,
+          type1,
+          type2,
+          type3,
+        };
+
+        // Show loading dialog
+        swal({
+          title: "Please wait",
+          text: "Submitting data...",
+          icon: "/assets/images/loading.gif",
+          button: false,
+          closeOnClickOutside: false,
+          closeOnEsc: false,
+          className: "swal-loading",
         });
-    }
-    
-  </script>
-  <!-- COMMON SCRIPTS -->
-  <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
-  <script src="/registrasi/js/common_scripts.min.js"></script>
-  <script src="/registrasi/js/functions.js"></script>
 
-  <!-- Wizard script -->
-  <script src="/registrasi/js/survey_func.js"></script>
-</body>
+        fetch(`/register/koperasi/insert/${tingkatan_koperasi}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(jsondata),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const { message } = data;
+            // Close loading dialog
+            swal.close();
 
+            if (message == "success") {
+              swal({
+                title: "Status Registrasi",
+                text: "Input Data " + message + "",
+                icon: "success",
+                buttons: true,
+              }).then((willOut) => {
+                if (willOut) {
+                  window.location.href = "/register/rki/" + tingkatan_koperasi;
+                } else {
+                  console.log("error");
+                }
+              });
+            } else {
+              swal({
+                title: "Status Registrasi",
+                text: "Input Data " + data?.message + "",
+                icon: "error",
+                buttons: true,
+              }).then((willOut) => {
+                if (willOut) {
+                  //window.location.href = "/registrasi/rki/" + tingkatan_koperasi;
+                } else {
+                  console.log("error");
+                }
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            // Close loading dialog
+            swal.close();
+
+            swal({
+              title: "Status Registrasi",
+              text: "Input Data " + err + "",
+              icon: "info",
+              buttons: true,
+            }).then((willOut) => {
+              if (willOut) {
+                //window.location.href = "/registrasi/rki/" + tingkatan_koperasi;
+              } else {
+                console.log("error");
+              }
+            });
+          });
+      }
+    </script>
+    <!-- COMMON SCRIPTS -->
+    <script src="/registrasi/js/jquery-3.7.1.min.js"></script>
+    <script src="/registrasi/js/common_scripts.min.js"></script>
+    <script src="/registrasi/js/functions.js"></script>
+
+    <!-- Wizard script -->
+    <script src="/registrasi/js/survey_func.js"></script>
+  </body>
 </html>
