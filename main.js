@@ -74,7 +74,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
     type1,
     type2,
     dokumen,
-    slug
+    slug,
   } = req.body;
   const tingkat_koperasi = req.params.tingkat;
 
@@ -132,7 +132,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
       imgs_logo,
       imgs_ktp,
       url_pdf,
-      slug
+      slug,
     ];
 
     if (tingkat_koperasi == "inkop") {
@@ -200,7 +200,7 @@ apps.post("/register/koperasi/insert/:tingkat", async (req, res) => {
 
 apps.post("/register/insert", async (req, res) => {
   const slug_url = req.body.slug_url;
-  const nis = req.body.nis;
+  const no_anggota = req.body.no_anggota;
   const nik = req.body.nik;
   const nama_lengkap = req.body.nama_lengkap;
   const tempat_lahir = req.body.tempat_lahir;
@@ -224,16 +224,17 @@ apps.post("/register/insert", async (req, res) => {
   const roles = req.body.roles;
   const type1 = req.body.type1;
   const type2 = req.body.type2;
+
   let inkop = await executeQuery(
-    `select * from koperasi_induk where slug = ${slug_url}`
+    "select * from koperasi_induk where slug = " + "'" + slug_url + "'"
   );
   let puskop = await executeQuery(
-    `select * from koperasi_pusat where slug = ${slug_url}`
+    "select * from koperasi_pusat where slug =" + "'" + slug_url + "'"
   );
   let primkop = await executeQuery(
-    `select * from koperasi_primer where slug = ${slug_url}`
+    "select * from koperasi_primer where slug = " + "'" + slug_url + "'"
   );
-  console.log(puskop, inkop, primkop);
+
   const pathToSaveImage =
     "./public/" + roles + "/" + new Date().getTime() + "." + type1;
   const img_url = "/" + roles + "/" + new Date().getTime() + "." + type1;
@@ -246,9 +247,9 @@ apps.post("/register/insert", async (req, res) => {
   try {
     if (inkop) {
       await executeQuery(
-        "insert into anggota(nis,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_induk) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_induk) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [
-          nis,
+          no_anggota,
           nik,
           nama_lengkap,
           tempat_lahir,
@@ -275,9 +276,9 @@ apps.post("/register/insert", async (req, res) => {
       );
     } else if (puskop) {
       await executeQuery(
-        "insert into anggota(nis,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_pusat) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_pusat) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [
-          nis,
+          no_anggota,
           nik,
           nama_lengkap,
           tempat_lahir,
@@ -304,9 +305,9 @@ apps.post("/register/insert", async (req, res) => {
       );
     } else if (primkop) {
       await executeQuery(
-        "insert into anggota(nis,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_primer) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_primer) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [
-          nis,
+          no_anggota,
           nik,
           nama_lengkap,
           tempat_lahir,
