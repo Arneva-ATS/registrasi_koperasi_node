@@ -199,6 +199,7 @@ apps.post("/register/insert", async (req, res) => {
   const slug_url = req.body.slug_url;
   const no_anggota = req.body.no_anggota;
   const nik = req.body.nik;
+  const username = req.body.username;
   const nama_lengkap = req.body.nama_lengkap;
   const tempat_lahir = req.body.tempat_lahir;
   const tanggal_lahir = req.body.tanggal_lahir;
@@ -221,116 +222,91 @@ apps.post("/register/insert", async (req, res) => {
   const roles = req.body.roles;
   const type1 = req.body.type1;
   const type2 = req.body.type2;
-
-  let inkop = await executeQuery(
-    "select * from koperasi_induk where slug = " + "'" + slug_url + "'"
-  );
-  let puskop = await executeQuery(
-    "select * from koperasi_pusat where slug =" + "'" + slug_url + "'"
-  );
-  let primkop = await executeQuery(
-    "select * from koperasi_primer where slug = " + "'" + slug_url + "'"
-  );
-
-  const pathToSaveImage =
-    "./public/" + roles + "/" + new Date().getTime() + "." + type1;
-  const img_url = "/" + roles + "/" + new Date().getTime() + "." + type1;
-  convertB64.converBase64ToImage(base64profil, pathToSaveImage);
-  const pathToSaveImages =
-    "./public/" + roles + "/" + new Date().getTime() + "." + type2;
-  const img_urls = "/" + roles + "/" + new Date().getTime() + "." + type2;
-  convertB64.converBase64ToImage(base64ktp, pathToSaveImages);
+  const tingkat_koperasi = req.body.tingkat_koperasi
+  let koperasi_data = [];
+  
   try {
-    if (inkop[0]) {
-      await executeQuery(
-        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_induk) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        [
-          no_anggota,
-          nik,
-          nama_lengkap,
-          tempat_lahir,
-          tanggal_lahir,
-          jenis_kelamin,
-          rt_rw,
-          kelurahan,
-          kecamatan,
-          kota,
-          provinsi,
-          kode_pos,
-          agama,
-          status_pernikahan,
-          pekerjaan,
-          kewarganegaraan,
-          alamat,
-          nomor_hp,
-          email,
-          img_url,
-          img_urls,
-          roles,
-          inkop[0].id,
-        ]
+    if (tingkat_koperasi == "inkop") {
+      koperasi_data = await executeQuery(
+        "select * from tbl_koperasi_induk where slug = " + "'" + slug_url + "'"
       );
-    } else if (puskop[0]) {
-      await executeQuery(
-        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_pusat) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        [
-          no_anggota,
-          nik,
-          nama_lengkap,
-          tempat_lahir,
-          tanggal_lahir,
-          jenis_kelamin,
-          rt_rw,
-          kelurahan,
-          kecamatan,
-          kota,
-          provinsi,
-          kode_pos,
-          agama,
-          status_pernikahan,
-          pekerjaan,
-          kewarganegaraan,
-          alamat,
-          nomor_hp,
-          email,
-          img_url,
-          img_urls,
-          roles,
-          puskop[0].id,
-        ]
+    } else if (tingkat_koperasi == "puskop") {
+      koperasi_data = await executeQuery(
+        "select * from tbl_koperasi_pusat where slug =" + "'" + slug_url + "'"
       );
-    } else if (primkop[0]) {
-      await executeQuery(
-        "insert into anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp, roles,id_koperasi_primer) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        [
-          no_anggota,
-          nik,
-          nama_lengkap,
-          tempat_lahir,
-          tanggal_lahir,
-          jenis_kelamin,
-          rt_rw,
-          kelurahan,
-          kecamatan,
-          kota,
-          provinsi,
-          kode_pos,
-          agama,
-          status_pernikahan,
-          pekerjaan,
-          kewarganegaraan,
-          alamat,
-          nomor_hp,
-          email,
-          img_url,
-          img_urls,
-          roles,
-          primkop[0].id,
-        ]
+    } else if (tingkat_koperasi == "primkop") {
+      koperasi_data = await executeQuery(
+        "select * from tbl_koperasi_primer where slug = " + "'" + slug_url + "'"
       );
     }
-    res.status(200).json({ message: "success" });
+    console.log(roles)
+  
+    const pathToSaveImage =
+      "./public/" + roles + "/" + new Date().getTime() + "." + type1;
+    const img_url = "/" + roles + "/" + new Date().getTime() + "." + type1;
+    convertB64.converBase64ToImage(base64profil, pathToSaveImage);
+    const pathToSaveImages =
+      "./public/" + roles + "/" + new Date().getTime() + "." + type2;
+    const img_urls = "/" + roles + "/" + new Date().getTime() + "." + type2;
+    convertB64.converBase64ToImage(base64ktp, pathToSaveImages);
+    let insert_anggota = await executeQuery(
+      "insert into tbl_anggota(no_anggota,nik,nama_lengkap,tempat_lahir,tanggal_lahir, jenis_kelamin, rt_rw, kelurahan, kecamatan, kota, provinsi, kode_pos, agama, status_pernikahan, pekerjaan, kewarganegaraan, alamat, nomor_hp, email, selfie, ktp) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      [
+        no_anggota,
+        nik,
+        nama_lengkap,
+        tempat_lahir,
+        tanggal_lahir,
+        jenis_kelamin,
+        rt_rw,
+        kelurahan,
+        kecamatan,
+        kota,
+        provinsi,
+        kode_pos,
+        agama,
+        status_pernikahan,
+        pekerjaan,
+        kewarganegaraan,
+        alamat,
+        nomor_hp,
+        email,
+        img_url,
+        img_urls,
+      ]
+    );
+      if (tingkat_koperasi == 'inkop') {
+          await executeQuery(
+            "insert into tbl_user(username,id_anggota,id_role,id_koperasi_induk)values(?,?,?,?)",[
+              username,
+              insert_anggota.insertId,
+              2,
+              koperasi_data[0].id,
+            ]
+          )
+      } else if (tingkat_koperasi == 'puskop') {
+        await executeQuery(
+          "insert into tbl_user(username,id_anggota,id_role,id_koperasi_pusat)values(?,?,?,?)",[
+            username,
+            insert_anggota.insertId,
+            2,
+            koperasi_data[0].id,
+  
+          ]
+        )
+      } else if (tingkat_koperasi == 'primkop') {
+        await executeQuery(
+          "insert into tbl_user(username,id_anggota,id_role,id_koperasi_primer)values(?,?,?,?)",[
+            username,
+            insert_anggota.insertId,
+            2,
+            koperasi_data[0].id,
+          ]
+        )
+      }
+      res.status(200).json({ message: "success" });
   } catch (err) {
+    console.log(err)
     res.status(400).json({ message: err });
   }
 });
@@ -367,19 +343,30 @@ apps.get("/dashboard", (req, res) => {
     res.redirect("/logout");
   }
 });
-apps.get("/registrasi/anggota/:name", (req, res) => {
+apps.get("/registrasi/anggota/primkop/:name", (req, res) => {
   res.sendFile(path.resolve("./views/register-new.html"));
 });
-
-apps.get("/register-anggota/:name", (req, res) => {
+apps.get("/registrasi/anggota/puskop/:name", (req, res) => {
   res.sendFile(path.resolve("./views/register-new.html"));
 });
-apps.get("/register/rki/:tingkatan", (req, res) => {
+apps.get("/registrasi/anggota/inkop/:name", (req, res) => {
+  res.sendFile(path.resolve("./views/register-new.html"));
+});
+// apps.get("/register-anggota/:name", (req, res) => {
+//   res.sendFile(path.resolve("./views/register-new.html"));
+// });
+apps.get("/register/rki/primkop", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
 });
-apps.get("/koperasi/:name/:tingkatan", (req, res) => {
+apps.get("/register/rki/puskop", (req, res) => {
   res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
 });
+apps.get("/register/rki/inkop", (req, res) => {
+  res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
+});
+// apps.get("/koperasi/:name/:tingkatan", (req, res) => {
+//   res.sendFile(path.resolve("./views/registrasi-koperasi.html"));
+// });
 //----------------------RKI-----------------------------
 
 apps.get("/rki", (req, res) => {

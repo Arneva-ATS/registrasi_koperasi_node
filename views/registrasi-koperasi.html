@@ -300,12 +300,12 @@
                       </div>
                       <div class="form-group">
                         <label for="jabatan_pengurus">Jabatan Pengurus</label>
-                        <input
-                          type="text"
-                          name="jabatan_pengurus"
-                          id="jabatan_pengurus"
-                          class="form-control"
-                          placeholder="Masukan Jabatan" />
+                        <select name="jabatan_pengurus" id="jabatan_pengurus" class="form-control">
+                          <option value="1">Ketua</option>
+                          <option value="2">Anggota</option>
+                          <option value="3">Bendahara</option>
+                          <option value="4">Sektretaris</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="no_wa_pengurus">No Wa</label>
@@ -352,12 +352,9 @@
                       </div>
                       <div class="form-group">
                         <label for="jabatan_pengawas">Jabatan Pengawas</label>
-                        <input
-                          type="text"
-                          name="jabatan_pengawas"
-                          id="jabatan_pengawas"
-                          class="form-control"
-                          placeholder="Masukan Jabatan" />
+                        <select name="jabatan_pengawas" id="jabatan_pengawas" class="form-control">
+                          <option value="5">Pengawas</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="no_wa_pengawas">No Wa</label>
@@ -794,7 +791,6 @@
           document.getElementById("message_tingkatan").innerText =
             "Jadilah bagian dari perubahan! Bergabunglah dengan koperasi kami dan nikmati manfaatnya! Sebagai anggota, Anda akan mendapatkan akses ke berbagai layanan dan dukungan yang dirancang untuk meningkatkan kesejahteraan Anda. Mari kita bersama-sama membangun komunitas yang lebih kuat dan ekonomi yang lebih adil.";
         }
-
         koperasi = path[2];
         if (path[2] !== "rki") {
           document.getElementById("koperasi").innerText =
@@ -831,9 +827,9 @@
       });
       function createSlug(name) {
         return name
-          .toLowerCase() // Mengubah semua huruf menjadi huruf kecil
-          .replace(/\s+/g, "-") // Mengganti semua spasi dengan strip (-)
-          .replace(/[^\w\-]+/g, ""); // Menghapus karakter non-alphanumeric kecuali strip (-) dan underscore (_)
+          .toLowerCase() 
+          .replace(/\s+/g, "-")
+          .replace(/[^\w\-]+/g, "");
       }
       function convertBase64dokumen() {
         const file = dokumenInput.files[0];
